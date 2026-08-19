@@ -115,6 +115,8 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 
 = Introduction
 
+Actimage est une ESN#footnote[Entreprise de Services Numériques] française créée en 1995 par Christophe Megel, l'actuel PDG. 
+
 == Présentation de l'entreprise
 
 == Contexte du stage
