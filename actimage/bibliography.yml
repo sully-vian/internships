@@ -1,3 +1,8 @@
+bdnf_playstore:
+  type: "Web"
+  title: "BDnF - Applications sur Google Play"
+  date: 2026
+  url: "https://play.google.com/store/apps/details?id=fr.bnf.bdnf.tablet"
 inp-charte:
   type: "Web"
   author: "Institut National Polytechnique de Toulouse (Toulouse INP)"
