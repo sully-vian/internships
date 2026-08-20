@@ -1,0 +1,75 @@
+ideavim:
+  type: Web
+  title: IdeaVim
+  author: JetBrains
+  url: https://lp.jetbrains.com/ideavim
+tree-sitter:
+  type: Web
+  title: Tree-sitter
+  author: Contributeurs de Tree-sitter
+  url: https://tree-sitter.github.io
+twiggy:
+  type: Web
+  title: Twiggy
+  author: Mikhail Gunin
+  url: https://github.com/moetelo/twiggy
+vim-matchup:
+  type: Web
+  title: Vim Matchup
+  author: Andy Massimino
+  url: https://github.com/andymass/vim-matchup
+tmux:
+  type: Web
+  title: tmux
+  author: Contributeurs de tmux
+  url: https://github.com/tmux/tmux
+lazygit:
+  type: Web
+  title: Lazygit
+  author: Jesse Duffield
+  url: https://github.com/jesseduffield/lazygit
+lazydocker:
+  type: Web
+  title: Lazydocker
+  author: Jesse Duffield
+  url: https://github.com/jesseduffield/lazydocker
+docker:
+  type: Web
+  title: Docker
+  author: Docker Inc.
+  url: https://www.docker.com
+neovim:
+  type: Web
+  title: Neovim
+  author: Contributeurs de Neovim
+  url: https://neovim.io
+phpstorm:
+  type: Web
+  title: PhpStorm
+  author: JetBrains
+  url: https://www.jetbrains.com/phpstorm
+phpactor:
+  type: Web
+  title: Phpactor
+  author: Daniel Leech
+  url: https://phpactor.readthedocs.io
+intelephense:
+  type: Web
+  title: Intelephense
+  author: Ben Mewburn
+  url: https://intelephense.com
+phpantom:
+  type: Web
+  title: Phpantom
+  author: Anders Jenbo
+  url: https://phpantom-dev.github.io/phpantom_lsp
+symfony-language-tools:
+  type: Web
+  title: Symfony Language Tools
+  author: Fabien Potencier
+  url: https://github.com/symfony/language-tools
+wsl:
+  type: Web
+  title: Windows Subsystem for Linux
+  author: Microsoft
+  url: https://wsl.dev

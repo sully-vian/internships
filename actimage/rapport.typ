@@ -18,21 +18,22 @@
 }
 
 #let tma = acronym("TMA", "tierce maintenance applicative")
-#let dsfr = acronym("DSFR", "Système de Design de l'État Français", note: "https://www.systeme-de-design.gouv.fr/")
+#let dsfr = acronym("DSFR", "Système de Design de l'État Français", note: "https://www.systeme-de-design.gouv.fr")
 #let sig = acronym(
   "SIG",
   "Service d'information du Gouvernement",
   note: "https://www.info.gouv.fr/organisation/service-d-information-du-gouvernement-sig",
 )
-#let bnf = acronym("BnF", "Bibliothèque nationale de France", note: "https://www.bnf.fr/")
+#let bnf = acronym("BnF", "Bibliothèque nationale de France", note: "https://www.bnf.fr")
 #let esn = acronym("ESN", "entreprise de services numériques")
 #let mesr = acronym("MESR", "Ministère de l'Enseignement Supérieur et de la Recherche")
 #let onacvg = acronym(
   "ONaCVG",
   "Office national des combattants et des victimes de guerre",
-  note: "https://www.onac-vg.fr/",
+  note: "https://www.onac-vg.fr",
 )
 #let rd = acronym("R et D", "recherche et développement")
+#let ide = acronym("IDE", "environnement de développement integré")
 
 #set document(author: author, title: "Rapport de stage de fin d'études")
 
@@ -186,6 +187,49 @@ L'expertise technologique du projet va bien au-delà de la simple réalité mixt
 
 == Poste de travail et outillage de développement
 
+=== Environnement d'exécution et philosophie de travail
+
+Au sein d'Actimage, le matériel mis à ma disposition était un poste opérant sous Windows 11. Afin de retrouver un environnement de développement familier, performant et conforme à la philosophie Unix qui guide mon flux de travail quotidien, j'ai fait le choix d'exploiter le sous-système Windows pour Linux @wsl. J'y ai déployé une distribution Arch Linux. Cette approche m'a permis de répliquer quasi à l'identique l'environnement minimaliste et modulable que j'utilise à titre personnel, tout en m'affranchissant des limitations inhérentes au système d'exploitation hôte pour le développement d'applications web.
+
+=== Léditeur de code: le choix de Neovim
+
+Face à la complexité de l'écosystème PHP/Symfony, j'ai dans un premier temps évalué l'utilisation d'un #ide classique, tel que PhpStorm @phpstorm Bien que cet outil propose des intégrations natives puissantes, sa lourdeur d'exécution et son manque de flexibilité (même pallié par l'extension IdeaVim @ideavim) ont constitué des freins à ma productivité. J'ai donc réintégré Neovim @neovim comme éditeur principal.
+
+Le langage PHP étant interprété et historiquement peu strict sur le typage, il ne bénéficie pas nativement des mêmes garanties à l'écriture qu'un langage compilé. Pour pallier cela et atteindre une rigueur de développement similaire à celle qu'offre TypeScript dans l'écosystème JavaScript, j'ai dû configurer un outillage robuste basé sur le protocole LSP (Language Server Protocol) :
+
+- J'ai principalement utilisé Phpactor @phpactor et Intelephense @intelephense pour l'autocomplétion et l'analyse statique.
+- J'ai également expérimenté avec PHPantom @phpantom un serveur LSP récent développé en Rust, offrant des performances d'exécution nettement supérieures.
+- L'intégration récente d'un LSP dédié spécifiquement à Symfony @symfony-language-tools est venue parfaire cette configuration, me permettant d'avoir un retour intelligent sur les spécificités du framework.
+
+L'analyse de la qualité du code (via PHPStan et PHP CS Fixer) est restée isolée localement pour chaque projet, tout en étant exploitée par les serveurs LSP pour remonter les erreurs directement dans l'éditeur.
+
+=== Contributions Open Source et outillage sur mesure
+
+Constatant que certains outils de l'écosystème manquaient de maturité par rapport à d'autres langages, j'ai adopté une démarche proactive en contribuant à des projets open source. J'ai notamment ouvert et corrigé des tickets sur Twiggy @twiggy (un serveur LSP pour le moteur de template Twig) et amélioré la grammaire Tree-sitter @tree-sitter de Twig, utilisée par Neovim pour l'analyse syntaxique. Cette implication m'a également amené à échanger avec Fabien Potencier, créateur de Symfony, autour du développement de leur nouvel outil LSP.
+
+Pour améliorer ma navigation dans les bases de code PHP, j'ai développé des requêtes Tree-sitter personnalisées pour le plugin `vim-matchup` @vim-matchup:
+
+- Ces requêtes définissent des portées spécifiques pour les structures de contrôle et les balises PHP.
+- Elles permettent un saut intelligent entre les différentes clauses d'une condition (`if`, `elseif`, `else`) ou d'une boucle.
+- Elles facilitent le déplacement depuis la signature d'une fonction directement vers ses instructions de retour.
+- Elles offrent une navigation fluide au sein des blocs `match`, `try/catch` et `switch`.
+
+=== Le terminal comme espace de travail unifié
+
+La reproduction de mon environnement s'arrêtant aux frontières du terminal WSL, j'ai optimisé ce dernier pour limiter au maximum l'usage de la souris et la friction liée aux changements de contexte. L'utilisation du multiplexeur `tmux` @tmux a été centrale dans cette démarche, me permettant de gérer de multiples invites de commande au sein d'une même fenêtre.
+
+J'ai enrichi cet environnement par des scripts et des raccourcis sur mesure :
+
+- Intégration d'outils en fenêtres volantes (popups) : J'ai configuré des raccourcis `tmux` dédiés (Ctrl+g et Ctrl+d) pour ouvrir respectivement `lazygit` @lazygit et `lazydocker` @lazydocker dans des fenêtres superposées, sans quitter mon contexte d'édition en cours.
+- Navigation hypertexte clavier : J'ai reproduit le comportement de la touche gx de Vim directement dans le mode copie de `tmux`, me permettant de sélectionner et d'ouvrir des liens URL sans intervention de la souris.
+- Script de navigation Git (`git-origin`) : J'ai adapté un script shell permettant d'ouvrir instantanément le dépôt distant d'un projet dans le navigateur web
+
+=== Conteneurisation et exécution locale
+
+L'ensemble des projets, tels que PIAWEB, s'exécutaient au sein de conteneurs Docker @docker Après une première phase d'utilisation de Docker Desktop pour Windows, j'ai rapidement constaté un manque de granularité et une interface graphique ralentissant le flux de travail.
+
+J'ai par conséquent migré vers une installation native du démon Docker exclusivement au sein de WSL. Ce choix m'a garanti un contrôle absolu sur les ressources et les conteneurs, pilotables intégralement en ligne de commande ou via l'interface terminale (TUI) `lazydocker`, en parfaite adéquation avec le reste de mon outillage.
+
 = Initiation - Migration ONaCVG
 
 = PIAWEB : Une histoire de DevOps
@@ -208,7 +252,9 @@ Si l'implémentation du correctif ne nécessita que quelques minutes, la validat
 
 #pagebreak()
 
-#bibliography("bibliography.yml", style: "ieee")
+#bibliography("sources.yml", style: "ieee")
+
+#bibliography("references.yml", style: "ieee", title: "Références logicielles")
 
 #pagebreak()
 
