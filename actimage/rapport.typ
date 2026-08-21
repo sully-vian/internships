@@ -33,7 +33,7 @@
   note: "https://www.onac-vg.fr",
 )
 #let rd = acronym("R et D", "recherche et développement")
-#let ide = acronym("IDE", "environnement de développement integré")
+#let ide = acronym("IDE", "environnement de développement intégré")
 
 #set document(author: author, title: "Rapport de stage de fin d'études")
 
@@ -139,7 +139,7 @@
 
 Avant tout, je tiens à remercier mes deux encadrants sur cette expérience enrichissante qu'a été ce stage de fin d'étude. David pour son accompagnement, ses conseils et son humour, Matthias pour sa patience, sa bienveillance et ses succulents repas de fin de semaine.
 
-Mes remerciements s'étendent à l'ensemble de mes collègues de l'agence Actimage Paris-Arcueil et d'ailleurs. par ordre alphabétique: Aurélie, ma co-stagiaire solidaire pour son amitié, sa politesse et sa conversation ; Marine pour sa jovialité, sa créativité et son attention aux détails ; Romain pour sa curiosité et no discussions technophiles ; et enfin Thomas, pour sa spontanéité et sa précieuse expertise footbalistique.
+Mes remerciements s'étendent à l'ensemble de mes collègues de l'agence Actimage Paris-Arcueil et d'ailleurs. Par ordre alphabétique: Aurélie, ma co-stagiaire solidaire pour son amitié, sa politesse et sa conversation ; Marine pour sa jovialité, sa créativité et son attention aux détails ; Romain pour sa curiosité et nos discussions technophiles ; et enfin Thomas, pour sa spontanéité et sa précieuse expertise footballistique.
 
 Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est sûrement pour quelque chose dans la réussite de ce stage.
 
@@ -153,7 +153,7 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 
 == Présentation de l'entreprise
 
-Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel PDG. Le travail de l'entreprise est divisé en 3 pôles principaux communiquants: le développement, le conseil et la #rd. Mon stage s'est déroulé dans le pôle développement mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets. Les effectifs d'Actimage sont répartis entre 8 agences dans 5 pays. Celles avec lesquelles j'ai le plus été en contact sont Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
+Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel PDG. Le travail de l'entreprise est divisé en 3 pôles principaux communicants: le développement, le conseil et la #rd. Mon stage s'est déroulé dans le pôle développement mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets. Les effectifs d'Actimage sont répartis entre 8 agences dans 5 pays. Celles avec lesquelles j'ai le plus été en contact sont Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
 
 === Réalisations
 
@@ -169,7 +169,7 @@ L'un des sites majeurs du gouvernement est #monolink("info.gouv.fr"). C'est auss
 
 Actimage est également l'entreprise derrière BDnF#footnote[https://bdnf.bnf.fr], un outil ludo-éducatif de création de bandes dessinées et de récits multimédias développé pour le compte de la #bnf. Destinée principalement au milieu scolaire, l'application se connecte à la bibliothèque numérique Gallica via un module d'import permettant aux utilisateurs d'intégrer directement des corpus d'images d'archives dans leurs projets.
 
-Techniquement, l'application a été développée de manière multi-support avec le moteur Unity 3D. L'architecture logicielle repose sur un noyau commun partagé entre les environnements de bureau (Mac, Windows) et tablettes (Android, iOS), tout en implémentant des fonctionnalités spécifiques adaptées aux contraintes des versions mobiles. Afin d'accélérer le développement des nouvelles fonctionnalités et de garantir la cohérence des interfaces sur toutes ces plateformes, l'équipe s'est appuyée sur la mise en place d'un design system strict. Enfin, la conception a fait l'objet de tests d'utilisabilité itératifs menés directement auprès d'élèves pour valider l'ergonomie.
+Techniquement, l'application a été développée de manière multi-support avec le moteur Unity 3D. L'architecture logicielle repose sur un noyau commun partagé entre les environnements de bureau (macOS, Windows) et tablettes (Android, iOS), tout en implémentant des fonctionnalités spécifiques adaptées aux contraintes des versions mobiles. Afin d'accélérer le développement des nouvelles fonctionnalités et de garantir la cohérence des interfaces sur toutes ces plateformes, l'équipe s'est appuyée sur la mise en place d'un système de design strict. Enfin, la conception a fait l'objet de tests d'utilisabilité itératifs menés directement auprès d'élèves pour valider l'ergonomie.
 
 ==== Hol'Autisme
 
@@ -189,52 +189,47 @@ L'expertise technologique du projet va bien au-delà de la simple réalité mixt
 
 === Environnement d'exécution et philosophie de travail
 
-Au sein d'Actimage, le matériel mis à ma disposition était un poste opérant sous Windows 11. Afin de retrouver un environnement de développement familier, performant et conforme à la philosophie Unix qui guide mon flux de travail quotidien, j'ai fait le choix d'exploiter le sous-système Windows pour Linux @wsl. J'y ai déployé une distribution Arch Linux. Cette approche m'a permis de répliquer quasi à l'identique l'environnement minimaliste et modulable que j'utilise à titre personnel, tout en m'affranchissant des limitations inhérentes au système d'exploitation hôte pour le développement d'applications web.
+Au sein d'Actimage, le matériel mis à ma disposition était un poste opérant sous Windows 11. Afin de retrouver un environnement de développement familier, performant et conforme à la philosophie Unix qui guide mon flux de travail quotidien, j'ai fait le choix d'exploiter le sous-système Windows pour Linux @wsl. J'y ai déployé une distribution Arch Linux. Cette approche m'a permis de répliquer quasi à l'identique l'environnement modulable que j'utilise à titre personnel, tout en m'affranchissant des limitations inhérentes au système d'exploitation hôte pour le développement d'applications web.
 
-=== Léditeur de code: le choix de Neovim
+=== L'éditeur de code: le choix de Neovim
 
-Face à la complexité de l'écosystème PHP/Symfony, j'ai dans un premier temps évalué l'utilisation d'un #ide classique, tel que PhpStorm @phpstorm Bien que cet outil propose des intégrations natives puissantes, sa lourdeur d'exécution et son manque de flexibilité (même pallié par l'extension IdeaVim @ideavim) ont constitué des freins à ma productivité. J'ai donc réintégré Neovim @neovim comme éditeur principal.
+Face à la complexité de l'écosystème PHP/Symfony, j'ai dans un premier temps évalué l'utilisation d'un #ide classique, tel que PhpStorm @phpstorm. Bien que cet outil propose des intégrations natives puissantes, sa lourdeur d'exécution et son manque de flexibilité (même pallié par l'extension IdeaVim @ideavim) ont constitué des freins à ma productivité. J'ai donc réintégré Neovim @neovim comme éditeur principal.
 
-Le langage PHP étant interprété et historiquement peu strict sur le typage, il ne bénéficie pas nativement des mêmes garanties à l'écriture qu'un langage compilé. Pour pallier cela et atteindre une rigueur de développement similaire à celle qu'offre TypeScript dans l'écosystème JavaScript, j'ai dû configurer un outillage robuste basé sur le protocole LSP (Language Server Protocol) :
+Le langage PHP étant interprété et historiquement peu strict sur le typage, il ne bénéficie pas nativement des mêmes garanties à l'écriture qu'un langage compilé. Pour pallier cela et atteindre une rigueur de développement similaire à celle qu'offre TypeScript dans l'écosystème JavaScript, j'ai dû configurer un outillage robuste basé sur le Language Server Protocol (LSP) @lsp.
 
 - J'ai principalement utilisé Phpactor @phpactor et Intelephense @intelephense pour l'autocomplétion et l'analyse statique.
-- J'ai également expérimenté avec PHPantom @phpantom un serveur LSP récent développé en Rust, offrant des performances d'exécution nettement supérieures.
-- L'intégration récente d'un LSP dédié spécifiquement à Symfony @symfony-language-tools est venue parfaire cette configuration, me permettant d'avoir un retour intelligent sur les spécificités du framework.
+- J'ai également expérimenté avec PHPantom @phpantom un serveur de langage récent développé en Rust @rust, offrant des performances d'exécution nettement supérieures.
+- L'intégration récente d'un serveur de langage dédié spécifiquement à Symfony @symfony-language-tools est venue parfaire cette configuration, me permettant d'avoir un retour intelligent sur les spécificités du cadriciel.
 
-L'analyse de la qualité du code (via PHPStan et PHP CS Fixer) est restée isolée localement pour chaque projet, tout en étant exploitée par les serveurs LSP pour remonter les erreurs directement dans l'éditeur.
+L'analyse de la qualité du code est restée isolée localement pour chaque projet, tout en étant exploitée par les serveurs de langage pour remonter les erreurs directement dans l'éditeur.
 
-=== Contributions Open Source et outillage sur mesure
+=== Contributions aux logiciels libres et outillage sur mesure
 
-Constatant que certains outils de l'écosystème manquaient de maturité par rapport à d'autres langages, j'ai adopté une démarche proactive en contribuant à des projets open source. J'ai notamment ouvert et corrigé des tickets sur Twiggy @twiggy (un serveur LSP pour le moteur de template Twig) et amélioré la grammaire Tree-sitter @tree-sitter de Twig, utilisée par Neovim pour l'analyse syntaxique. Cette implication m'a également amené à échanger avec Fabien Potencier, créateur de Symfony, autour du développement de leur nouvel outil LSP.
+Constatant que certains outils de l'écosystème manquaient de maturité par rapport à d'autres langages, j'ai adopté une démarche proactive en contribuant à des projets à code source ouvert. J'ai notamment signalé et résolu des anomalies sur Twiggy @twiggy (un serveur de langage pour le moteur de gabarits Twig) et amélioré la grammaire Tree-sitter @tree-sitter de Twig, utilisée par Neovim pour l'analyse syntaxique. Cette implication m'a également amené à échanger avec Fabien Potencier, créateur de Symfony, autour du développement de leur nouveau serveur de langage.
 
-Pour améliorer ma navigation dans les bases de code PHP, j'ai développé des requêtes Tree-sitter personnalisées pour le plugin `vim-matchup` @vim-matchup:
-
-- Ces requêtes définissent des portées spécifiques pour les structures de contrôle et les balises PHP.
-- Elles permettent un saut intelligent entre les différentes clauses d'une condition (`if`, `elseif`, `else`) ou d'une boucle.
-- Elles facilitent le déplacement depuis la signature d'une fonction directement vers ses instructions de retour.
-- Elles offrent une navigation fluide au sein des blocs `match`, `try/catch` et `switch`.
+Pour optimiser la navigation dans les bases de code PHP, j'ai également développé des requêtes Tree-sitter personnalisées pour le greffon `vim-matchup` @vim-matchup. Celles-ci offrent une navigation syntaxique avancée en définissant des portées spécifiques pour les balises et les structures de contrôle du langage. Il devient ainsi possible de naviguer intelligemment entre les différentes clauses d'une condition ou d'une boucle, de parcourir aisément les blocs complexes (tels que `switch`, `match` ou `try/catch`), et de sauter instantanément de la signature d'une fonction à ses instructions de retour.
 
 === Le terminal comme espace de travail unifié
 
-La reproduction de mon environnement s'arrêtant aux frontières du terminal WSL, j'ai optimisé ce dernier pour limiter au maximum l'usage de la souris et la friction liée aux changements de contexte. L'utilisation du multiplexeur `tmux` @tmux a été centrale dans cette démarche, me permettant de gérer de multiples invites de commande au sein d'une même fenêtre.
+La reproduction de mon environnement s'arrêtant aux frontières du WSL et donc du terminal, j'ai optimisé ce dernier pour limiter au maximum l'usage de la souris et la friction liée aux changements de contexte. Le multiplexeur `tmux` @tmux a été central dans cette démarche en me permettant de gérer de multiples invites de commande au sein d'une même fenêtre.
 
-J'ai enrichi cet environnement par des scripts et des raccourcis sur mesure :
-
-- Intégration d'outils en fenêtres volantes (popups) : J'ai configuré des raccourcis `tmux` dédiés (Ctrl+g et Ctrl+d) pour ouvrir respectivement `lazygit` @lazygit et `lazydocker` @lazydocker dans des fenêtres superposées, sans quitter mon contexte d'édition en cours.
-- Navigation hypertexte clavier : J'ai reproduit le comportement de la touche gx de Vim directement dans le mode copie de `tmux`, me permettant de sélectionner et d'ouvrir des liens URL sans intervention de la souris.
-- Script de navigation Git (`git-origin`) : J'ai adapté un script shell permettant d'ouvrir instantanément le dépôt distant d'un projet dans le navigateur web
+Afin de fluidifier mon flux de travail, j'ai enrichi cet espace de scripts et de raccourcis sur mesure. Ces personnalisations me permettent d'invoquer des interfaces interactives telles que `lazygit` @lazygit et `lazydocker` @lazydocker sous forme de fenêtres superposées sans jamais quitter mon contexte d'édition, mais également d'interagir nativement au clavier avec des liens hypertextes ou d'accéder instantanément à l'interface web du dépôt Git du projet courant.
 
 === Conteneurisation et exécution locale
 
-L'ensemble des projets, tels que PIAWEB, s'exécutaient au sein de conteneurs Docker @docker Après une première phase d'utilisation de Docker Desktop pour Windows, j'ai rapidement constaté un manque de granularité et une interface graphique ralentissant le flux de travail.
+L'ensemble des projets, tels que PIAWEB, s'exécutaient au sein de conteneurs Docker @docker. Après une première phase d'utilisation de Docker Desktop pour Windows, j'ai rapidement constaté un manque de granularité et une interface graphique ralentissant mon flux de travail.
 
-J'ai par conséquent migré vers une installation native du démon Docker exclusivement au sein de WSL. Ce choix m'a garanti un contrôle absolu sur les ressources et les conteneurs, pilotables intégralement en ligne de commande ou via l'interface terminale (TUI) `lazydocker`, en parfaite adéquation avec le reste de mon outillage.
+J'ai par conséquent migré vers une installation native du démon Docker exclusivement au sein de WSL. Ce choix m'a garanti un contrôle absolu sur les ressources et les conteneurs, pilotables intégralement en ligne de commande ou via l'interface terminale de `lazydocker`, en parfaite adéquation avec le reste de mon outillage.
+
+=== Évolution du poste de travail
+
+Travaillant pour la première fois dans un contexte extra-scolaire et extra-personnel pendant aussi longtemps, je trouve encore chaque semaine des points de friction, des tâches répétitives à optimiser ou automatiser. Mon poste de travail est en évolution constante, s'adaptant aux besoins de mon environnement de travail et de mes projets.
 
 = Initiation - Migration ONaCVG
 
 = PIAWEB : Une histoire de DevOps
 
-L'application PIAWEB#footnote[Contraction de Programme d'Investissements d'Avenir (PIA) et de Web.]  dont Actimage réalise les développements et dirige les déploiements sur les serveurs clients est un projet de répertoire pour suivre les différentes actions du plan d'investissement France 2030 qui relèvent spécifiquement du #mesr;
+L'application PIAWEB#footnote[Contraction de Programme d'Investissements d'Avenir (PIA) et de Web.]  dont Actimage réalise les développements et dirige les déploiements sur les serveurs clients est un projet de répertoire pour suivre les différentes actions du plan d'investissement France 2030 qui relèvent spécifiquement du #mesr.
 
 Ce projet est actuellement en phase de #tma, peu de développements sont réalisés, majoritairement des corrections de bogues ou des évolutions mineures. La pile technologique repose sur du Spring et du Angular, une solution légèrement plus élaborée que celle proposée pour l'onacvg puisqu'elle requiert deux conteneurs serveur distincts pour le web frontal et dorsal.
 
@@ -242,7 +237,7 @@ Ce projet est actuellement en phase de #tma, peu de développements sont réalis
 
 Étant l'un des développeurs les moins coûteux, j'ai été assigné à la correction d'un bogue d'affichage ordinaire pour lequel plusieurs de mes collègues avaient déjà imputé du temps. La plongée laborieuse dans le code source d'un projet dont la teneur m'échappait encore et dont le cadriciel frontal ne m'était pas familier m'a contraint à optimiser mon débogage afin d'identifier la source du problème sans avoir à explorer l'entièreté de l'application. Quelques échanges de tickets avec le client plus tard et j'arrivais à reproduire le comportement anormal sur mon poste. Le problème venait d'un bête formulaire de recherche dont la pagination n'était pas rapportée à 1 lorsque l'utilisateur changeait les critères de recherche, permettant ainsi d'accéder à la troisième page pour une recherche ne remontant qu'une page de résultats par exemple.
 
-Si l'implémentation du correctif ne nécessita que quelques minutes, la validation de la demande de fusion sur la branche de développement `dev` fut actée en une demi-heure. L'intervention aurait pû s'achever sur cette bonne note, mais l'équipe DevOps m'a confié la responsabilité de l'intégralité du cycle de livraison, incluant la montée sur les différents environnements et le déploiement final chez le client.
+Si l'implémentation du correctif ne nécessita que quelques minutes, la validation de la demande de fusion sur la branche de développement `dev` fut actée en une demi-heure. L'intervention aurait pu s'achever sur cette bonne note, mais l'équipe DevOps m'a confié la responsabilité de l'intégralité du cycle de livraison de cette version, incluant la montée sur les différents environnements et le déploiement final chez le client.
 
 == Le châtaignier // branches à bogues
 

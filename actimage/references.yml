@@ -68,8 +68,18 @@ symfony-language-tools:
   title: Symfony Language Tools
   author: Fabien Potencier
   url: https://github.com/symfony/language-tools
+lsp:
+  type: Web
+  title: LSP
+  author: Microsoft
+  url: https://microsoft.github.io/language-server-protocol
 wsl:
   type: Web
   title: Windows Subsystem for Linux
   author: Microsoft
   url: https://wsl.dev
+rust:
+  type: Web
+  title: Rust
+  author: Rust Team
+  url: https://rust-lang.org
