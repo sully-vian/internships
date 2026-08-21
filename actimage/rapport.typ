@@ -36,6 +36,9 @@
 #let ide = acronym("IDE", "environnement de développement integré")
 #let ecm = acronym("ECM", "état civil militaire")
 #let cpmivg = acronym("CPMIVG", "Code des pensions militaires d'invalidité et des victimes de guerre")
+#let sfd = acronym("SFD", "spécifications fonctionnelles détaillées")
+
+#let todo(msg) = [*TODO: #msg*]
 
 #set document(author: author, title: "Rapport de stage de fin d'études")
 
@@ -189,53 +192,6 @@ L'expertise technologique du projet va bien au-delà de la simple réalité mixt
 
 == Gestion de projet
 
-== Projet #onacvg
-
-Le projet principal sur lequel j'ai eu l'occasion de travailler tout au long des 6 mois de stage est une application web à destination de l'#onacvg. // TODO: étoffer
-
-=== Présentation du client et genèse du besoin
-
-// TODO: étoffer
-
-=== Présentation du client et genèse du besoin
-
-L'#onacvg est un établissement public administratif français placé sous la tutelle du ministère des Armées et des Anciens Combattants. Fondé en 1916, cet organisme a pour vocation d'assurer des missions de reconnaissance, de réparation, de solidarité et de mémoire envers les combattants, les anciens combattants et les victimes de guerre. L'Office opère au bénéfice d'environ 1,81 million de ressortissants (selon des estimations de 2023) à travers un réseau de services de proximité et s'impose comme l'opérateur majeur de la politique mémorielle du ministère des Armées.
-
-Parmi ses prérogatives, l'#onacvg exerce une compétence juridique spécifique en matière de sépultures militaires, un domaine encadré par le #cpmivg. L'institution est explicitement chargée de la mise en œuvre de l'entretien, de la rénovation et de la valorisation des sépultures de guerre. En effet, la loi pose le principe d'une sépulture perpétuelle pour les militaires déclarés « Mort pour la France », qu'ils reposent au sein de nécropoles nationales ou de carrés militaires communaux, et dont l'entretien incombe à l'État.
-
-C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un appel d'offres visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage en (*TODO : insérer date*). Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée s'adresse exclusivement à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
-
-=== L'existant : un défi de taille et de structure de la donnée
-
-Le principal enjeu de ce projet réside dans l'héritage technique des données. La base de données existante (sous format MS Access) recense plus de 800 000 sépultures, dont certaines remontent aux guerres napoléoniennes. Cette base historique compile une multitude d'informations : état civil militaire, nom et type du site, mentions honorifiques (telles que "Mort pour la France"), nationalité, informations de recrutement, unité militaire, ou encore causes du décès.
-
-Cependant, le départ de la personne en charge de sa maintenance a entraîné une dégradation de l'intégrité des données, transformant la base en un document tabulaire peu rigoureux. Pour pallier ce manque d'outil centralisé, plusieurs chefs de secteur avaient dupliqué la "base mère" pour maintenir leurs données localement. Cette pratique a conduit à l'émergence de multiples "bases filles" désynchronisées, comportant des identifiants conflictuels, des doublons et des incohérences.
-
-=== Migration et regroupement familial
-
-La première mission de mon stage, qui s'est étendue sur un mois, a consisté à développer un outil de migration indépendant. Son objectif était de regrouper les bases filles avec la base mère en détectant les conflits et en proposant des stratégies de résolution : historisation des entrées conflictuelles ou conservation des deux versions via une renumérotation intelligente. Ce premier projet, qui fera l'objet d'une section détaillée ultérieurement, a constitué une excellente porte d'entrée pour m'approprier l'environnement technique de l'entreprise (PHP, Symfony, Doctrine, PostgreSQL, Docker) et les données de l'#onacvg.
-
-=== Phase 2 : Refonte Logicielle et application de gestion #ecm.
-
-Une fois les données fusionnées (toujours sous un format tabulaire plat d'environ quarante colonnes), la mission principale de mon stage a pu débuter : le développement de l'application de gestion complète, structurée autour de trois grands axes fonctionnels.
-
-==== Modélisation et consultation (Base #ecm)
-
-Afin d'éviter la duplication et de garantir l'intégrité future des données, une refonte complète du modèle de données a été nécessaire. Nous sommes passés d'un format plat hérité du CSV à une architecture relationnelle stricte (création d'entités distinctes pour les pays, départements, communes, grades, unités, bureaux de recrutement, etc.). Une part majeure de mon travail a été consacrée à l'élaboration de la commande d'importation, capable de transformer des données libres et peu rigoureuses en entités standardisées.
-Sur cette base saine, un module de consultation a été développé, offrant des interfaces de recherche avancée avec de multiples filtres pour explorer les données des soldats et des sites.
-
-==== Module d'inspection en mobilité
-
-L'#onacvg ayant la charge de sépultures à perpétuité, les chefs de secteur doivent inspecter leurs sites (parfois plus de 300 par secteur) au moins une fois par an. J'ai participé au développement d'une interface optimisée pour tablettes permettant la saisie d'inspections sur le terrain. L'agent peut y corriger les informations de la base et évaluer l'état des infrastructures (sol, barrières, stèles, plaques). Ces relevés alimentent ensuite un algorithme de calcul estimant les coûts de restauration pour les tombes et sites concernés.
-
-==== Administration et flux de validation
-
-Le troisième volet de l'application concerne les administrateurs #ecm. Pour garantir la qualité de la base de données sur le long terme, un flux de travail (workflow) a été mis en place. Bien que certaines actions soient libres, la modification de champs sensibles par un chef de secteur nécessite l'approbation d'un administrateur. Ce processus est accompagné d'un système de notifications intra-application et de courriels automatisés.
-
-=== Contraintes d'interopérabilité
-
-Enfin, le système devait respecter une contrainte forte d'interopérabilité avec les services de l'État. Les données n'étant pas strictement confidentielles, elles sont rendues accessibles au grand public via le portail gouvernemental Mémoire des Hommes#footnote[https://memoiredeshommes.defense.gouv.fr]. L'application développée intègre donc une fonctionnalité d'export mensuel générant un format de fichier très spécifique, garantissant l'alimentation continue et conforme de ce portail national.
-
 == Poste de travail et outillage de développement
 
 === Environnement d'exécution et philosophie de travail
@@ -276,7 +232,90 @@ J'ai par conséquent migré vers une installation native du démon Docker exclus
 
 Travaillant pour la première fois dans un contexte extra-scolaire et extra-personnel pendant aussi longtemps, je trouve encore chaque semaine des points de friction, des tâches répétitives à optimiser ou automatiser. Mon poste de travail est en évolution constante, s'adaptant aux besoins de mon environnement de travail et de mes projets.
 
-= Initiation - Migration ONaCVG
+= Projet #onacvg
+
+Le projet principal sur lequel j'ai eu l'occasion de travailler tout au long des 6 mois de stage est une application web à destination de l'#onacvg. #todo("étoffer")
+
+== Introduction
+
+=== Présentation du client et genèse du besoin
+
+L'#onacvg est un établissement public administratif français placé sous la tutelle du ministère des Armées et des Anciens Combattants @wiki-onacvg. Fondé en 1916, cet organisme a pour vocation d'assurer des missions de reconnaissance, de réparation, de solidarité et de mémoire envers les combattants, les anciens combattants et les victimes de guerre @wiki-onacvg. L'Office opère au bénéfice d'environ 1,81 million de ressortissants (selon des estimations de 2023) à travers un réseau de services de proximité et s'impose comme l'opérateur majeur de la politique mémorielle du ministère des Armées @wiki-onacvg.
+
+Parmi ses prérogatives, l'#onacvg exerce une compétence juridique spécifique en matière de sépultures militaires, un domaine encadré par le #cpmivg @wiki-onacvg. L'institution est explicitement chargée de la mise en œuvre de l'entretien, de la rénovation et de la valorisation des sépultures de guerre @wiki-onacvg. En effet, la loi pose le principe d'une sépulture perpétuelle pour les militaires déclarés « Mort pour la France », qu'ils reposent au sein de nécropoles nationales ou de carrés militaires communaux, et dont l'entretien incombe à l'État @wiki-onacvg.
+
+C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un appel d'offres visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage en #todo("insérer date"). Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée s'adresse exclusivement à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
+
+=== L'existant : un défi de taille et de structure de la donnée
+
+Le principal enjeu de ce projet réside dans l'héritage technique des données. La base de données existante (sous format MS Access @ms-access) recense plus de 800 000 sépultures, dont certaines remontent aux guerres napoléoniennes. Cette base historique compile une multitude d'informations : état civil militaire, nom et type du site, mentions honorifiques (telles que "Mort pour la France"), nationalité, informations de recrutement, unité militaire, ou encore causes du décès.
+
+Cependant, le départ de la personne en charge de sa maintenance a entraîné une dégradation de l'intégrité des données, transformant la base en un document tabulaire peu rigoureux. Pour pallier ce manque d'outil centralisé, plusieurs chefs de secteur avaient dupliqué la "base mère" pour maintenir leurs données localement. Cette pratique a conduit à l'émergence de multiples "bases filles" désynchronisées, comportant des identifiants conflictuels, des doublons et des incohérences.
+
+=== Migration et regroupement familial
+
+La première mission de mon stage, qui s'est étendue sur un mois, a consisté à développer un outil de migration indépendant. Son objectif était de regrouper les bases filles avec la base mère en détectant les conflits et en proposant des stratégies de résolution : historisation des entrées conflictuelles ou conservation des deux versions via une renumérotation intelligente. Ce premier projet, qui fera l'objet d'une section détaillée ultérieurement, a constitué une excellente porte d'entrée pour m'approprier l'environnement technique de l'entreprise (PHP, Symfony, Doctrine, PostgreSQL, Docker) et les données de l'#onacvg.
+
+=== Refonte logicielle et application de gestion #ecm.
+
+Une fois les données fusionnées (toujours sous un format tabulaire plat d'environ quarante colonnes), la mission principale de mon stage a pu débuter : le développement de l'application de gestion complète, structurée autour de trois grands axes fonctionnels.
+
+==== Modélisation et consultation (Base #ecm)
+
+Afin d'éviter la duplication et de garantir l'intégrité future des données, une refonte complète du modèle de données a été nécessaire. Nous sommes passés d'un format plat hérité du CSV à une architecture relationnelle stricte (création d'entités distinctes pour les pays, départements, communes, grades, unités, bureaux de recrutement, etc.). Une part majeure de mon travail a été consacrée à l'élaboration de la commande d'importation, capable de transformer des données libres et peu rigoureuses en entités standardisées.
+Sur cette base saine, un module de consultation a été développé, offrant des interfaces de recherche avancée avec de multiples filtres pour explorer les données des soldats et des sites.
+
+==== Module d'inspection en mobilité
+
+L'#onacvg ayant la charge de sépultures à perpétuité, les chefs de secteur doivent inspecter leurs sites (parfois plus de 300 par secteur) au moins une fois par an. J'ai participé au développement d'une interface optimisée pour tablettes permettant la saisie d'inspections sur le terrain. L'agent peut y corriger les informations de la base et évaluer l'état des infrastructures (sol, barrières, stèles, plaques). Ces relevés alimentent ensuite un algorithme de calcul estimant les coûts de restauration pour les tombes et sites concernés.
+
+==== Administration et flux de validation
+
+Le troisième volet de l'application concerne les administrateurs #ecm. Pour garantir la qualité de la base de données sur le long terme, un flux de travail (workflow) a été mis en place. Bien que certaines actions soient libres, la modification de champs sensibles par un chef de secteur nécessite l'approbation d'un administrateur. Ce processus est accompagné d'un système de notifications intra-application et de courriels automatisés.
+
+=== Contraintes d'interopérabilité
+
+Enfin, le système devait respecter une contrainte forte d'interopérabilité avec les services de l'État. Les données n'étant pas strictement confidentielles, elles sont rendues accessibles au grand public via le portail gouvernemental Mémoire des Hommes#footnote[https://memoiredeshommes.defense.gouv.fr]. L'application développée intègre donc une fonctionnalité d'export mensuel générant un format de fichier très spécifique, garantissant l'alimentation continue et conforme de ce portail national.
+
+== Interlocuteurs, équipe et gestion de projet
+
+Dans le cadre de ce projet, nos interlocuteurs de l'#onacvg étaient Audrey Paolasini, cheffe du département des achats,Emmanuelle PORTUGAL, archiviste, #todo("le reste").
+
+Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que chef de projet, Marine responsable de l'UI/UX, Aurélie en assistance chefferie de projet, rédaction de spécifications et élagement en développement #todo("demander son rôle exact"), Brice en tant que _lead developper_, et Amine et moi-même en tant que développeurs.
+
+Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'appel d'offre. En découlent des maquettes Figma @figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
+
+=== Migration et regroupement familial : le défi de la réconciliation des données
+
+Cette phase du projet a été particulièrement formatrice, marquant ma première immersion dans l'écosystème PHP, le cadriciel Symfony et l'ORM Doctrine. Le défi à relever consistait à consolider une "base mère" et de multiples "bases filles" (fournies sous forme de fichiers CSV). Au sein de ces bases, chaque sépulture est théoriquement identifiée par un entier unique : la colonne `sdr_num` (numéro de saisie des registres). Cependant, suite à la scission des bases et à l'ajout décentralisé de nouvelles entrées par les chefs de secteur, de nombreuses collisions d'identifiants sont apparues.
+
+Une simple fusion automatisée était inenvisageable en raison de la nature ambiguë de ces collisions. Si deux lignes strictement identiques peuvent être dédoublonnées sans risque, le cas de lignes partageant le même `sdr_num` mais présentant des divergences s'avère complexe. Il peut s'agir d'une véritable collision (deux soldats distincts ayant reçu le même identifiant de manière isolée) ou d'une mise à jour légitime (un même soldat dont les informations ont été enrichies dans une base fille, par exemple avec l'ajout d'un surnom). L'absence de règle mathématique pour trancher ces cas a imposé le développement d'un outil de migration interactif. Cet outil agit comme une preuve de concept (POC) destinée à détecter les conflits et à déléguer la stratégie de résolution à l'utilisateur.
+
+==== Architecture et flux de traitement
+
+Pour répondre à ce besoin, j'ai conçu une architecture transactionnelle asynchrone reposant sur quatre tables principales au sein d'une base de données PostgreSQL : `TMP`, `MERE`, `CONFLICTS` et `HIST`. Le flux de traitement s'articule autour des étapes suivantes :
+
+- *Acquisition et traitement asynchrone (Étapes 1 et 2)* : L'utilisateur téléverse un fichier CSV sur le serveur (`SERV`) via une route d'API dédiée (`/csv-upload`). Ce téléversement déclenche un processus en arrière-plan, géré par le composant Symfony Messenger (`messenger-worker`), qui se charge d'insérer l'intégralité des données dans la table temporaire `TMP`.
+- *Répartition automatique (Étape 3)* : Un algorithme compare ensuite les entrées de `TMP` avec celles de la base `MERE`. Les lignes sans conflit d'identifiant y sont intégrées directement. En revanche, les lignes soulevant une collision sur le `sdr_num` sont isolées dans la table `CONFLICTS`. La table `TMP` est ensuite purgée de l'entrée fille.
+- *Interface de résolution manuelle* : L'application propose des interfaces web (développées avec le moteur de template Twig et le cadriciel Tailwind CSS) permettant de lister de manière paginée les conflits détectés (route `/conflicts`) et d'en afficher les écarts en exergue (route `/conflicts/{sdrNum}`).
+
+==== Stratégies de résolution des conflits
+
+Face à une collision signalée dans l'interface, l'utilisateur dispose de trois stratégies de résolution (opérées via l'API `/resolve/{origDb}/{sdrNum}`) :
+
++ *Insertion (Action 4.1)* : Si les deux entrées représentent des soldats différents (vraie collision), l'entrée fille est insérée dans la base `MERE` et supprimée de `CONFLICTS`.
++ *Écrasement (Action 4.2)* : Si l'entrée fille est une version enrichie et valide de l'entrée mère, l'ancienne entrée mère est archivée dans la table d'historisation `HIST`. L'entrée fille vient ensuite la remplacer dans `MERE` via une opération de mise à jour (`UPSERT`), puis est supprimée de `CONFLICTS`.
++ *Suppression (Action 4.3)* : Si l'entrée fille est jugée non pertinente, elle est retirée de la table `CONFLICTS` et sauvegardée dans `HIST` afin de garder la donnée accessible en cas de besoin.
+
+#figure(image("assets/onacvg-migration.svg"), caption: "Flux de traitement de migration")
+
+==== Conteneurisation et enjeux de performance
+
+L'ensemble de ce système a été pensé sous forme de micro-services conteneurisés avec Docker. L'environnement local orchestrait la base de données (`db`), l'application web principale (`app`), le travailleur asynchrone (`messenger-worker`), la compilation à chaud des styles (`tailwind`) et le serveur web (`nginx`).
+
+Cette phase initiale d'ingestion de données brutes a mis en évidence un point critique de performance : la traduction littérale des colonnes CSV (format plat) en colonnes PostgreSQL n'était pas viable à grande échelle. Tester l'outil sur de gros volumes de données (plus de 850 000 entrées générant parfois 80 000 conflits) a prouvé la nécessité absolue de scinder et de normaliser la base de données (création d'entités avec clés primaires et jointures) pour la future application principale, sous peine de subir des délais de latence rédhibitoires (timeouts) lors de la consultation.
+
+== Application principale
 
 = PIAWEB : Une histoire de DevOps
 

@@ -1,0 +1,32 @@
+digraph Architecture {
+    // Default styles
+    rankdir=LR
+    node [shape=box, fontname="Helvetica"];
+    edge [fontname="Helvetica", fontsize=11];
+
+    // Invisible start node to create the initial incoming arrow
+    start [shape=none, label="", width=0, height=0];
+
+    // Define nodes with appropriate styles (rounded vs solid)
+    SERV [style=solid];
+    TMP [style=rounded];
+    MERE [style=rounded];
+    CONFLICTS [style=rounded];
+    HIST [style=rounded];
+
+    // Ensure MERE and CONFLICTS align horizontally
+    { rank=same; MERE; CONFLICTS; }
+
+    split [shape=point, width=0, height=0];
+
+    start -> SERV [label="1."];
+    SERV -> TMP [label="2."];
+    
+    TMP -> split [label="3.", arrowhead=none];
+    split -> MERE;
+    split -> CONFLICTS;
+
+    CONFLICTS -> MERE [label="4.1\n4.2"];
+    MERE -> HIST [label="4.2"];
+    CONFLICTS -> HIST [label="4.3"];
+}

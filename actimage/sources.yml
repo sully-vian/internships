@@ -9,10 +9,14 @@ inp-charte:
   title: "Identité visuelle et outils de communication"
   url: "https://www.inp-toulouse.fr"
   date: 2026
-
 actimage-charte:
   type: "Web"
   author: "Actimage"
   title: "Identité visuelle et outils de communication"
   url: "https://www.actimage.com"
   date: 2026
+wiki-onacvg:
+  type: Web
+  title: Office national des combattants et des victimes de guerre
+  author: Contributeurs de Wikipédia
+  url: https://fr.wikipedia.org/wiki/Office_national_des_combattants_et_des_victimes_de_guerre

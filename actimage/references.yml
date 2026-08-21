@@ -88,3 +88,8 @@ ms-access:
   title: Microsoft Access
   author: Microsoft
   url: https://www.microsoft.com/fr-fr/microsoft-365/access
+figma:
+  type: Web
+  title: Figma
+  author: Figma
+  url: http://figma.com
