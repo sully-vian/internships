@@ -44,9 +44,13 @@
 #set document(author: author, title: "Rapport de stage de fin d'études")
 
 #set text(lang: "fr")
-#set heading(numbering: (..nums) => { if nums.pos().len() < 4 { numbering("1.", ..nums) } })
+#set heading(numbering: (..nums) => { if nums.pos().len() < 4 { numbering("I.1", ..nums) } })
 #show heading: set block(below: 1.5em)
 #show heading.where(level: 4): set text(style: "italic", weight: "regular")
+#show heading.where(level: 1): it => {
+  pagebreak(weak: true)
+  it
+}
 
 #set page(paper: "a4", margin: (top: 1.5cm, bottom: 2cm, left: 2cm, right: 2cm))
 
@@ -142,7 +146,7 @@
     )],
 )
 
-= Remerciements
+#text("Remerciements", size: 24pt, weight: "bold")
 
 Avant tout, je tiens à remercier mes deux encadrants sur cette expérience enrichissante qu'a été ce stage de fin d'étude. David pour son accompagnement, ses conseils et son humour, Matthias pour sa patience, sa bienveillance et ses succulents repas de fin de semaine.
 
@@ -153,7 +157,7 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 #pagebreak()
 
 #show outline.entry.where(level: 1): set block(above: 1em)
-#outline()
+#outline(depth: 3, title: "Sommaire")
 
 #pagebreak()
 
@@ -168,6 +172,8 @@ Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel 
 ==== DSFR
 
 L'expertise d'Actimage en développement brille tout particulièrement sur les marchés publics. L'entreprise a notamment participé à la conception du  #dsfr. Le #dsfr regroupe un ensemble de règles et de composants réutilisables pour les interfaces officielles des sites en `.gouv.fr`. Il permet à l'État d'offrir des services numériques simples, accessibles et reconnaissables. C'est notamment celui que vous retrouvez sur #monolink("impots.gouv.fr"), #monolink("ants.gouv.fr") et #monolink("sante.gouv.fr").
+
+Ce système de design est conçu pour être agnostique et modulaire. Il se décline sous plusieurs formats afind de couvrir tout le cycle de vie d'un projet de la phase de conception, au prototypage, à l'implémentation technique. Il existe notamment une librairie Figma, un socle de base en Vanilla  HTML/CSS/JS à travers le paquet `@gouvfr/dsfr` ainsi que des portages développés par la communauté tels que `@codegouvfr/react-dsfr` (React), `@gouvminint/vue-dsfr` (Vue), `ngx-dsfr` (Angular), `django-dsfr` (Django) et `drupal/ui_suite_dsfr` (Drupal).
 
 ==== Site officiel du Gouvernement
 
@@ -198,6 +204,36 @@ L'expertise technologique du projet va bien au-delà de la simple réalité mixt
 === Environnement d'exécution et philosophie de travail
 
 Au sein d'Actimage, le matériel mis à ma disposition était un poste opérant sous Windows 11. Afin de retrouver un environnement de développement familier, performant et conforme à la philosophie Unix qui guide mon flux de travail quotidien, j'ai fait le choix d'exploiter le sous-système Windows pour Linux @wsl. J'y ai déployé une distribution Arch Linux. Cette approche m'a permis de répliquer quasi à l'identique l'environnement modulable que j'utilise à titre personnel, tout en m'affranchissant des limitations inhérentes au système d'exploitation hôte pour le développement d'applications web.
+
+=== Outils collaboratifs et centralisation de la connaissance
+
+L'environnement de travail d'un ingénieur logiciel ne se limite pas à son éditeur de code et à son terminal. La dimension collaborative et la gestion de la connaissance sont des composantes tout aussi vitales, particulièrement au sein d'une ESN où de multiples acteurs (clients, chefs de projet, designers, développeurs) interagissent quotidiennement. Pour orchestrer cette communication, Actimage s'appuie principalement sur la suite Microsoft.
+
+Le flux de communication synchrone était assuré par Microsoft Teams. Bien que cet outil ne bénéficiât d'aucune intégration automatisée avec notre chaîne d'intégration continue (comme des alertes webhooks liées à Jenkins ou GitLab), il constituait le centre névralgique de la vie d'équipe. C'est sur cette plateforme que se tenaient nos réunions quotidiennes de synchronisation (_daily stand-ups_). L'application était structurée en différents canaux dédiés aux projets, servant d'espaces d'échanges informels pour partager des extraits de code, soumettre des idées d'architecture, formuler des remarques ou solliciter de l'aide auprès de développeurs plus expérimentés comme Brice ou Matthias.
+
+Pour la communication asynchrone et formelle, Microsoft Outlook était de rigueur. Ce canal était privilégié pour les échanges directs avec les clients, souvent organisés via des listes de diffusion. La boîte de réception agissait également comme un agrégateur d'événements : j'y recevais les rappels de réunions, les annonces internes de l'entreprise, mais surtout les notifications automatisées générées par les outils de billetterie (_ticketing_) des clients. Ces alertes me permettaient de suivre en temps réel la progression des tickets d'anomalie ou l'évolution d'un fil de discussion lié à une spécification fonctionnelle.
+
+Concernant la gestion documentaire, une dichotomie marquée existait entre les aspects "métiers" et les aspects purement "techniques" des projets. Toute la documentation fonctionnelle et contractuelle était centralisée sur SharePoint. On y retrouvait une arborescence dense composée de documents Microsoft Word pour les spécifications, des notes de restitution d'ateliers clients, ainsi que les volumineux fichiers CSV servant de thésaurus pour l'application de l'ONaCVG.
+
+Cependant, l'expérience utilisateur offerte par l'interface web de SharePoint contrastait fortement avec la vélocité de mon environnement de développement sous Linux. Naviguer au sein de ces dossiers imbriqués s'avérait particulièrement laborieux en comparaison de la fluidité offerte par des outils de navigation en ligne de commande basés sur des recherches floues, tels que `fzf` ou `zoxide`, que j'utilise quotidiennement dans mon terminal.
+
+Par ailleurs, la capitalisation de la connaissance technique souffrait d'un certain morcellement. Si les règles métiers résidaient sur SharePoint, la documentation technique était éparpillée entre les dépôts Git (via les fichiers `README.md`), la plateforme Bookstack de l'entreprise, et un Wiki interne distinct. Cette fragmentation imposait une gymnastique mentale constante pour retrouver la bonne information au bon endroit.
+
+=== Inspection web et débogage dynamique
+
+Si le terminal et Neovim constituent mon espace de création logique, le navigateur web représente l'environnement d'exécution final, le véritable "compilateur visuel" de mon travail. Au sein d'Actimage, bien que certains collaborateurs aient opté pour Mozilla Firefox ou Opera, j'ai fait le choix de conserver Google Chrome. Cette décision était principalement motivée par une continuité d'usage avec mon environnement personnel, mais aussi pour sa rapidité d'exécution et la modernité de son moteur.
+
+Ma configuration du navigateur est restée minimaliste. La seule extension véritablement indispensable à mon flux de travail était Bitwarden, configurée pour se synchroniser avec l'Actipass, l'instance auto-hébergée du gestionnaire de mots de passe d'Actimage, garantissant un accès sécurisé aux différents environnements de développement et de pré-production. Avec le recul, la création de profils Chrome distincts (un personnel et un professionnel) aurait été judicieuse. Par manque d'isolation de contexte, mes favoris personnels et professionnels se sont retrouvés entremêlés. Pour pallier l'absence de profils isolés par projet et éviter les conflits de sessions ou d'états, j'ai pris l'habitude de recourir massivement à la navigation privée ou aux rechargements forcés avec vidage du cache (_Hard Refresh_) afin de simuler le comportement d'un nouvel utilisateur vierge de tout historique.
+
+Dans l'écosystème Symfony, une grande partie du débogage est facilitée par l'excellent profileur Symfony, une barre d'outils injectée en bas de page offrant une visibilité totale sur le cycle de vie de la requête HTTP (requêtes SQL exécutées, temps de réponse, formulaires soumis, événements déclenchés). Néanmoins, le profileur atteint ses limites dès lors qu'il s'agit d'inspecter le comportement du code exécuté côté client. C'est ici que les outils de développement intégrés à Chrome (_DevTools_) prenaient le relais.
+
+Je sollicitais les _DevTools_ pour plusieurs cas d'usage bien précis :
+- *L'onglet Éléments (Elements) :* Il s'est avéré particulièrement redoutable pour le développement de l'interface utilisateur. Utilisant le cadriciel CSS utilitaire Tailwind, je pouvais manipuler les attributs de classe des éléments HTML à la volée directement dans le DOM. Cette méthode permet de valider instantanément un comportement visuel ou un ajustement responsif dans le navigateur, avant d'aller inscrire la classe correspondante en dur dans les gabarits Twig.
+- *L'onglet Sources :* Je le consultais régulièrement pour m'assurer que le navigateur avait bien récupéré les dernières versions compilées de mes scripts JavaScript et feuilles de style, un point de vérification essentiel lors de l'utilisation du composant Symfony AssetMapper qui gère le versionnage des fichiers statiques.
+- *L'onglet Réseau (Network) :* Bien que le profileur Symfony permette d'analyser le temps des requêtes, l'onglet Réseau de Chrome était très pratique pour visualiser les requêtes asynchrones en cascade, notamment lors de l'ingestion de lourdes charges de données ou lors des appels API du formulaire d'inspection de l'ONaCVG.
+- *La Console :* Elle venait combler une lacune majeure du profileur Symfony : l'absence d'agrégation des erreurs JavaScript. La console était mon outil de diagnostic principal pour traquer les avertissements, lire les erreurs remontées par les contrôleurs Stimulus (Symfony UX), ou exécuter rapidement des requêtes exploratoires sur des objets du DOM.
+
+Enfin, concernant le débogage côté serveur, l'outil Xdebug était bien configuré et présent dans la pile Docker de l'application ONaCVG. Toutefois, je n'en ai eu qu'un usage extrêmement marginal. La combinaison d'une analyse statique très stricte (PHPStan), garantissant la cohérence des types et de la logique structurelle en amont, couplée à la richesse d'informations délivrées par le profileur Symfony et aux tests unitaires, permettait d'identifier l'origine des anomalies sans avoir à recourir à l'exécution pas-à-pas offerte par un débogueur traditionnel.
 
 === L'éditeur de code: le choix de Neovim
 
@@ -278,7 +314,7 @@ Le troisième volet de l'application concerne les administrateurs #ecm. Pour gar
 
 Enfin, le système devait respecter une contrainte forte d'interopérabilité avec les services de l'État. Les données n'étant pas strictement confidentielles, elles sont rendues accessibles au grand public via le portail gouvernemental Mémoire des Hommes#footnote[https://memoiredeshommes.defense.gouv.fr]. L'application développée intègre donc une fonctionnalité d'export mensuel générant un format de fichier très spécifique, garantissant l'alimentation continue et conforme de ce portail national.
 
-== Interlocuteurs, équipe et gestion de projet
+==== Interlocuteurs, équipe et gestion de projet
 
 Dans le cadre de ce projet, nos interlocuteurs de l'#onacvg étaient Audrey Paolasini, cheffe du département des achats,Emmanuelle PORTUGAL, archiviste, #todo("le reste").
 
@@ -286,41 +322,126 @@ Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que 
 
 Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'appel d'offre. En découlent des maquettes Figma @figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
 
-=== Migration et regroupement familial : le défi de la réconciliation des données
+== Migration et regroupement familial : le défi de la réconciliation des données
 
 Cette phase du projet a été particulièrement formatrice, marquant ma première immersion dans l'écosystème PHP, le cadriciel Symfony et l'ORM Doctrine. Le défi à relever consistait à consolider une "base mère" et de multiples "bases filles" (fournies sous forme de fichiers CSV). Au sein de ces bases, chaque sépulture est théoriquement identifiée par un entier unique : la colonne `sdr_num` (numéro de saisie des registres). Cependant, suite à la scission des bases et à l'ajout décentralisé de nouvelles entrées par les chefs de secteur, de nombreuses collisions d'identifiants sont apparues.
 
 Une simple fusion automatisée était inenvisageable en raison de la nature ambiguë de ces collisions. Si deux lignes strictement identiques peuvent être dédoublonnées sans risque, le cas de lignes partageant le même `sdr_num` mais présentant des divergences s'avère complexe. Il peut s'agir d'une véritable collision (deux soldats distincts ayant reçu le même identifiant de manière isolée) ou d'une mise à jour légitime (un même soldat dont les informations ont été enrichies dans une base fille, par exemple avec l'ajout d'un surnom). L'absence de règle mathématique pour trancher ces cas a imposé le développement d'un outil de migration interactif. Cet outil agit comme une preuve de concept (POC) destinée à détecter les conflits et à déléguer la stratégie de résolution à l'utilisateur.
 
-==== Architecture et flux de traitement
+=== Choix technologiques et rigueur logicielle
 
-Pour répondre à ce besoin, j'ai conçu une architecture transactionnelle asynchrone reposant sur quatre tables principales au sein d'une base de données PostgreSQL : `TMP`, `MERE`, `CONFLICTS` et `HIST`. Le flux de traitement s'articule autour des étapes suivantes :
+S'agissant d'un projet de réconciliation de données critiques, il était primordial d'établir des fondations techniques solides. J'ai configuré ce projet sur les dernières normes de l'écosystème : PHP 8.2 couplé à Symfony 7.4 et PostgreSQL 18.
 
-- *Acquisition et traitement asynchrone (Étapes 1 et 2)* : L'utilisateur téléverse un fichier CSV sur le serveur (`SERV`) via une route d'API dédiée (`/csv-upload`). Ce téléversement déclenche un processus en arrière-plan, géré par le composant Symfony Messenger (`messenger-worker`), qui se charge d'insérer l'intégralité des données dans la table temporaire `TMP`.
-- *Répartition automatique (Étape 3)* : Un algorithme compare ensuite les entrées de `TMP` avec celles de la base `MERE`. Les lignes sans conflit d'identifiant y sont intégrées directement. En revanche, les lignes soulevant une collision sur le `sdr_num` sont isolées dans la table `CONFLICTS`. La table `TMP` est ensuite purgée de l'entrée fille.
-- *Interface de résolution manuelle* : L'application propose des interfaces web (développées avec le moteur de template Twig et le cadriciel Tailwind CSS) permettant de lister de manière paginée les conflits détectés (route `/conflicts`) et d'en afficher les écarts en exergue (route `/conflicts/{sdrNum}`).
+Afin de garantir la maintenabilité et la robustesse du code, j'ai intégré un outillage de qualité logicielle (QA) exigeant. L'analyse statique du code est assurée par PHPStan poussé à son niveau de vérification maximal (niveau 10), garantissant un typage strict et prévenant les erreurs d'exécution en amont. Le formatage du code est automatisé via PHP CS Fixer, et la fiabilité des algorithmes de résolution de conflits est couverte par des tests unitaires exécutés via PHPUnit. L'interface utilisateur, bien que secondaire pour un POC, utilise le moteur de gabarits Twig couplé au cadriciel Tailwind CSS via le composant Symfony AssetMapper, permettant de se passer d'une lourde chaîne de compilation JavaScript type Node.js/Webpack.
 
+=== Architecture transactionnelle et asynchrone
+
+L'ingestion de fichiers CSV contenant des centaines de milliers de lignes pose un défi architectural majeur : le traitement synchrone lors d'une requête HTTP entraîne inévitablement un dépassement du temps d'exécution autorisé (timeout) ou une saturation de la mémoire vive.
+
+Pour y répondre, j'ai conçu une architecture asynchrone reposant sur le composant `symfony/messenger` et la bibliothèque d'extraction de données `league/csv`. Le flux de traitement s'articule autour de quatre tables PostgreSQL (`TMP`, `MERE`, `CONFLICTS` et `HIST`) et se déroule en plusieurs étapes :
+
+==== Étape 1 : Acquisition et délégation
+
+L'utilisateur téléverse un fichier CSV via la route `/csv-upload`. L'application sauvegarde le fichier sur le disque et délègue immédiatement le travail en publiant un message dans une file d'attente (gérée via le transport Doctrine), libérant ainsi le processus HTTP.
+
+==== Étape 2 : Traitement asynchrone et optimisation mémoire
+
+Un processus en tâche de fond (le "Worker") consomme le message. Il utilise des itérateurs générateurs (via `league/csv`) pour lire le fichier ligne par ligne sans jamais charger l'intégralité des données en mémoire. Les lignes sont insérées par lots (batch) dans la table temporaire `TMP`.
+
+==== Étape 3 : Répartition automatique
+
+Un algorithme SQL compare ensuite les entrées de `TMP` avec celles de la base `MERE`. Les lignes sans conflit d'identifiant y sont intégrées directement. En revanche, les lignes soulevant une collision sur le `sdr_num` sont isolées dans la table `CONFLICTS`. La table `TMP` est ensuite purgée de l'entrée fille.
 
 #align(center, figure(
   render(read("assets/onacvg-migration.dot")),
-  caption: "Flux de traitement de migration",
+  caption: "Flux de traitement de migration et résolution de conflits",
 ))
 
-==== Stratégies de résolution des conflits
+=== Stratégies de résolution des conflits
 
-Face à une collision signalée dans l'interface, l'utilisateur dispose de trois stratégies de résolution (opérées via l'API `/resolve/{origDb}/{sdrNum}`) :
+L'application propose des interfaces web paginées pour lister et afficher les écarts en exergue (routes `/conflicts` et `/conflicts/{sdrNum}`). Face à une collision, l'utilisateur dispose de trois stratégies de résolution (opérées via l'API `/resolve/{origDb}/{sdrNum}`) :
 
-+ *Insertion (Action 4.1)* : Si les deux entrées représentent des soldats différents (vraie collision), l'entrée fille est insérée dans la base `MERE` et supprimée de `CONFLICTS`.
-+ *Écrasement (Action 4.2)* : Si l'entrée fille est une version enrichie et valide de l'entrée mère, l'ancienne entrée mère est archivée dans la table d'historisation `HIST`. L'entrée fille vient ensuite la remplacer dans `MERE` via une opération de mise à jour (`UPSERT`), puis est supprimée de `CONFLICTS`.
-+ *Suppression (Action 4.3)* : Si l'entrée fille est jugée non pertinente, elle est retirée de la table `CONFLICTS` et sauvegardée dans `HIST` afin de garder la donnée accessible en cas de besoin.
+==== Action 4.1 : Insertion
 
-==== Conteneurisation et enjeux de performance
+Si les deux entrées représentent des soldats différents (vraie collision), l'entrée fille est insérée dans la base `MERE` (génération d'un nouvel identifiant) et supprimée de `CONFLICTS`.
 
-L'ensemble de ce système a été pensé sous forme de micro-services conteneurisés avec Docker. L'environnement local orchestrait la base de données (`db`), l'application web principale (`app`), le travailleur asynchrone (`messenger-worker`), la compilation à chaud des styles (`tailwind`) et le serveur web (`nginx`).
+==== Action 4.2 : Écrasement
 
-Cette phase initiale d'ingestion de données brutes a mis en évidence un point critique de performance : la traduction littérale des colonnes CSV (format plat) en colonnes PostgreSQL n'était pas viable à grande échelle. Tester l'outil sur de gros volumes de données (plus de 850 000 entrées générant parfois 80 000 conflits) a prouvé la nécessité absolue de scinder et de normaliser la base de données (création d'entités avec clés primaires et jointures) pour la future application principale, sous peine de subir des délais de latence rédhibitoires (timeouts) lors de la consultation.
+Si l'entrée fille est une version enrichie et valide de l'entrée mère, l'ancienne entrée mère est archivée dans la table d'historisation `HIST`. L'entrée fille vient ensuite la remplacer dans `MERE` via une opération de mise à jour (`UPSERT`), puis est supprimée de `CONFLICTS`.
 
-== Application principale
+==== Action 4.3 : Suppression
+
+Si l'entrée fille est jugée erronée ou non pertinente, elle est retirée de la table `CONFLICTS` et sauvegardée dans `HIST` afin de conserver une trace de la donnée écartée en cas de besoin futur.
+
+=== Ingénierie du déploiement et conteneurisation
+
+Pour assurer l'isolation des processus et garantir la reproductibilité de l'environnement, l'ensemble de ce système a été pensé sous forme de micro-services via Docker Compose. L'environnement orchestre cinq conteneurs interdépendants :
+- `db` : Le moteur de base de données PostgreSQL 18.
+- `app` : Le conteneur principal exécutant l'application Symfony.
+- `messenger-worker` : Un conteneur dédié exclusivement à la consommation des tâches asynchrones en arrière-plan (ingestion des CSV).
+- `tailwind` : Un processus en mode "watch" recompilant à la volée les feuilles de style lors de la modification de l'interface.
+- `nginx` : Le serveur web frontal agissant comme proxy inverse pour exposer l'application sur le port 8080.
+
+=== Limites du modèle de données plat
+
+Cette phase initiale d'ingestion a mis en évidence les limites physiques du format d'origine. Les exports CSV de la base mère, parfois volumineux (certains générant près de 80 000 conflits et représentant plus de 850 000 entrées au total), étaient traduits littéralement en colonnes PostgreSQL.
+
+Tester l'outil sur de tels volumes a mis en exergue des problématiques de redondance de la donnée et des limites d'indexation. Cela a prouvé la nécessité absolue d'engager, pour le cœur de l'application ECM qui allait suivre, un travail profond de normalisation de la base de données (scission des champs libres en entités fortes avec clés primaires et jointures), sous peine de subir des temps de latence rédhibitoires lors des futures recherches et consultations.
+
+== Application principale : conception et réalisation
+
+Une fois la consolidation des données historiques achevée, la phase majeure du projet a consisté à concevoir et développer l'application principale de suivi. Le périmètre fonctionnel, défini par de rigoureuses spécifications, englobe la consultation et la gestion de la base de l'État Civil Militaire (ECM), la saisie d'inspections sur le terrain via tablette, le pilotage budgétaire et la gestion des commandes de plaques.
+
+Bien que l'implémentation de l'ensemble de ces fonctionnalités s'inscrive dans une feuille de route à long terme, mon travail s'est concentré sur la mise en place d'une architecture robuste, d'une chaîne d'intégration continue exigeante et sur le développement des modules centraux.
+
+=== Architecture technique et paradigme "Front-End"
+
+Pour répondre aux enjeux de maintenabilité et de pérennité du client, la pile technologique s'articule autour des dernières normes de l'écosystème PHP : Symfony 7.4 et PHP 8.5, adossés à une base de données PostgreSQL 18.
+
+L'un des choix architecturaux majeurs a été l'abandon des chaînes de compilation JavaScript lourdes (de type Node.js/Webpack) au profit du composant Symfony AssetMapper. Ce paradigme moderne permet de gérer les dépendances front-end (JavaScript et CSS) directement via PHP. L'interface utilisateur est ainsi propulsée par le moteur de gabarits Twig, stylisée dynamiquement via le cadriciel Tailwind CSS (compilé nativement), et rendue interactive grâce à Stimulus (Symfony UX). Cette approche réduit drastiquement la complexité de l'infrastructure de déploiement tout en garantissant des performances optimales côté client.
+
+=== Rigueur logicielle et Intégration Continue (CI/CD)
+
+Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (pipeline Jenkins) particulièrement stricte. Chaque demande de fusion (Merge Request) doit valider des étapes bloquantes avant d'être intégrée à la branche principale :
+
+==== Analyse statique et Typage strict
+
+Le code est analysé par PHPStan, configuré à son niveau d'exigence maximal (Niveau 9). Une ligne de base (`baseline`) a été générée pour la dette technique existante, forçant ainsi tout nouveau code à être irréprochable.
+
+==== Formatage et refactorisation
+
+La syntaxe est uniformisée automatiquement par PHP CS Fixer et Twig CS Fixer. Le code JavaScript est audité par Biome, et l'outil Rector est intégré en mode vérification (`dry-run`) pour suggérer des refactorisations architecturales (Dead code, Code quality, Type declarations).
+
+==== Sécurité
+
+Outre l'audit des dépendances Composer, la CI intègre Gitleaks, un outil scannant l'historique des modifications (via des expressions régulières) pour empêcher la fuite de secrets ou de clés d'API dans le code source.
+
+==== Tests isolés
+
+Les tests fonctionnels et unitaires sont propulsés par PHPUnit. L'utilisation du paquet `dama/doctrine-test-bundle` permet d'exécuter les tests de base de données au sein de transactions automatiquement annulées (rollback), garantissant l'isolation des tests et des performances d'exécution accrues.
+
+=== Implémentation des règles métiers et sécurité
+
+Le cahier des charges impose une gestion fine des habilitations, réparties selon plusieurs rôles : Superadmin, Administrateur ECM, Administrateur Inspection, Chef de secteur et différents profils de consultants. Les droits d'accès ont été modélisés via le composant Security de Symfony (Voters et hiérarchie des rôles), garantissant un accès cloisonné en lecture et en écriture selon l'étendue géographique de l'agent (National vs Secteur).
+
+Le cœur du système repose sur la Base ECM, exigeant des interfaces de recherche multicritères complexes (par individu ou par site). La modélisation a nécessité de relier les entités `Soldat` et `Site` à un riche système de thésaurus (grades, conflits, unités, causes de décès) gérable dynamiquement par les administrateurs.
+
+=== Défis techniques des modules fonctionnels
+
+Bien que l'application comporte de nombreux modules, certains ont représenté des défis techniques et ergonomiques particulièrement intéressants :
+
+==== Gestion des inspections en mobilité
+
+L'application prévoit un module d'inspection destiné à être utilisé par les chefs de secteur sur tablette, directement sur les sites. L'interface a dû être pensée pour le format tactile (boutons larges, listes déroulantes optimisées). D'un point de vue technique, ce module intègre la capture de photographies via l'appareil de la tablette et l'application d'actions par lots (ex: dupliquer l'état de dégradation d'une stèle sur une plage de tombes définie par leurs numéros de rangs et de carrés). \
+Les sites étant souvent situés dans des endroits reculés, en particulier pour les carrés militaires que l'on peut trouver dans des cimetières de villages, voire de hameaux, le chef de secteur les insoectant n'aura pas toujours accès à internet. La solution envisagée est le téléchargement préalable des données nécéessaires dans le cache dunavigateur, permettant ainsi un usage totalement hors-ligne. Une fois l'inspection terminée et la tablette placée dans un lieu avec accès internet, le formulaire d'inspection peut être soumis et enregistré sur la base de données de l'application.
+
+==== Flux de validation (Workflow)
+
+Pour protéger l'intégrité des données historiques (sépultures perpétuelles, mentions "Mort pour la France"), les chefs de secteur ne peuvent pas altérer directement les champs sensibles. Un flux de validation a été implémenté : la modification soumise génère une demande de révision (avec système de notifications et d'emails gérés via `symfony/mailer`) que l'Administrateur ECM doit valider ou refuser avec justification depuis un tableau de bord dédié.
+
+==== Interopérabilité et Exports
+
+L'application devant alimenter le portail national "Mémoire des Hommes", un système d'export sur mesure a été pensé. Ce système génère asynchrone des fichiers formats plats encapsulant les dernières modifications règlementaires et l'état des sites.
 
 = PIAWEB : Une histoire de DevOps
 
@@ -339,6 +460,14 @@ Si l'implémentation du correctif ne nécessita que quelques minutes, la validat
 == Appareillage sur lest // conteneur parti sans contenu
 
 = Conclusion
+
+== À propos de PHP/Symfony #todo("définir un titre")
+
+#todo("raconter ma life sur le typage, Twig etc, comparer à Java, Spring Boot et JS/TS")
+
+== Enrichissement personnel
+
+#todo("parler de l'envied de bosser à la dinum, souveraineté numérique, FabPot")
 
 #pagebreak()
 
