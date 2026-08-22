@@ -1,3 +1,4 @@
+#import "@preview/diagraph:0.3.7": render
 #let author = "Vianney HERVY"
 
 #let monolink(content) = link(content, raw(content))
@@ -299,6 +300,12 @@ Pour répondre à ce besoin, j'ai conçu une architecture transactionnelle async
 - *Répartition automatique (Étape 3)* : Un algorithme compare ensuite les entrées de `TMP` avec celles de la base `MERE`. Les lignes sans conflit d'identifiant y sont intégrées directement. En revanche, les lignes soulevant une collision sur le `sdr_num` sont isolées dans la table `CONFLICTS`. La table `TMP` est ensuite purgée de l'entrée fille.
 - *Interface de résolution manuelle* : L'application propose des interfaces web (développées avec le moteur de template Twig et le cadriciel Tailwind CSS) permettant de lister de manière paginée les conflits détectés (route `/conflicts`) et d'en afficher les écarts en exergue (route `/conflicts/{sdrNum}`).
 
+
+#align(center, figure(
+  render(read("assets/onacvg-migration.dot")),
+  caption: "Flux de traitement de migration",
+))
+
 ==== Stratégies de résolution des conflits
 
 Face à une collision signalée dans l'interface, l'utilisateur dispose de trois stratégies de résolution (opérées via l'API `/resolve/{origDb}/{sdrNum}`) :
@@ -306,8 +313,6 @@ Face à une collision signalée dans l'interface, l'utilisateur dispose de trois
 + *Insertion (Action 4.1)* : Si les deux entrées représentent des soldats différents (vraie collision), l'entrée fille est insérée dans la base `MERE` et supprimée de `CONFLICTS`.
 + *Écrasement (Action 4.2)* : Si l'entrée fille est une version enrichie et valide de l'entrée mère, l'ancienne entrée mère est archivée dans la table d'historisation `HIST`. L'entrée fille vient ensuite la remplacer dans `MERE` via une opération de mise à jour (`UPSERT`), puis est supprimée de `CONFLICTS`.
 + *Suppression (Action 4.3)* : Si l'entrée fille est jugée non pertinente, elle est retirée de la table `CONFLICTS` et sauvegardée dans `HIST` afin de garder la donnée accessible en cas de besoin.
-
-#figure(image("assets/onacvg-migration.svg"), caption: "Flux de traitement de migration")
 
 ==== Conteneurisation et enjeux de performance
 

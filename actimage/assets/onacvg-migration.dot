@@ -1,8 +1,8 @@
 digraph Architecture {
     // Default styles
     rankdir=LR
-    node [shape=box, fontname="Helvetica"];
-    edge [fontname="Helvetica", fontsize=11];
+    node [shape=box];
+    edge [fontsize=11];
 
     // Invisible start node to create the initial incoming arrow
     start [shape=none, label="", width=0, height=0];
