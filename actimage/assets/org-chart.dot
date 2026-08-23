@@ -1,0 +1,43 @@
+digraph ORG {
+
+    rankdir=LR
+    splines=ortho;
+    ranksep=1;
+
+    node[shape=box3d, width=2, height=0.7];
+
+    CME[label="Christophe Megel\nPDG"];
+
+    ERO[label="Emmeline Rougies\nResponsable RH"];
+    ASO[label="Alexia Souchet\nResponsable recrutement"];
+    HMO[label="Henri de Mourgues\nContrôleur de gestion"];
+    ERO -> {ASO HMO}
+
+    GSE[label="Guillaume Sensenbrenner\nDirecteur d'agence (Metz)"];
+    GMA[label="Geoffrey Marhoffer\nDéveloppeur Web"];
+    GSE -> {GMA}
+
+    GDR[label="Guillaume Dreyer\nDirecteur d'agence (Luxembourg)"];
+    COB[label="Cyril Obrecht\nLead développeur"];
+    APA[label="Anthony Paladino\nDevOps"];
+    GDR -> {COB APA}
+
+    DKO[label="David Kolin\nDirecteur d'agence (Paris)"];
+    MCO[label="Matthias Constant\nChef de projet"];
+    MBR[label="Marine Brossard\n UX/UI Designer"];
+    ADE[label="Aurélie Demure\nIngénieur conseil"];
+    VHE[label="Vianney Hervy\nIngénieur logiciel"];
+    WMS[label="Walid Msaddek\nSenior développeur"];
+    ADA[label="Amine Dahmar\nDéveloppeur"];
+    RCA[label="Romain Capron"];
+    LLE[label="Lucas Lecoin\nDeveloppeur Web"];
+    THA[label="Thomas Harir-Forouch\nDéveloppeur commercial"];
+    DKO -> {MCO MBR VHE ADE RCA WMS ADA LLE THA}
+
+    BGA[label="Benjamin Gassmann\nDirecteur d'agence (Strasbourg)"];
+    BDU[label="Brice Dumont\nLead développeur"];
+    CNO[label="Cédric Noël\nChef de projet"];
+    BGA -> {BDU CNO}
+
+    CME -> {ERO GSE DKO GDR BGA}
+}

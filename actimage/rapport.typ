@@ -167,6 +167,14 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 
 Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel PDG. Le travail de l'entreprise est divisé en 3 pôles principaux communicants: le développement, le conseil et la #rd. Mon stage s'est déroulé dans le pôle développement mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets. Les effectifs d'Actimage sont répartis entre 8 agences dans 5 pays. Celles avec lesquelles j'ai le plus été en contact sont Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
 
+=== Membres de l'entreprise
+
+
+#align(center, figure(
+  render(read("assets/org-chart.dot"), width: 70%),
+  caption: "Organigramme de l'entreprise",
+))
+
 === Réalisations
 
 ==== DSFR
@@ -223,7 +231,7 @@ Par ailleurs, la capitalisation de la connaissance technique souffrait d'un cert
 
 Si le terminal et Neovim constituent mon espace de création logique, le navigateur web représente l'environnement d'exécution final, le véritable "compilateur visuel" de mon travail. Au sein d'Actimage, bien que certains collaborateurs aient opté pour Mozilla Firefox ou Opera, j'ai fait le choix de conserver Google Chrome. Cette décision était principalement motivée par une continuité d'usage avec mon environnement personnel, mais aussi pour sa rapidité d'exécution et la modernité de son moteur.
 
-Ma configuration du navigateur est restée minimaliste. La seule extension véritablement indispensable à mon flux de travail était Bitwarden, configurée pour se synchroniser avec l'Actipass, l'instance auto-hébergée du gestionnaire de mots de passe d'Actimage, garantissant un accès sécurisé aux différents environnements de développement et de pré-production. Avec le recul, la création de profils Chrome distincts (un personnel et un professionnel) aurait été judicieuse. Par manque d'isolation de contexte, mes favoris personnels et professionnels se sont retrouvés entremêlés. Pour pallier l'absence de profils isolés par projet et éviter les conflits de sessions ou d'états, j'ai pris l'habitude de recourir massivement à la navigation privée ou aux rechargements forcés avec vidage du cache (_Hard Refresh_) afin de simuler le comportement d'un nouvel utilisateur vierge de tout historique.
+Ma configuration du navigateur est restée minimaliste. La seule extension véritablement indispensable à mon flux de travail était Bitwarden, configurée pour se synchroniser avec l'Actipass, l'instance auto-hébergée du gestionnaire de mots de passe d'Actimage, garantissant un accès sécurisé aux différents environnements de développement et de pré-production. Avec le recul, la création de profils Chrome distincts (un personnel et un professionnel) aurait été judicieuse. Par manque d'isolation de contexte, mes favoris personnels et professionnels se sont retrouvés entremêlés. Pour pallier l'absence de profils isolés par projet et éviter les conflits de sessions ou d'états, j'ai pris l'habitude de recourir massivement à la navigation privée ou aux rechargements forcés avec vidage du cache afin de simuler le comportement d'un nouvel utilisateur vierge de tout historique.
 
 Dans l'écosystème Symfony, une grande partie du débogage est facilitée par l'excellent profileur Symfony, une barre d'outils injectée en bas de page offrant une visibilité totale sur le cycle de vie de la requête HTTP (requêtes SQL exécutées, temps de réponse, formulaires soumis, événements déclenchés). Néanmoins, le profileur atteint ses limites dès lors qu'il s'agit d'inspecter le comportement du code exécuté côté client. C'est ici que les outils de développement intégrés à Chrome (_DevTools_) prenaient le relais.
 
