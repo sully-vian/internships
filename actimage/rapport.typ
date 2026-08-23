@@ -34,7 +34,7 @@
   note: "https://www.onac-vg.fr",
 )
 #let rd = acronym("R et D", "recherche et développement")
-#let ide = acronym("IDE", "environnement de développement integré")
+#let ide = acronym("IDE", "environnement de développement intégré")
 #let ecm = acronym("ECM", "état civil militaire")
 #let cpmivg = acronym("CPMIVG", "Code des pensions militaires d'invalidité et des victimes de guerre")
 #let sfd = acronym("SFD", "spécifications fonctionnelles détaillées")
@@ -126,7 +126,7 @@
       #v(1em)
       *Encadrant chez Actimage* \
       David KOLIN \
-      (ex-)Directeur de l'agence Paris-Arcueil \
+      (ex-)Directeur de l'agence Paris-Arcueil
     ]
   ],
 )
@@ -150,7 +150,7 @@
 
 Avant tout, je tiens à remercier mes deux encadrants sur cette expérience enrichissante qu'a été ce stage de fin d'étude. David pour son accompagnement, ses conseils et son humour, Matthias pour sa patience, sa bienveillance et ses succulents repas de fin de semaine.
 
-Mes remerciements s'étendent à l'ensemble de mes collègues de l'agence Actimage Paris-Arcueil et d'ailleurs. Par ordre alphabétique: Aurélie, ma co-stagiaire solidaire pour son amitié, sa politesse et sa conversation ; Marine pour sa jovialité, sa créativité et son attention aux détails ; Romain pour sa curiosité et nos discussions technophiles ; et enfin Thomas, pour sa spontanéité et sa précieuse expertise footballistique.
+Mes remerciements s'étendent à l'ensemble de mes collègues de l'agence Actimage Paris-Arcueil et d'ailleurs. Par ordre alphabétique : Aurélie, ma co-stagiaire solidaire pour son amitié, sa politesse et sa conversation ; Marine pour sa jovialité, sa créativité et son attention aux détails ; Romain pour sa curiosité et nos discussions technophiles ; et enfin Thomas, pour sa spontanéité et sa précieuse expertise footballistique.
 
 Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est sûrement pour quelque chose dans la réussite de ce stage.
 
@@ -181,11 +181,11 @@ Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel 
 
 L'expertise d'Actimage en développement brille tout particulièrement sur les marchés publics. L'entreprise a notamment participé à la conception du  #dsfr. Le #dsfr regroupe un ensemble de règles et de composants réutilisables pour les interfaces officielles des sites en `.gouv.fr`. Il permet à l'État d'offrir des services numériques simples, accessibles et reconnaissables. C'est notamment celui que vous retrouvez sur #monolink("impots.gouv.fr"), #monolink("ants.gouv.fr") et #monolink("sante.gouv.fr").
 
-Ce système de design est conçu pour être agnostique et modulaire. Il se décline sous plusieurs formats afind de couvrir tout le cycle de vie d'un projet de la phase de conception, au prototypage, à l'implémentation technique. Il existe notamment une librairie Figma, un socle de base en Vanilla  HTML/CSS/JS à travers le paquet `@gouvfr/dsfr` ainsi que des portages développés par la communauté tels que `@codegouvfr/react-dsfr` (React), `@gouvminint/vue-dsfr` (Vue), `ngx-dsfr` (Angular), `django-dsfr` (Django) et `drupal/ui_suite_dsfr` (Drupal).
+Ce système de design est conçu pour être agnostique et modulaire. Il se décline sous plusieurs formats afin de couvrir tout le cycle de vie d'un projet de la phase de conception, au prototypage, à l'implémentation technique. Il existe notamment une librairie Figma, un socle de base en  HTML/CSS/JS natif à travers le paquet `@gouvfr/dsfr` ainsi que des portages développés par la communauté tels que `@codegouvfr/react-dsfr` (React), `@gouvminint/vue-dsfr` (Vue), `ngx-dsfr` (Angular), `django-dsfr` (Django) et `drupal/ui_suite_dsfr` (Drupal).
 
 ==== Site officiel du Gouvernement
 
-L'un des sites majeurs du gouvernement est #monolink("info.gouv.fr"). C'est aussi un des projets principaux d'Actimage qui en réalise le développement dorsal et une partie du développement frontal. Plusieurs développeurs travaillent à temps plein sur ce projet, dont même certains physiquement au #sig.
+L'un des sites majeurs du gouvernement est #monolink("info.gouv.fr"). C'est aussi un des projets principaux d'Actimage qui en réalise le développement côté serveur et une partie du développement cé client. Plusieurs développeurs travaillent à temps plein sur ce projet, dont même certains physiquement au #sig.
 
 ==== BDnf
 
@@ -221,7 +221,7 @@ Le flux de communication synchrone était assuré par Microsoft Teams. Bien que 
 
 Pour la communication asynchrone et formelle, Microsoft Outlook était de rigueur. Ce canal était privilégié pour les échanges directs avec les clients, souvent organisés via des listes de diffusion. La boîte de réception agissait également comme un agrégateur d'événements : j'y recevais les rappels de réunions, les annonces internes de l'entreprise, mais surtout les notifications automatisées générées par les outils de billetterie (_ticketing_) des clients. Ces alertes me permettaient de suivre en temps réel la progression des tickets d'anomalie ou l'évolution d'un fil de discussion lié à une spécification fonctionnelle.
 
-Concernant la gestion documentaire, une dichotomie marquée existait entre les aspects "métiers" et les aspects purement "techniques" des projets. Toute la documentation fonctionnelle et contractuelle était centralisée sur SharePoint. On y retrouvait une arborescence dense composée de documents Microsoft Word pour les spécifications, des notes de restitution d'ateliers clients, ainsi que les volumineux fichiers CSV servant de thésaurus pour l'application de l'ONaCVG.
+Concernant la gestion documentaire, une dichotomie marquée existait entre les aspects "métiers" et les aspects purement "techniques" des projets. Toute la documentation fonctionnelle et contractuelle était centralisée sur SharePoint. On y retrouvait une arborescence dense composée de documents Microsoft Word pour les spécifications, des notes de restitution d'ateliers clients, ainsi que les volumineux fichiers CSV servant de thésaurus pour l'application de l'#onacvg.
 
 Cependant, l'expérience utilisateur offerte par l'interface web de SharePoint contrastait fortement avec la vélocité de mon environnement de développement sous Linux. Naviguer au sein de ces dossiers imbriqués s'avérait particulièrement laborieux en comparaison de la fluidité offerte par des outils de navigation en ligne de commande basés sur des recherches floues, tels que `fzf` ou `zoxide`, que j'utilise quotidiennement dans mon terminal.
 
@@ -236,10 +236,22 @@ Ma configuration du navigateur est restée minimaliste. La seule extension véri
 Dans l'écosystème Symfony, une grande partie du débogage est facilitée par l'excellent profileur Symfony, une barre d'outils injectée en bas de page offrant une visibilité totale sur le cycle de vie de la requête HTTP (requêtes SQL exécutées, temps de réponse, formulaires soumis, événements déclenchés). Néanmoins, le profileur atteint ses limites dès lors qu'il s'agit d'inspecter le comportement du code exécuté côté client. C'est ici que les outils de développement intégrés à Chrome (_DevTools_) prenaient le relais.
 
 Je sollicitais les _DevTools_ pour plusieurs cas d'usage bien précis :
-- *L'onglet Éléments (Elements) :* Il s'est avéré particulièrement redoutable pour le développement de l'interface utilisateur. Utilisant le cadriciel CSS utilitaire Tailwind, je pouvais manipuler les attributs de classe des éléments HTML à la volée directement dans le DOM. Cette méthode permet de valider instantanément un comportement visuel ou un ajustement responsif dans le navigateur, avant d'aller inscrire la classe correspondante en dur dans les gabarits Twig.
-- *L'onglet Sources :* Je le consultais régulièrement pour m'assurer que le navigateur avait bien récupéré les dernières versions compilées de mes scripts JavaScript et feuilles de style, un point de vérification essentiel lors de l'utilisation du composant Symfony AssetMapper qui gère le versionnage des fichiers statiques.
-- *L'onglet Réseau (Network) :* Bien que le profileur Symfony permette d'analyser le temps des requêtes, l'onglet Réseau de Chrome était très pratique pour visualiser les requêtes asynchrones en cascade, notamment lors de l'ingestion de lourdes charges de données ou lors des appels API du formulaire d'inspection de l'ONaCVG.
-- *La Console :* Elle venait combler une lacune majeure du profileur Symfony : l'absence d'agrégation des erreurs JavaScript. La console était mon outil de diagnostic principal pour traquer les avertissements, lire les erreurs remontées par les contrôleurs Stimulus (Symfony UX), ou exécuter rapidement des requêtes exploratoires sur des objets du DOM.
+
+==== L'onglet Éléments (Elements)
+
+Il s'est avéré particulièrement redoutable pour le développement de l'interface utilisateur. Utilisant le cadriciel CSS utilitaire Tailwind, je pouvais manipuler les attributs de classe des éléments HTML à la volée directement dans le DOM. Cette méthode permet de valider instantanément un comportement visuel ou un ajustement responsif dans le navigateur, avant d'aller inscrire la classe correspondante en dur dans les gabarits Twig.
+
+==== L'onglet Sources
+
+Je le consultais régulièrement pour m'assurer que le navigateur avait bien récupéré les dernières versions compilées de mes scripts JavaScript et feuilles de style, un point de vérification essentiel lors de l'utilisation du composant Symfony AssetMapper qui gère le versionnage des fichiers statiques.
+
+==== L'onglet Réseau (Network)
+
+Bien que le profileur Symfony permette d'analyser le temps des requêtes, l'onglet Réseau de Chrome était très pratique pour visualiser les requêtes asynchrones en cascade, notamment lors de l'ingestion de lourdes charges de données ou lors des appels API du formulaire d'inspection de l'#onacvg.
+
+==== La Console
+
+Elle venait combler une lacune majeure du profileur Symfony : l'absence d'agrégation des erreurs JavaScript. La console était mon outil de diagnostic principal pour traquer les avertissements, lire les erreurs remontées par les contrôleurs Stimulus (Symfony UX), ou exécuter rapidement des requêtes exploratoires sur des objets du DOM.
 
 Enfin, concernant le débogage côté serveur, l'outil Xdebug était bien configuré et présent dans la pile Docker de l'application ONaCVG. Toutefois, je n'en ai eu qu'un usage extrêmement marginal. La combinaison d'une analyse statique très stricte (PHPStan), garantissant la cohérence des types et de la logique structurelle en amont, couplée à la richesse d'informations délivrées par le profileur Symfony et aux tests unitaires, permettait d'identifier l'origine des anomalies sans avoir à recourir à l'exécution pas-à-pas offerte par un débogueur traditionnel.
 
@@ -289,7 +301,7 @@ L'#onacvg est un établissement public administratif français placé sous la tu
 
 Parmi ses prérogatives, l'#onacvg exerce une compétence juridique spécifique en matière de sépultures militaires, un domaine encadré par le #cpmivg @wiki-onacvg. L'institution est explicitement chargée de la mise en œuvre de l'entretien, de la rénovation et de la valorisation des sépultures de guerre @wiki-onacvg. En effet, la loi pose le principe d'une sépulture perpétuelle pour les militaires déclarés « Mort pour la France », qu'ils reposent au sein de nécropoles nationales ou de carrés militaires communaux, et dont l'entretien incombe à l'État @wiki-onacvg.
 
-C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un appel d'offres visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage en #todo("insérer date"). Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée s'adresse exclusivement à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
+C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un appel d'offres visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage en #todo("insérer date"). Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée est exclusivement destinée à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
 
 === L'existant : un défi de taille et de structure de la donnée
 
@@ -326,7 +338,7 @@ Enfin, le système devait respecter une contrainte forte d'interopérabilité av
 
 Dans le cadre de ce projet, nos interlocuteurs de l'#onacvg étaient Audrey Paolasini, cheffe du département des achats,Emmanuelle PORTUGAL, archiviste, #todo("le reste").
 
-Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que chef de projet, Marine responsable de l'UI/UX, Aurélie en assistance chefferie de projet, rédaction de spécifications et élagement en développement #todo("demander son rôle exact"), Brice en tant que _lead developper_, et Amine et moi-même en tant que développeurs.
+Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que chef de projet, Marine responsable de l'UI/UX, Aurélie en assistance chefferie de projet, rédaction de spécifications et également en développement #todo("demander son rôle exact"), Brice en tant que _lead developer_, et Amine et moi-même en tant que développeurs.
 
 Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'appel d'offre. En découlent des maquettes Figma @figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
 
@@ -440,8 +452,9 @@ Bien que l'application comporte de nombreux modules, certains ont représenté d
 
 ==== Gestion des inspections en mobilité
 
-L'application prévoit un module d'inspection destiné à être utilisé par les chefs de secteur sur tablette, directement sur les sites. L'interface a dû être pensée pour le format tactile (boutons larges, listes déroulantes optimisées). D'un point de vue technique, ce module intègre la capture de photographies via l'appareil de la tablette et l'application d'actions par lots (ex: dupliquer l'état de dégradation d'une stèle sur une plage de tombes définie par leurs numéros de rangs et de carrés). \
-Les sites étant souvent situés dans des endroits reculés, en particulier pour les carrés militaires que l'on peut trouver dans des cimetières de villages, voire de hameaux, le chef de secteur les insoectant n'aura pas toujours accès à internet. La solution envisagée est le téléchargement préalable des données nécéessaires dans le cache dunavigateur, permettant ainsi un usage totalement hors-ligne. Une fois l'inspection terminée et la tablette placée dans un lieu avec accès internet, le formulaire d'inspection peut être soumis et enregistré sur la base de données de l'application.
+L'application prévoit un module d'inspection destiné à être utilisé par les chefs de secteur sur tablette, directement sur les sites. L'interface a dû être pensée pour le format tactile (boutons larges, listes déroulantes optimisées). D'un point de vue technique, ce module intègre la capture de photographies via l'appareil de la tablette et l'application d'actions par lots (ex: dupliquer l'état de dégradation d'une stèle sur une plage de tombes définie par leurs numéros de rangs et de carrés).
+
+Les sites étant souvent situés dans des endroits reculés, en particulier pour les carrés militaires que l'on peut trouver dans des cimetières de villages, voire de hameaux, le chef de secteur les inspectant n'aura pas toujours accès à internet. La solution envisagée est le téléchargement préalable des données nécessaires dans le cache du navigateur, permettant ainsi un usage totalement hors-ligne. Une fois l'inspection terminée et la tablette placée dans un lieu avec accès internet, le formulaire d'inspection peut être soumis et enregistré sur la base de données de l'application.
 
 ==== Flux de validation (Workflow)
 
@@ -449,23 +462,134 @@ Pour protéger l'intégrité des données historiques (sépultures perpétuelles
 
 ==== Interopérabilité et Exports
 
-L'application devant alimenter le portail national "Mémoire des Hommes", un système d'export sur mesure a été pensé. Ce système génère asynchrone des fichiers formats plats encapsulant les dernières modifications règlementaires et l'état des sites.
+L'application devant alimenter le portail national "Mémoire des Hommes", un système d'export sur mesure a été pensé. Ce système génère de manière asynchrone des fichiers formats plats encapsulant les dernières modifications règlementaires et l'état des sites.
 
 = PIAWEB : Une histoire de DevOps
 
-L'application PIAWEB#footnote[Contraction de Programme d'Investissements d'Avenir (PIA) et de Web.]  dont Actimage réalise les développements et dirige les déploiements sur les serveurs clients est un projet de répertoire pour suivre les différentes actions du plan d'investissement France 2030 qui relèvent spécifiquement du #mesr.
+L'application PIAWEB#footnote[Contraction de Programme d'Investissements d'Avenir (PIA) et de Web.] dont Actimage réalise les développements et dirige les déploiements sur les serveurs clients est un projet de répertoire pour suivre les différentes actions du plan d'investissement France 2030 qui relèvent spécifiquement du #mesr.
 
-Ce projet est actuellement en phase de #tma, peu de développements sont réalisés, majoritairement des corrections de bogues ou des évolutions mineures. La pile technologique repose sur du Spring et du Angular, une solution légèrement plus élaborée que celle proposée pour l'onacvg puisqu'elle requiert deux conteneurs serveur distincts pour le web frontal et dorsal.
+Ce projet est actuellement en phase de #tma, peu de développements sont réalisés, majoritairement des corrections de bogues ou des évolutions mineures. La pile technologique repose sur du Spring et du Angular, une solution légèrement plus élaborée que celle proposée pour l'#onacvg puisqu'elle requiert deux conteneurs serveur distincts pour le web frontal et dorsal.
 
-== Le bogue
+== #todo("find title")
 
-Étant l'un des développeurs les moins coûteux, j'ai été assigné à la correction d'un bogue d'affichage ordinaire pour lequel plusieurs de mes collègues avaient déjà imputé du temps. La plongée laborieuse dans le code source d'un projet dont la teneur m'échappait encore et dont le cadriciel frontal ne m'était pas familier m'a contraint à optimiser mon débogage afin d'identifier la source du problème sans avoir à explorer l'entièreté de l'application. Quelques échanges de tickets avec le client plus tard et j'arrivais à reproduire le comportement anormal sur mon poste. Le problème venait d'un bête formulaire de recherche dont la pagination n'était pas rapportée à 1 lorsque l'utilisateur changeait les critères de recherche, permettant ainsi d'accéder à la troisième page pour une recherche ne remontant qu'une page de résultats par exemple.
+=== Architecture de l'environnement DevOps et de l'infrastructure
+
+L'hébergement et le déploiement de PIAWEB s'appuient sur une infrastructure robuste et standardisée, représentative des bonnes pratiques du pôle Digital d'Actimage. L'ensemble des environnements est conteneurisé à l'aide de Docker, ce qui garantit une isolation parfaite des processus et une reproductibilité des déploiements.
+
+L'architecture matérielle du serveur alloué au projet se distingue par la présence d'un disque supplémentaire de 100 Go, géré et partitionné dynamiquement via LVM (Logical Volume Manager). Cet espace est stratégiquement découpé :
+- Un volume LVM de 70 Go est monté sur le répertoire `/srv/`. Ce répertoire centralise l'installation de Docker, les différentes instances déployées du projet, ainsi que les exécuteurs (runners) GitLab. Par défaut, le répertoire d'installation de Docker a d'ailleurs été reconfiguré pour pointer vers `/srv/docker` afin d'exploiter cet espace de stockage étendu.
+- Un second volume LVM de 30 Go est monté sur `/srv/registry/` et est exclusivement dédié aux besoins du registre d'images (Harbor), permettant de stocker les images Docker générées.
+
+L'accès aux différents services web est orchestré par un serveur mandataire inverse (reverse-proxy) Nginx. Les configurations d'accès sont gérées classiquement via les répertoires `/etc/nginx/sites-available` et `sites-enabled`. Afin de protéger les environnements hors production, une restriction d'accès de type `auth_basic` est implémentée. Différents fichiers d'identifiants (`.htpasswd_actimage`, `.htpasswd_client`, `.htpasswd_all`) sont utilisés pour cloisonner l'accès selon qu'il s'agisse de l'environnement d'intégration (réservé à Actimage) ou de recette (ouvert au client).
+
+La pile applicative elle-même est divisée en trois conteneurs principaux :
+
+==== Backend
+
+Développé en Java 17 avec Springboot 2.7, ce module expose les services de l'application et se connecte à la base de données.
+
+==== Frontend
+
+Les interfaces utilisateur en Angular, dont les composants transpilés sont servis par un serveur Nginx interne et autonome.
+
+==== Flyway
+
+Un conteneur éphémère dédié exclusivement à la gestion et à l'exécution des scripts de migration SQL pour faire évoluer la structure de la base de données PostgreSQL à chaque changement des entités qui cause un changement de schéma de table. Ce conteneur se lance lorsque l'application est mise en ligne et s'arrête dès que les migrations sont effectuées.
+
+#todo(
+  "Insérer ici un schéma DOT représentant l'architecture physique et logique de l'infrastructure PIAWEB.
+   Exemple de contenu DOT :
+   digraph architecture {
+     rankdir=LR;
+     Internet -> Nginx [label='HTTPS'];
+     Nginx -> 'Frontend (Angular)' [label='Proxy'];
+     Nginx -> 'Backend (Spring)' [label='API'];
+     'Backend (Spring)' -> 'PostgreSQL' [label='JDBC'];
+     'Flyway' -> 'PostgreSQL' [label='Migration'];
+   }
+",
+)
+
+=== Intégration Continue et Déploiement Continu (CI/CD)
+
+Afin de fluidifier le cycle de développement et de garantir la qualité du code, le projet s'appuie sur la plateforme GitLab pour son intégration continue. L'organisation du code est modulaire : un macro-projet centralise la configuration CI/CD, tandis que les différents composants (frontend, backend, base de données, infrastructure Docker) sont gérés sous forme de sous-modules Git.
+
+L'exécution des tâches de la CI/CD est confiée à des GitLab Runners installés manuellement sur le serveur d'intégration. L'environnement s'appuie sur deux types d'exécuteurs :
+- Un *runner Docker* (`runner-gitlab-piaweb-int`) : utilisé pour exécuter les tâches dans des conteneurs isolés, garantissant des environnements de construction propres et jetables.
+- Un *runner Shell* (`runner-gitlab-piaweb-shell`) : configuré pour s'exécuter directement sur la machine hôte via un utilisateur système dédié (`gitlab-runner`). Bien que son usage soit généralement déconseillé car il peut laisser des fichiers résiduels, il est parfois nécessaire pour interagir directement avec l'infrastructure du serveur d'intégration.
+
+Les pipelines (ou chaînes de traitement) sont configurés pour se déclencher selon des événements précis : lors de la soumission de code sur une branche spécifique, lors de la création d'une étiquette (tag), ou lors d'une publication (release).
+
+=== Gestion des environnements et stratégie de branche
+
+Le cycle de vie du code de PIAWEB est rythmé par le passage à travers différents environnements, chacun répondant à un besoin spécifique et associé à des stratégies de branches Git rigoureuses :
+
+==== De `dev` vers `int` (Intégration)
+
+Les environnements de développement local et d'intégration sont techniquement identiques. Ils exploitent les outils de rechargement à chaud (comme Springboot DevTool). À ce stade, le code source n'est pas "figé" dans les images Docker, mais monté via des volumes, ce qui évite de devoir reconstruire les images à chaque modification et accélère considérablement le cycle de développement. La mise à jour de l'environnement d'intégration se fait via de simples commandes `git pull` et `git submodule update`, suivies d'une compilation Maven (`mvn clean install`), tout ceci facilité par l'usage de clés de déploiement (Deploy Keys) configurées sur la machine virtuelle.
+
+==== De `int` vers `rec` (Recette)
+
+C'est lors du passage en recette que le paradigme change radicalement. Le code applicatif est désormais compilé et intégré en dur au sein même des images Docker. Ce figeage garantit que l'image testée par le client sera strictement identique à celle qui sera mise en production.
+
+==== De `rec` vers `prep` (Pré-production)
+
+Il s'agit d'environnements différents, mais qui exploitent les mêmes images Docker. Cette étape permet de valider le comportement de la version packagée dans une infrastructure imitant la production.
+
+==== De `prep` vers `prod` (Production)
+
+L'environnement et les images Docker restent les mêmes que lors de l'étape de pré-production. L'enjeu ici n'est plus technique mais critique : appliquer la mise à jour sans provoquer d'interruption de service ou d'anomalie sur le système en exploitation.
+
+#todo("schéma des différentes branches Git")
+
+=== Le processus de livraison et de montée de version
+
+La livraison d'une nouvelle version de PIAWEB est une procédure méticuleuse qui demande rigueur et précision. La responsabilité de la création des livrables incombe à l'utilisateur système `piaweb` directement sur le serveur.
+
+La procédure débute par la récupération des dernières modifications du code source depuis la branche de recette (`rec`) et de tous ses sous-modules. Le code dorsal est ensuite compilé via l'outil Maven (`mvn clean install`). Une fois les binaires générés, la construction des nouvelles images Docker (`backend`, `frontend`, et `flyway`) est lancée en désactivant le cache pour forcer une reconstruction totale.
+
+Ces nouvelles images sont ensuite étiquetées (taggées) avec le numéro de version correspondant (par exemple `$CI_COMMIT_TAG`) et envoyées (poussées) vers le registre d'images privé d'Actimage (`piaweb-registry.actimage-ext.net`). L'accès à ce registre est protégé et nécessite une authentification préalable via la commande `docker login`.
+
+Une fois les livrables créés et sécurisés sur le registre, la mise à jour effective de l'environnement (la montée de version) peut avoir lieu. Ce processus suit une chorégraphie immuable :
+
+==== Arrêt des services
+
+Les modules applicatifs en cours d'exécution sont stoppés proprement grâce à des scripts dédiés (`stop.sh`) présents dans l'arborescence de chaque composant.
+
+==== Sauvegarde
+
+Avant toute manipulation des données, une sauvegarde complète de la base de données PostgreSQL est réalisée (via un export `pg_dump` compressé en `.zst`), garantissant un point de restauration en cas de problème.
+
+==== Configuration
+
+Les fichiers de configuration d'environnement (`host.env`) des différents modules sont édités pour faire pointer la variable `VERSION` vers le nouvel identifiant de l'image Docker fraîchement produite.
+
+==== Migration des données
+
+Le script de migration Flyway (`flyway.sh migrate`) est exécuté. Il se charge d'appliquer séquentiellement les nouveaux scripts SQL nécessaires à la mise à jour de la structure ou des données de la base, tout en traçant son exécution.
+
+==== Démarrage et contrôle
+
+Les modules backend et frontend sont finalement relancés via leurs scripts `start.sh`. Le bon déroulement de l'opération est vérifié en inspectant les journaux de bord (logs) des conteneurs en temps réel. Il est impératif de lancer le module dorsal en premier puisqu'il peut fonctionner seul. Le module frontal, quant à lui, essaie automatiquement de se connecter au dorsal, pouvant entraîner un crash au démarrage si celui-ci n'est pas encore prêt à traiter des requêtes entrantes.
+
+Si la recette est validée par le client, la version est promue en production. Les images testées sont simplement re-taggées avec le préfixe `prod-` puis propulsées sur l'environnement de production, assurant ainsi qu'aucune modification de code n'a pu altérer l'application entre la phase de test et la mise en ligne finale.
+
+#todo(
+  "Insérer ici un schéma de flux (flowchart) illustrant les étapes de la livraison :
+   Code -> Build Maven -> Build Docker -> Docker Push (Registry) -> Stop Containers -> Backup DB -> Config update -> Flyway Migrate -> Start Containers",
+)
+
+== #todo("find title")
+
+=== Le bogue
+
+Étant l'un des développeurs les moins coûteux, j'ai été assigné à la correction d'un bogue d'affichage ordinaire pour lequel plusieurs de mes collègues avaient déjà imputé du temps. La plongée laborieuse dans le code source d'un projet dont la teneur m'échappait encore et dont le cadriciel frontal ne m'était pas familier m'a contraint à optimiser mon débogage afin d'identifier la source du problème sans avoir à explorer l'entièreté de l'application. Quelques échanges de tickets avec le client plus tard et j'arrivais à reproduire le comportement anormal sur mon poste. Le problème venait d'un simple formulaire de recherche dont la pagination n'était pas rapportée à 1 lorsque l'utilisateur changeait les critères de recherche, permettant ainsi d'accéder à la troisième page pour une recherche ne remontant qu'une page de résultats par exemple.
 
 Si l'implémentation du correctif ne nécessita que quelques minutes, la validation de la demande de fusion sur la branche de développement `dev` fut actée en une demi-heure. L'intervention aurait pu s'achever sur cette bonne note, mais l'équipe DevOps m'a confié la responsabilité de l'intégralité du cycle de livraison de cette version, incluant la montée sur les différents environnements et le déploiement final chez le client.
 
-== Le châtaignier // branches à bogues
+=== Appareillage sur lest // conteneur parti sans contenu
 
-== Appareillage sur lest // conteneur parti sans contenu
+Le cycle de livraison d'une version du site PIAWEB passe par plusieurs phases différentes, évoluant lentement de l'environnement de développement vers l'environnement de production.
 
 = Conclusion
 
@@ -475,7 +599,7 @@ Si l'implémentation du correctif ne nécessita que quelques minutes, la validat
 
 == Enrichissement personnel
 
-#todo("parler de l'envied de bosser à la dinum, souveraineté numérique, FabPot")
+#todo("parler de l'envie de bosser à la dinum, souveraineté numérique, FabPot")
 
 #pagebreak()
 
