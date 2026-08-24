@@ -93,3 +93,8 @@ figma:
   title: Figma
   author: Figma
   url: http://figma.com
+biome:
+  type: Web
+  title: Biome
+  author: Contributeurs de Biome
+  url: https://biomejs.dev

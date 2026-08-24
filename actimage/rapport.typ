@@ -38,6 +38,10 @@
 #let ecm = acronym("ECM", "état civil militaire")
 #let cpmivg = acronym("CPMIVG", "Code des pensions militaires d'invalidité et des victimes de guerre")
 #let sfd = acronym("SFD", "spécifications fonctionnelles détaillées")
+#let cmn = acronym("CMN", "Centre des monuments nationaux", note: "https://www.monuments-nationaux.fr")
+#let ao = acronym("AO", "appel d'offre")
+#let poc = acronym("POC", "preuve de concept")
+#let imt-bs = acronym("IMT-BS", "Institut Mines-Télécom Business School", note: "https://www.imt-bs.eu")
 
 #let todo(msg) = [*TODO: #msg*]
 
@@ -167,7 +171,7 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 
 Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel PDG. Le travail de l'entreprise est divisé en 3 pôles principaux communicants: le développement, le conseil et la #rd. Mon stage s'est déroulé dans le pôle développement mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets. Les effectifs d'Actimage sont répartis entre 8 agences dans 5 pays. Celles avec lesquelles j'ai le plus été en contact sont Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
 
-=== Membres de l'entreprise
+=== Composition de l'entreprise
 
 
 #align(center, figure(
@@ -179,27 +183,127 @@ Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel 
 
 ==== David Kolin (DKO)
 
-#todo("présenter")
+David était#footnote[David a quitté Actimage le 31 Aout 2027, juste avant la fin de mon stage.] directeur de l'agence Paris-Arcueil depuis Janvier 2025 et mon maître de stage. Il a une formation d'ingénieur informatique et une expérience en #esn (Capgemini) et surtout en contrats publiques, notamment acquise pendant 13 ans au #cmn. L'une de ses missions principales était de répondre à des #ao, mettant à profit à la fois son expérience dans cette tâche particulière et son expertise technique, lui permettant de répondre en connaissance des besoins clients et des contraintes techniques précises. C'est cette double compétence qui m'a de suite plu. Avoir un supérieur éclairé sur ce qui est possible, ce qui est difficile de développer permet d'éviter l'écueil classique de la déconnexion entre la phase d'avant-vente - impliquant la réponse à l'#ao, le cahier des charges et le chiffrage - et la réalité concrète du développement. Les engagements et prommesses commerciales restent ainsi en parfaite adéquation avec la faisabilité technique du terrain. Cela, bien sûr, n'empêche pas la réévaluation post-signature du coût du contrat. Certains besoins trop peu développés dans le cahier des charges peuvent s'avérer plus coûteux que prévu et causer des frais additionnels imprévus.
 
 ==== Matthias Constant (MCO)
 
-#todo("présenter")
+Matthias est chef de projet et consultant IT chez Actimage depuis 2016. Bien qu'il n'ait qu'une formation en école de management, sa carrière dans le domaine du numérique lui a permis d'acquérir des compétences que l'on ne prêterait pas à une personne d'origine non-technique. Pareillement à David, il a la capacité de mesurer l'effort technique nécessaire au développement d'une fonctionnalité demandée par le client. Développeur de loin, il lui est courant d'utiliser des modèles de langage pour réaliser un #poc permettant une meilleure estimation du coût et temps de travail nécessaire sur un projet. Ces #poc sont parfois repris tels quels par les développeurs au début du projet en tant que base.
 
 ==== Marine Brossard (MBR)
 
-#todo("présenter")
+Marine est Designer UX/UI et cheffe de projet chez Actimage depuis mars 2025. #todo("finir")
 
 ==== Aurélie Demure (ADE)
 
-#todo("présenter")
+Aurélie est en stage de fin d'étude chez Actimage depuis mars 2027 en tant qu'ingénieure conseil. Elle prépare son double diplôme d'ingénieur de TELECOM Nancy#footnote[https://telecomnancy.univ-lorraine.fr] et de l'#imt-bs. Ses missions incluent la qualification d'#ao, le sourçage de candidats à recruter#footnote[La proposition de stage qu'Actimage m'a faite parvenir vient notamment d'un sourçage] ainsi que la rédaction de #sfd. Son expertise technique au niveau d'un ingénieur du  numérique lui a aussi permis de s'impliquer dans le développement d'une fonctionnalité du projet #onacvg.
 
 ==== Romain Capron (RCO)
 
-#todo("présenter")
-
-==== Thomas Harir-Forouch
+Romain est ingénieur diplômé de Polytech Sorbonne#footnote[https://www.polytech.sorbonne-universite.fr] en Mathématiques appliquées et Informatique. Ex-stagiaire, il appartient depuis juin 2026 au pôle #rd d'Actimage au sein duquel il développe un outil permettant d'automatiser sinon d'optimiser la qualification d'#ao.
 
 #todo("présenter")
+
+==== Thomas Harir-Forouch (THA)
+
+Thomas est en contrat d'alternance chez Actimage depuis septembre 2025. Il suit une formation de développeur commercial à Audencia#footnote[https://www.audencia.com]. Ses missions principales inclient la prospection commerciale, la qualification d'#ao, la réponse à #ao ainsi que le recrutement (sourçage et entretiens).
+
+=== Pôle développement
+
+=== Pôle R et D
+
+== Contexte du stage
+
+== Cycle de vie d'un projet
+
+=== Avant-vente et commercialisation
+
+La phase d'avant-vente constitue le point d'entrée critique de tout projet au sein d'une ESN. Pour une entreprise dont une part significative de l'activité repose sur les marchés publics, cette étape conditionne non seulement la viabilité financière de la structure, mais également son positionnement stratégique à long terme.
+
+==== Prospection commerciale et veille stratégique
+
+L'acquisition de nouveaux projets débute par une démarche proactive de prospection commerciale et de veille stratégique. Des collaborateurs dédiés, tels que Thomas au sein de l'agence, scrutent quotidiennement le marché et les plateformes de publication de marchés publics. Pour Actimage, c'est notammen le Portail des marchés publics#footnote[https://www.marches-publics.gouv.fr]. L'objectif premier est l'identification d'#ao entrant en résonance avec le savoir-faire technologique de l'entreprise, ses références passées et ses ambitions de développement. Cette veille constante permet d'alimenter le carnet d'opportunités de l'agence tout en maintenant une connaissance affûtée des besoins évolutifs des administrations et des grandes entreprises.
+
+==== Qualification du marché
+
+Une fois un #ao repéré, il fait l'objet d'une phase de qualification rigoureuse. Cette étape, à laquelle contribuent activement des profils hybrides comme Aurélie ou Thomas, agit comme un filtre décisionnel essentiel. Il s'agit d'évaluer la pertinence d'un positionnement de l'entreprise sur le marché identifié en analysant une grille de critères déterminants : la disponibilité immédiate et future des ressources en interne, l'adéquation des compétences techniques requises avec l'expertise réelle de l'agence, ainsi que la solidité du modèle économique proposé. Une qualification minutieuse et lucide est indispensable pour éviter la mobilisation chronophage et coûteuse des équipes sur l'élaboration de réponses aux chances de succès trop minces.
+
+==== Preuve de concept et chiffrage
+
+Si l'opportunité est qualifiée positivement, le projet entre dans une phase de projection et d'évaluation technique. Afin de proposer un chiffrage précis et de mesurer l'effort de développement nécessaire, des preuves de concept (POC) sont fréquemment réalisées. Des chefs de projet expérimentés, à l'image de Matthias, s'appuient notamment sur des modèles de langage pour générer rapidement des prototypes fonctionnels ou défricher de nouvelles piles technologiques. Cette approche exploratoire permet de lever les incertitudes techniques, d'identifier en amont les éventuels défis architecturaux et de consolider l'estimation budgétaire en confrontant la théorie du besoin à une première implémentation pratique.
+
+==== Stratégie de réponse et alignement tachnico-commercial
+
+L'élaboration de la réponse à l'appel d'offres exige une synergie totale entre la vision commerciale et le pragmatisme technique. Sous l'impulsion de la direction de l'agence, représentée par David, le mémoire technique et l'offre financière sont construits en parallèle et en concertation. C'est ici que la double compétence de la direction prend tout son sens : elle garantit que les promesses fonctionnelles et les délais annoncés restent en parfaite adéquation avec la faisabilité sur le terrain. Cet alignement technico-commercial est fondamental pour éviter l'écueil classique du cahier des charges irréalisable ou sous-évalué, sécurisant ainsi la rentabilité du projet et la sérénité des futures équipes de développement.
+
+==== Signature et réévaluation
+
+Enfin, en cas d'attribution du marché, la phase d'avant-vente s'achève par la contractualisation, officialisant la transition du statut de prospect à celui de client. Cette ultime étape administrative peut néanmoins s'accompagner d'une phase de réévaluation budgétaire post-signature. En effet, les premières réunions d'immersion et la confrontation du cahier des charges initial aux contraintes concrètes du client révèlent parfois des zones d'ombre, des oublis ou des besoins implicites plus complexes que prévu, nécessitant un ajustement contractuel transparent avant le lancement effectif de la chaîne de production.
+
+=== Pilotage Itératif et Outillage de Suivi
+
+La traduction des exigences d'un appel d'offres en un produit logiciel fonctionnel requiert une méthodologie de gestion de projet alliant rigueur structurelle et souplesse d'exécution. Au sein d'Actimage, cette dynamique s'appuie sur un pilotage itératif, soutenu par une communication transparente et régulière avec le client.
+
+==== Initialisation et évolution continue du périmètre
+
+Le lancement de la phase de développement se matérialise par la création d'une première série de tickets par le chef de projet, reflétant les exigences initiales extraites du cahier des charges et des premières maquettes. Toutefois, loin d'adopter un modèle purement séquentiel et figé de type "cycle en V", la méthodologie privilégie l'agilité et l'adaptation. Au gré des ateliers de co-conception qui se poursuivent en parallèle de la production du code, le périmètre fonctionnel s'affine continuellement. Les tickets initiaux sont ainsi régulièrement réécrits, subdivisés pour en réduire la complexité, ou complétés par de nouvelles tâches afin de répondre avec justesse aux besoins émergents du client.
+
+==== Points hebdomadaires et relation client
+
+La cohésion du projet et l'alignement des visions sont maintenus grâce à un rituel de synchronisation hebdomadaire réunissant le client, le chef de projet et, de manière stratégique, un ou plusieurs développeurs. Ces points d'étape réguliers sont l'occasion de présenter l'état d'avancement concret du produit à travers des démonstrations des dernières fonctionnalités implémentées. L'implication directe d'un développeur lors de ces échanges s'avère particulièrement bénéfique. D'une part, elle permet au client de mettre un visage sur l'acteur de la réalisation de son outil, instaurant ainsi une proximité et un fort climat de confiance. D'autre part, cette désintermédiation facilite la remontée proactive d'obstacles techniques ou de questionnements fonctionnels bloquants. Le client peut alors y répondre immédiatement en séance, ou consigner ces points pour apporter des précisions ultérieurement par courriel ou lors de la réunion suivante.
+
+==== Suivi opérationnel et traçabilité technique (GitLab)
+
+Pour orchestrer finement cette production itérative, l'équipe s'appuie sur l'instance GitLab auto-hébergée, l'appui principal du développement logiciel. Cet outil centralise les tickets techniques qui se distinguent par leur exhaustivité, documentant les règles métiers, les contraintes d'architecture et les critères d'acceptation. Ces tickets sont directement couplés aux branches de développement Git. Cette plateforme héberge également l'ensemble des fils de discussion relatifs à l'implémentation, garantissant ainsi une traçabilité totale entre le besoin fonctionnel initial, les arbitrages techniques décidés en équipe, et l'historique du code source.
+
+==== Imputation et pilotage de la rentabilité (Redmine)
+
+En parallèle de ce suivi purement opérationnel, une séparation de l'outillage est instaurée pour répondre aux impératifs de gestion administrative et financière inhérents au fonctionnement d'une ESN. Actimage déploie à cet effet un outil Redmine interne, principalement dédié à la saisie des temps de travail (imputations) par les différents collaborateurs mobilisés. Cette plateforme héberge des macro-tickets de projet, volontairement moins détaillés et dont la mise à jour est moins fréquente que sur GitLab. Leur vocation est avant tout budgétaire et analytique : lors de leur clôture, ces tickets agrègent les heures consommées par l'ensemble des acteurs (designers, chefs de projet, développeurs) et permettent à la chefferie de projet d'évaluer avec une grande précision le coût de revient réel de chaque fonctionnalité livrée.
+
+=== Développement et Assurance Qualité
+
+Une fois les besoins fonctionnels figés et spécifiés, le projet entre dans sa phase de réalisation technique (souvent désignée sous le terme de "Build"). Au sein de l'agence, cette phase est encadrée par des processus stricts visant à garantir non seulement la vélocité de l'équipe, mais surtout la fiabilité, la sécurité et la maintenabilité du produit final.
+
+==== Découpage technique et répartition des développements
+
+La transition vers la production de code est amorcée par un minutieux travail d'architecture et de découpage technique. Le _lead developer_, un rôle assuré par exemple par Brice sur le projet de l'ONaCVG, est chargé de fragmenter les spécifications fonctionnelles détaillées en unités logiques et en tickets techniques indépendants. Ces tâches sont ensuite distribuées et assignées aux différents développeurs de l'équipe (tels qu'Amine ou moi-même). Cette répartition s'effectue de manière stratégique, en prenant en compte les domaines d'expertise spécifiques de chacun, la capacité de production et les disponibilités du moment au sein de l'agence.
+
+==== Environnements d'exécution locaux et conteneurisation
+
+Afin de garantir la reproductibilité du code et de prévenir les classiques conflits de dépendances, le développement s'effectue de prime abord au sein d'environnements locaux strictement isolés. Les différents composants des projets sont conteneurisés et orchestrés via des outils comme Docker. Cette virtualisation légère permet à chaque développeur d'exécuter une pile technologique identique (bases de données, serveurs web, workers asynchrones) indépendamment de son système d'exploitation hôte, assurant ainsi que le code produit réagira de manière prédictible de la machine du développeur jusqu'aux serveurs de production du client.
+
+==== Intégration Continue (CI/CD) et rigueur logicielle
+
+La garantie d'une haute qualité logicielle est automatisée grâce à la mise en place d'une chaîne d'intégration continue (par exemple via des _pipelines_ Jenkins ou GitLab CI) particulièrement exigeante. Chaque demande de fusion de branche Git initiée par un développeur déclenche l'exécution de processus de validation bloquants. L'architecture s'appuie sur une analyse statique stricte, pilotée par des outils comme PHPStan poussés à leur niveau d'exigence maximal, ce qui prévient les erreurs d'exécution en imposant un typage fort et robuste. Parallèlement, des outils d'analyse syntaxique assurent un formatage automatisé du code pour maintenir une homogénéité parfaite à l'échelle de l'équipe, tandis que des utilitaires comme Rector suggèrent des refactorisations architecturales pertinentes.
+
+==== Sécurité automatisée et validation par les tests
+
+Outre l'application de ces standards de qualité (QA), le code soumis subit un audit de sécurité automatisé avant toute intégration. Des outils de balayage tels que Gitleaks parcourent l'historique des modifications à la recherche d'expressions régulières correspondant à des secrets de configuration ou des clés d'API, empêchant ainsi toute fuite de données sensibles dans le code source. Enfin, la solidité fonctionnelle est prouvée par l'exécution de tests automatisés. Couvrant à la fois des périmètres unitaires et fonctionnels via des cadriciels comme PHPUnit, ces tests sont souvent adossés à des mécanismes de bases de données transactionnelles (via des paquets dédiés isolant l'état de la base à chaque test). Cette isolation garantit que chaque composant réagit précisément tel qu'attendu par les spécifications, sans générer de régressions.
+
+==== Revue de code par le _lead developer_
+
+La dernière étape, précédant l'intégration définitive du code sur la branche principale du projet, fait appel à l'expertise humaine. Si l'intégration continue s'assure de l'intégrité syntaxique et de la validation des tests, chaque demande de fusion fait l'objet d'une revue par le _lead developer_. Cette étape est cruciale pour valider les choix algorithmiques, s'assurer que la logique métier implémentée est la réponse la plus élégante aux besoins du client, et favoriser la diffusion des bonnes pratiques et de la connaissance technique au sein du pôle.
+
+Dans certains cas très exceptionnels tels que pendant les premières semaines de développement, le cycle est allégé, les _pipelines_ CI/CD sont non-bloquantes et les demandes de fusion peuvent être auto-validées.
+
+=== Déploiement, Recette et Maintenance
+
+L'aboutissement de la phase de développement marque le début d'un processus de livraison hautement sécurisé. Transférer le code depuis l'ordinateur d'un développeur jusqu'aux serveurs finaux exige une maîtrise parfaite de l'infrastructure afin de garantir la stabilité du produit, la sécurité des données et la pérennité de l'application sur le long terme.
+
+==== Ascension des environnements et figeage des livrables
+
+Le cycle de vie d'une version logicielle s'articule autour d'une progression maîtrisée à travers une cascade d'environnements distincts : Développement, Intégration, Recette, Pré-production et Production. Si les premiers environnements favorisent la vélocité en montant dynamiquement le code source via des volumes, le passage en recette marque un changement strict de paradigme. Le code applicatif est alors compilé de manière statique et encapsulé en dur au sein d'images Docker immuables, qui sont ensuite poussées vers le Harbor (registre privé d'Actimage). Ce figeage technologique est fondamental : il garantit mathématiquement que l'image logicielle testée par le client sera strictement identique à celle qui sera _in fine_ déployée en production.
+
+==== Phase de Recette Client
+
+Une fois les livrables sécurisés et conteneurisés, l'application est propulsée sur l'environnement de recette (`rec`), un espace de démonstration dédié, isolé, et mis à la disposition exclusive du client. Cette phase critique permet aux interlocuteurs métiers et aux utilisateurs finaux de mener leurs propres campagnes de tests afin de vérifier la conformité stricte du produit livré vis-à-vis des #sfd. L'utilisation d'images Docker prêtes pour la production élimine le risque d'anomalies liées à des différences de configuration d'environnement, garantissant ainsi au client une expérience de recette parfaitement authentique et représentative du produit final.
+
+==== Mise en Production
+
+Le déploiement final, ou Mise en Production, est une opération délicate qui ne tolère aucune improvisation. Pour éviter toute corruption de données ou interruption de service prolongée, cette montée de version obéit à une chorégraphie procédurale immuable. Elle débute systématiquement par l'arrêt ordonné et propre des services applicatifs en cours d'exécution. Immédiatement après, une sauvegarde complète de la base de données (généralement via un export compressé) est réalisée pour sanctuariser un point de restauration immédiat en cas de défaillance. S'ensuivent la modification des variables de configuration d'environnement, l'exécution automatisée des scripts de migration de schéma (orchestrée par des outils éphémères dédiés comme Flyway), et le redémarrage séquentiel des conteneurs. Une attention particulière est portée à l'ordre de relance, le composant dorsal (backend) devant être pleinement opérationnel avant d'activer le composant frontal (frontend) pour éviter les erreurs de connexion asynchrone.
+
+==== Tierce Maintenance Applicative
+
+La validation d'une mise en production majeure ne signe pas l'achèvement du projet, mais sa transition vers une phase de #tma. Les équipes de développement, bien que réduites, continuent d'intervenir sur le code pour diagnostiquer et corriger les anomalies résiduelles remontées par les utilisateurs via les outils de billetterie, pour implémenter des évolutions fonctionnelles mineures, ou encore pour ajuster les flux d'interopérabilité avec les systèmes tiers. Ce suivi à long terme, illustré par exemple par le projet PIAWEB, permet d'absorber les évolutions métiers du client et de garantir la viabilité de l'application face à l'épreuve du temps.
 
 === Réalisations
 
@@ -224,14 +328,6 @@ Techniquement, l'application a été développée de manière multi-support avec
 Actimage s'inscrit fortement dans l'innovation et la #rd avec des projets à fort impact sociétal à l'image de Hol'Autisme#footnote[https://www.holautisme.com]. Ce projet novateur propose le premier catalogue d'applications en réalité mixte destiné à aider les enfants et adolescents atteints de troubles du spectre autistique à développer leurs compétences sociales. Développée notamment avec le moteur Unity pour le casque HoloLens, la solution permet de simuler des situations du public ou du quotidien dans un environnement interactif et contrôlé. Le but est d'aider les patients à appréhender les codes sociaux et à gagner progressivement en autonomie sans subir l'angoisse du monde réel.
 
 L'expertise technologique du projet va bien au-delà de la simple réalité mixte : le système intègre un bracelet connecté permettant de mesurer le niveau d'anxiété de l'apprenant en temps réel, couplé à une plateforme web de contrôle et de suivi. Grâce à l'analyse de données et à des outils statistiques avancés, le personnel médico-éducatif peut analyser finement les sessions. La pertinence de ce dispositif global, dont la première preuve de concept s'intitule PopBalloons, a d'ailleurs été saluée par l'écosystème technologique, le projet étant lauréat des concours French IOT 2017 et Futur.e.s 2018.
-
-=== Pôle développement
-
-=== Pôle R et D
-
-== Contexte du stage
-
-== Gestion de projet
 
 == Poste de travail et outillage de développement
 
@@ -315,7 +411,7 @@ J'ai par conséquent migré vers une installation native du démon Docker exclus
 
 Travaillant pour la première fois dans un contexte extra-scolaire et extra-personnel pendant aussi longtemps, je trouve encore chaque semaine des points de friction, des tâches répétitives à optimiser ou automatiser. Mon poste de travail est en évolution constante, s'adaptant aux besoins de mon environnement de travail et de mes projets.
 
-= Projet #onacvg
+= Projet ONaCVG
 
 Le projet principal sur lequel j'ai eu l'occasion de travailler tout au long des 6 mois de stage est une application web à destination de l'#onacvg. #todo("étoffer")
 
@@ -327,7 +423,7 @@ L'#onacvg est un établissement public administratif français placé sous la tu
 
 Parmi ses prérogatives, l'#onacvg exerce une compétence juridique spécifique en matière de sépultures militaires, un domaine encadré par le #cpmivg @wiki-onacvg. L'institution est explicitement chargée de la mise en œuvre de l'entretien, de la rénovation et de la valorisation des sépultures de guerre @wiki-onacvg. En effet, la loi pose le principe d'une sépulture perpétuelle pour les militaires déclarés « Mort pour la France », qu'ils reposent au sein de nécropoles nationales ou de carrés militaires communaux, et dont l'entretien incombe à l'État @wiki-onacvg.
 
-C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un appel d'offres visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage en #todo("insérer date"). Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée est exclusivement destinée à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
+C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un #ao visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage en #todo("insérer date"). Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée est exclusivement destinée à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
 
 === L'existant : un défi de taille et de structure de la donnée
 
@@ -339,11 +435,11 @@ Cependant, le départ de la personne en charge de sa maintenance a entraîné un
 
 La première mission de mon stage, qui s'est étendue sur un mois, a consisté à développer un outil de migration indépendant. Son objectif était de regrouper les bases filles avec la base mère en détectant les conflits et en proposant des stratégies de résolution : historisation des entrées conflictuelles ou conservation des deux versions via une renumérotation intelligente. Ce premier projet, qui fera l'objet d'une section détaillée ultérieurement, a constitué une excellente porte d'entrée pour m'approprier l'environnement technique de l'entreprise (PHP, Symfony, Doctrine, PostgreSQL, Docker) et les données de l'#onacvg.
 
-=== Refonte logicielle et application de gestion #ecm.
+=== Refonte logicielle et application de gestion ECM
 
 Une fois les données fusionnées (toujours sous un format tabulaire plat d'environ quarante colonnes), la mission principale de mon stage a pu débuter : le développement de l'application de gestion complète, structurée autour de trois grands axes fonctionnels.
 
-==== Modélisation et consultation (Base #ecm)
+==== Modélisation et consultation (Base ECM)
 
 Afin d'éviter la duplication et de garantir l'intégrité future des données, une refonte complète du modèle de données a été nécessaire. Nous sommes passés d'un format plat hérité du CSV à une architecture relationnelle stricte (création d'entités distinctes pour les pays, départements, communes, grades, unités, bureaux de recrutement, etc.). Une part majeure de mon travail a été consacrée à l'élaboration de la commande d'importation, capable de transformer des données libres et peu rigoureuses en entités standardisées.
 Sur cette base saine, un module de consultation a été développé, offrant des interfaces de recherche avancée avec de multiples filtres pour explorer les données des soldats et des sites.
@@ -362,23 +458,23 @@ Enfin, le système devait respecter une contrainte forte d'interopérabilité av
 
 ==== Interlocuteurs, équipe et gestion de projet
 
-Dans le cadre de ce projet, nos interlocuteurs de l'#onacvg étaient Audrey Paolasini, cheffe du département des achats,Emmanuelle PORTUGAL, archiviste, #todo("le reste").
+Dans le cadre de ce projet, nos interlocuteurs de l'#onacvg étaient Audrey Paolasini, cheffe du département des achats, Emmanuelle Portugal, archiviste, et Jim Ponty, ancien combattant et chef du secteur de Bordeaux.
 
-Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que chef de projet, Marine responsable de l'UI/UX, Aurélie en assistance chefferie de projet, rédaction de spécifications et également en développement #todo("demander son rôle exact"), Brice en tant que _lead developer_, et Amine et moi-même en tant que développeurs.
+Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que chef de projet, Marine responsable de l'UI/UX, Aurélie en assistance chefferie de projet, rédaction de spécifications et également en développement, Brice en tant que _lead developer_, et Amine et moi-même en tant que développeurs.
 
-Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'appel d'offre. En découlent des maquettes Figma @figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
+Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'#ao. En découlent des maquettes Figma @figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
 
 == Migration et regroupement familial : le défi de la réconciliation des données
 
 Cette phase du projet a été particulièrement formatrice, marquant ma première immersion dans l'écosystème PHP, le cadriciel Symfony et l'ORM Doctrine. Le défi à relever consistait à consolider une "base mère" et de multiples "bases filles" (fournies sous forme de fichiers CSV). Au sein de ces bases, chaque sépulture est théoriquement identifiée par un entier unique : la colonne `sdr_num` (numéro de saisie des registres). Cependant, suite à la scission des bases et à l'ajout décentralisé de nouvelles entrées par les chefs de secteur, de nombreuses collisions d'identifiants sont apparues.
 
-Une simple fusion automatisée était inenvisageable en raison de la nature ambiguë de ces collisions. Si deux lignes strictement identiques peuvent être dédoublonnées sans risque, le cas de lignes partageant le même `sdr_num` mais présentant des divergences s'avère complexe. Il peut s'agir d'une véritable collision (deux soldats distincts ayant reçu le même identifiant de manière isolée) ou d'une mise à jour légitime (un même soldat dont les informations ont été enrichies dans une base fille, par exemple avec l'ajout d'un surnom). L'absence de règle mathématique pour trancher ces cas a imposé le développement d'un outil de migration interactif. Cet outil agit comme une preuve de concept (POC) destinée à détecter les conflits et à déléguer la stratégie de résolution à l'utilisateur.
+Une simple fusion automatisée était inenvisageable en raison de la nature ambiguë de ces collisions. Si deux lignes strictement identiques peuvent être dédoublonnées sans risque, le cas de lignes partageant le même `sdr_num` mais présentant des divergences s'avère complexe. Il peut s'agir d'une véritable collision (deux soldats distincts ayant reçu le même identifiant de manière isolée) ou d'une mise à jour légitime (un même soldat dont les informations ont été enrichies dans une base fille, par exemple avec l'ajout d'un surnom). L'absence de règle mathématique pour trancher ces cas a imposé le développement d'un outil de migration interactif. Cet outil agit comme un #poc destinée à détecter les conflits et à déléguer la stratégie de résolution à l'utilisateur.
 
 === Choix technologiques et rigueur logicielle
 
 S'agissant d'un projet de réconciliation de données critiques, il était primordial d'établir des fondations techniques solides. J'ai configuré ce projet sur les dernières normes de l'écosystème : PHP 8.2 couplé à Symfony 7.4 et PostgreSQL 18.
 
-Afin de garantir la maintenabilité et la robustesse du code, j'ai intégré un outillage de qualité logicielle (QA) exigeant. L'analyse statique du code est assurée par PHPStan poussé à son niveau de vérification maximal (niveau 10), garantissant un typage strict et prévenant les erreurs d'exécution en amont. Le formatage du code est automatisé via PHP CS Fixer, et la fiabilité des algorithmes de résolution de conflits est couverte par des tests unitaires exécutés via PHPUnit. L'interface utilisateur, bien que secondaire pour un POC, utilise le moteur de gabarits Twig couplé au cadriciel Tailwind CSS via le composant Symfony AssetMapper, permettant de se passer d'une lourde chaîne de compilation JavaScript type Node.js/Webpack.
+Afin de garantir la maintenabilité et la robustesse du code, j'ai intégré un outillage de qualité logicielle (QA) exigeant. L'analyse statique du code est assurée par PHPStan poussé à son niveau de vérification maximal (niveau 10), garantissant un typage strict et prévenant les erreurs d'exécution en amont. Le formatage du code est automatisé via PHP CS Fixer, et la fiabilité des algorithmes de résolution de conflits est couverte par des tests unitaires exécutés via PHPUnit. L'interface utilisateur, bien que secondaire pour un #poc, utilise le moteur de gabarits Twig couplé au cadriciel Tailwind CSS via le composant Symfony AssetMapper, permettant de se passer d'une lourde chaîne de compilation JavaScript type Node.js/Webpack.
 
 === Architecture transactionnelle et asynchrone
 
@@ -440,15 +536,15 @@ Une fois la consolidation des données historiques achevée, la phase majeure du
 
 Bien que l'implémentation de l'ensemble de ces fonctionnalités s'inscrive dans une feuille de route à long terme, mon travail s'est concentré sur la mise en place d'une architecture robuste, d'une chaîne d'intégration continue exigeante et sur le développement des modules centraux.
 
-=== Architecture technique et paradigme "Front-End"
+=== Architecture technique et paradigme frontal
 
 Pour répondre aux enjeux de maintenabilité et de pérennité du client, la pile technologique s'articule autour des dernières normes de l'écosystème PHP : Symfony 7.4 et PHP 8.5, adossés à une base de données PostgreSQL 18.
 
-L'un des choix architecturaux majeurs a été l'abandon des chaînes de compilation JavaScript lourdes (de type Node.js/Webpack) au profit du composant Symfony AssetMapper. Ce paradigme moderne permet de gérer les dépendances front-end (JavaScript et CSS) directement via PHP. L'interface utilisateur est ainsi propulsée par le moteur de gabarits Twig, stylisée dynamiquement via le cadriciel Tailwind CSS (compilé nativement), et rendue interactive grâce à Stimulus (Symfony UX). Cette approche réduit drastiquement la complexité de l'infrastructure de déploiement tout en garantissant des performances optimales côté client.
+L'un des choix architecturaux majeurs a été l'abandon des chaînes de compilation JavaScript lourdes (de type Node.js/Webpack) au profit du composant Symfony AssetMapper. Ce paradigme moderne permet de gérer les dépendances client (JavaScript et CSS) directement via PHP. L'interface utilisateur est ainsi propulsée par le moteur de gabarits Twig, stylisée dynamiquement via le cadriciel Tailwind CSS (compilé nativement), et rendue interactive grâce à Stimulus (Symfony UX). Cette approche réduit drastiquement la complexité de l'infrastructure de déploiement tout en garantissant des performances optimales côté client.
 
 === Rigueur logicielle et Intégration Continue (CI/CD)
 
-Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (pipeline Jenkins) particulièrement stricte. Chaque demande de fusion (Merge Request) doit valider des étapes bloquantes avant d'être intégrée à la branche principale :
+Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (_pipeline_ Jenkins) particulièrement stricte. Chaque demande de fusion (Merge Request) doit valider des étapes bloquantes avant d'être intégrée à la branche principale :
 
 ==== Analyse statique et Typage strict
 
@@ -456,7 +552,7 @@ Le code est analysé par PHPStan, configuré à son niveau d'exigence maximal (N
 
 ==== Formatage et refactorisation
 
-La syntaxe est uniformisée automatiquement par PHP CS Fixer et Twig CS Fixer. Le code JavaScript est audité par Biome, et l'outil Rector est intégré en mode vérification (`dry-run`) pour suggérer des refactorisations architecturales (Dead code, Code quality, Type declarations).
+La syntaxe est uniformisée automatiquement par PHP CS Fixer et Twig CS Fixer. Le code JavaScript est audité par Biome @biome, et l'outil Rector est intégré en mode vérification (`dry-run`) pour suggérer des refactorisations architecturales (Dead code, Code quality, Type declarations).
 
 ==== Sécurité
 
@@ -544,7 +640,7 @@ L'exécution des tâches de la CI/CD est confiée à des GitLab Runners install�
 - Un *runner Docker* (`runner-gitlab-piaweb-int`) : utilisé pour exécuter les tâches dans des conteneurs isolés, garantissant des environnements de construction propres et jetables.
 - Un *runner Shell* (`runner-gitlab-piaweb-shell`) : configuré pour s'exécuter directement sur la machine hôte via un utilisateur système dédié (`gitlab-runner`). Bien que son usage soit généralement déconseillé car il peut laisser des fichiers résiduels, il est parfois nécessaire pour interagir directement avec l'infrastructure du serveur d'intégration.
 
-Les pipelines (ou chaînes de traitement) sont configurés pour se déclencher selon des événements précis : lors de la soumission de code sur une branche spécifique, lors de la création d'une étiquette (tag), ou lors d'une publication (release).
+Les chaînes de traitement sont configurés pour se déclencher selon des événements précis : lors de la soumission de code sur une branche spécifique, lors de la création d'une étiquette (tag), ou lors d'une publication (release).
 
 === Gestion des environnements et stratégie de branche
 
@@ -616,6 +712,10 @@ Si l'implémentation du correctif ne nécessita que quelques minutes, la validat
 === Appareillage sur lest // conteneur parti sans contenu
 
 Le cycle de livraison d'une version du site PIAWEB passe par plusieurs phases différentes, évoluant lentement de l'environnement de développement vers l'environnement de production.
+
+== Autres projets en cours
+
+=== Automatisation de la qualification
 
 = Conclusion
 
