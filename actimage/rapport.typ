@@ -175,6 +175,32 @@ Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel 
   caption: "Organigramme de l'entreprise",
 ))
 
+=== Équipe rapprochée
+
+==== David Kolin (DKO)
+
+#todo("présenter")
+
+==== Matthias Constant (MCO)
+
+#todo("présenter")
+
+==== Marine Brossard (MBR)
+
+#todo("présenter")
+
+==== Aurélie Demure (ADE)
+
+#todo("présenter")
+
+==== Romain Capron (RCO)
+
+#todo("présenter")
+
+==== Thomas Harir-Forouch
+
+#todo("présenter")
+
 === Réalisations
 
 ==== DSFR
