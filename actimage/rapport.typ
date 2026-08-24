@@ -42,6 +42,12 @@
 #let ao = acronym("AO", "appel d'offre")
 #let poc = acronym("POC", "preuve de concept")
 #let imt-bs = acronym("IMT-BS", "Institut Mines-Télécom Business School", note: "https://www.imt-bs.eu")
+#let mdh = acronym("MdH", "Mémoire des Hommes", note: "https://memoiredeshommes.defense.gouv.fr")
+#let dql = acronym(
+  "DQL",
+  "Doctrine Query Language",
+  note: "Le langage de requête orienté objet utilisé par Doctrine plutôt que d'écrire du SQL cru",
+)
 
 #let todo(msg) = [*TODO: #msg*]
 
@@ -68,8 +74,8 @@
 #let logo-width = 60%
 #grid(
   columns: (1fr, 1fr),
-  align(left + horizon, image("assets/logos/n7.svg", width: logo-width)),
-  align(right + horizon, image("assets/logos/actimage.svg", width: logo-width)),
+  align(left + horizon)[#image("assets/logos/n7.svg", width: logo-width)#cite(<inp-charte>, form: none)],
+  align(right + horizon)[#image("assets/logos/actimage.svg", width: logo-width)#cite(<actimage-charte>, form: none)],
 )
 
 #v(2em)
@@ -158,12 +164,10 @@ Mes remerciements s'étendent à l'ensemble de mes collègues de l'agence Actima
 
 Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est sûrement pour quelque chose dans la réussite de ce stage.
 
-#pagebreak()
-
 #show outline.entry.where(level: 1): set block(above: 1em)
 #outline(depth: 3, title: "Sommaire")
 
-#pagebreak()
+#outline(title: "Table des figures", target: figure.where(kind: image))
 
 = Introduction
 
@@ -271,7 +275,7 @@ La transition vers la production de code est amorcée par un minutieux travail d
 
 Afin de garantir la reproductibilité du code et de prévenir les classiques conflits de dépendances, le développement s'effectue de prime abord au sein d'environnements locaux strictement isolés. Les différents composants des projets sont conteneurisés et orchestrés via des outils comme Docker. Cette virtualisation légère permet à chaque développeur d'exécuter une pile technologique identique (bases de données, serveurs web, workers asynchrones) indépendamment de son système d'exploitation hôte, assurant ainsi que le code produit réagira de manière prédictible de la machine du développeur jusqu'aux serveurs de production du client.
 
-==== Intégration Continue (CI/CD) et rigueur logicielle
+==== Intégration Continue et rigueur logicielle
 
 La garantie d'une haute qualité logicielle est automatisée grâce à la mise en place d'une chaîne d'intégration continue (par exemple via des _pipelines_ Jenkins ou GitLab CI) particulièrement exigeante. Chaque demande de fusion de branche Git initiée par un développeur déclenche l'exécution de processus de validation bloquants. L'architecture s'appuie sur une analyse statique stricte, pilotée par des outils comme PHPStan poussés à leur niveau d'exigence maximal, ce qui prévient les erreurs d'exécution en imposant un typage fort et robuste. Parallèlement, des outils d'analyse syntaxique assurent un formatage automatisé du code pour maintenir une homogénéité parfaite à l'échelle de l'équipe, tandis que des utilitaires comme Rector suggèrent des refactorisations architecturales pertinentes.
 
@@ -289,7 +293,7 @@ Dans certains cas très exceptionnels tels que pendant les premières semaines d
 
 L'aboutissement de la phase de développement marque le début d'un processus de livraison hautement sécurisé. Transférer le code depuis l'ordinateur d'un développeur jusqu'aux serveurs finaux exige une maîtrise parfaite de l'infrastructure afin de garantir la stabilité du produit, la sécurité des données et la pérennité de l'application sur le long terme.
 
-==== Ascension des environnements et figeage des livrables
+==== Montée en environnements et figeage des livrables
 
 Le cycle de vie d'une version logicielle s'articule autour d'une progression maîtrisée à travers une cascade d'environnements distincts : Développement, Intégration, Recette, Pré-production et Production. Si les premiers environnements favorisent la vélocité en montant dynamiquement le code source via des volumes, le passage en recette marque un changement strict de paradigme. Le code applicatif est alors compilé de manière statique et encapsulé en dur au sein d'images Docker immuables, qui sont ensuite poussées vers le Harbor (registre privé d'Actimage). Ce figeage technologique est fondamental : il garantit mathématiquement que l'image logicielle testée par le client sera strictement identique à celle qui sera _in fine_ déployée en production.
 
@@ -312,6 +316,11 @@ La validation d'une mise en production majeure ne signe pas l'achèvement du pro
 L'expertise d'Actimage en développement brille tout particulièrement sur les marchés publics. L'entreprise a notamment participé à la conception du  #dsfr. Le #dsfr regroupe un ensemble de règles et de composants réutilisables pour les interfaces officielles des sites en `.gouv.fr`. Il permet à l'État d'offrir des services numériques simples, accessibles et reconnaissables. C'est notamment celui que vous retrouvez sur #monolink("impots.gouv.fr"), #monolink("ants.gouv.fr") et #monolink("sante.gouv.fr").
 
 Ce système de design est conçu pour être agnostique et modulaire. Il se décline sous plusieurs formats afin de couvrir tout le cycle de vie d'un projet de la phase de conception, au prototypage, à l'implémentation technique. Il existe notamment une librairie Figma, un socle de base en  HTML/CSS/JS natif à travers le paquet `@gouvfr/dsfr` ainsi que des portages développés par la communauté tels que `@codegouvfr/react-dsfr` (React), `@gouvminint/vue-dsfr` (Vue), `ngx-dsfr` (Angular), `django-dsfr` (Django) et `drupal/ui_suite_dsfr` (Drupal).
+
+#align(center, figure(
+  image("assets/sig.png"),
+  caption: [Capture de l'écran d'accueil de #monolink("info.gouv.fr"), utilisant le DSFR],
+))
 
 ==== Site officiel du Gouvernement
 
@@ -454,7 +463,7 @@ Le troisième volet de l'application concerne les administrateurs #ecm. Pour gar
 
 === Contraintes d'interopérabilité
 
-Enfin, le système devait respecter une contrainte forte d'interopérabilité avec les services de l'État. Les données n'étant pas strictement confidentielles, elles sont rendues accessibles au grand public via le portail gouvernemental Mémoire des Hommes#footnote[https://memoiredeshommes.defense.gouv.fr]. L'application développée intègre donc une fonctionnalité d'export mensuel générant un format de fichier très spécifique, garantissant l'alimentation continue et conforme de ce portail national.
+Enfin, le système devait respecter une contrainte forte d'interopérabilité avec les services de l'État. Les données n'étant pas strictement confidentielles, elles sont rendues accessibles au grand public via le portail gouvernemental #mdh. L'application développée intègre donc une fonctionnalité d'export mensuel générant un format de fichier très spécifique, garantissant l'alimentation continue et conforme de ce portail national.
 
 ==== Interlocuteurs, équipe et gestion de projet
 
@@ -464,7 +473,7 @@ Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que 
 
 Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'#ao. En découlent des maquettes Figma @figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
 
-== Migration et regroupement familial : le défi de la réconciliation des données
+== Migration et regroupement familial
 
 Cette phase du projet a été particulièrement formatrice, marquant ma première immersion dans l'écosystème PHP, le cadriciel Symfony et l'ORM Doctrine. Le défi à relever consistait à consolider une "base mère" et de multiples "bases filles" (fournies sous forme de fichiers CSV). Au sein de ces bases, chaque sépulture est théoriquement identifiée par un entier unique : la colonne `sdr_num` (numéro de saisie des registres). Cependant, suite à la scission des bases et à l'ajout décentralisé de nouvelles entrées par les chefs de secteur, de nombreuses collisions d'identifiants sont apparues.
 
@@ -472,9 +481,9 @@ Une simple fusion automatisée était inenvisageable en raison de la nature ambi
 
 === Choix technologiques et rigueur logicielle
 
-S'agissant d'un projet de réconciliation de données critiques, il était primordial d'établir des fondations techniques solides. J'ai configuré ce projet sur les dernières normes de l'écosystème : PHP 8.2 couplé à Symfony 7.4 et PostgreSQL 18.
+S'agissant d'un projet de réconciliation de données critiques, il était primordial d'établir des fondations techniques solides et de me former aux technologies dont l'application principale fera usage. J'ai donc configuré ce projet sur les dernières normes de l'écosystème avec la pile technologiques classique chez Actimage : PHP 8.5 couplé à Symfony 7.4 et PostgreSQL 18.
 
-Afin de garantir la maintenabilité et la robustesse du code, j'ai intégré un outillage de qualité logicielle (QA) exigeant. L'analyse statique du code est assurée par PHPStan poussé à son niveau de vérification maximal (niveau 10), garantissant un typage strict et prévenant les erreurs d'exécution en amont. Le formatage du code est automatisé via PHP CS Fixer, et la fiabilité des algorithmes de résolution de conflits est couverte par des tests unitaires exécutés via PHPUnit. L'interface utilisateur, bien que secondaire pour un #poc, utilise le moteur de gabarits Twig couplé au cadriciel Tailwind CSS via le composant Symfony AssetMapper, permettant de se passer d'une lourde chaîne de compilation JavaScript type Node.js/Webpack.
+Afin de garantir la maintenabilité et la robustesse du code, j'ai intégré un outillage de qualité logicielle exigeant. L'analyse statique du code est assurée par PHPStan poussé à son niveau de vérification maximal (niveau 10), garantissant un typage strict et prévenant les erreurs d'exécution en amont. Le formatage du code est automatisé via PHP CS Fixer, et la fiabilité des algorithmes de résolution de conflits est couverte par des tests unitaires exécutés via PHPUnit. L'interface utilisateur, bien que secondaire pour un #poc, utilise le moteur de gabarits Twig couplé au cadriciel Tailwind CSS via le composant Symfony AssetMapper, permettant de se passer d'une lourde chaîne de compilation JavaScript type Node.js/Webpack.
 
 === Architecture transactionnelle et asynchrone
 
@@ -530,7 +539,45 @@ Cette phase initiale d'ingestion a mis en évidence les limites physiques du for
 
 Tester l'outil sur de tels volumes a mis en exergue des problématiques de redondance de la donnée et des limites d'indexation. Cela a prouvé la nécessité absolue d'engager, pour le cœur de l'application ECM qui allait suivre, un travail profond de normalisation de la base de données (scission des champs libres en entités fortes avec clés primaires et jointures), sous peine de subir des temps de latence rédhibitoires lors des futures recherches et consultations.
 
-== Application principale : conception et réalisation
+== Modélisation et normalisation de la base ECM
+
+=== Du modèle plat au modèle relationnel
+
+Une fois la base mère consolidée par l'outil de migration décrit ci-dessus, la donnée restait structurée selon l'héritage historique d'#onacvg : une unique table plate d'une quarantaine de colonnes, mêlant état civil, données militaires et informations de site sans aucune contrainte d'intégrité référentielle. Un tel modèle, s'il avait été conservé tel quel dans l'application de gestion, aurait rendu impossible toute cohérence à long terme : un même grade ou une même nationalité pouvait être orthographié de multiples façons selon la ligne, sans qu'aucune structure ne permette de les unifier ou de les faire évoluer de manière centralisée.
+
+La refonte du modèle de données a donc consisté à extraire de cette table plate une quinzaine d'entités fortes, jouant le rôle de thésaurus partagés (`Grade`, `Unite`, `Compagnie`, `Conflit`, `SousConflit`, `CauseDeces`, `TypeSepulture`, `Mention`, `BureauRecrutement`, `Nationalite`, `Pays`, `Departement`, `Commune`, `Localisation`), reliées à deux entités centrales, `Soldat` et `Site`, par des relations `ManyToOne` gérées via Doctrine ORM. Cette architecture en étoile permet une double garantie : l'intégrité référentielle au niveau base de données (impossible d'associer un soldat à un grade qui n'existe pas) et l'administrabilité de ces référentiels depuis l'interface, sans intervention sur le code (cf. #todo("lien vers la page d'administration des thésaurus, SFD section 9.2")).
+
+#align(center, figure(
+  image("assets/figma/gestion-thesaurus.svg"),
+  caption: "Export Figma de l'écran de la page d'administration des thésaurus",
+))
+
+=== Schéma entité-association
+
+#todo("insérer le schéma de la base de données ECM ici (export dbdiagram / DataGrip / Doctrine schema)")
+
+#align(center, figure(
+  todo("remplacer par le rendu du schéma une fois exporté"),
+  caption: "Modèle entité-association simplifié de la base ECM",
+))
+
+L'entité `Soldat`, avec une quinzaine de clés étrangères, constitue le nœud central du modèle : outre son rattachement à un `Site`, elle référence indépendamment jusqu'à cinq occurrences de l'entité `Localisation` (lieu de naissance, de recrutement, de décès, de transcription du décès, de première inhumation), ce qui a permis de conserver la richesse de la donnée d'origine - un soldat pouvant être né, être décédé et avoir été recruté dans trois lieux distincts - sans dupliquer la structure de ces lieux. L'entité `Site`, de son côté, porte sa propre hiérarchie géographique (`Commune`, `Departement`, `Pays`) ainsi qu'une relation inverse vers l'ensemble des soldats qui y sont inhumés, condition nécessaire aux interfaces de recherche par site et aux calculs d'agrégation utilisés dans le module de pilotage.
+
+=== La chaîne de traitement des thésaurus
+
+Le peuplement initial (puis la mise à jour ponctuelle) de ces référentiels et des entités principales a été industrialisé sous la forme d'une famille de commandes Symfony partageant un socle commun, `AbstractSyncCommand`, paramétré par un type générique (`@template T of Stringable`) correspondant à l'entité ciblée. Chaque commande concrète (`SyncGradeCommand`, `SyncConflitCommand`, `SyncSoldatCommand`, etc., une vingtaine au total) se contente de fournir trois éléments : le ou les fichiers CSV source, le nom de l'entité visée, et une méthode `createEntity()` chargée de transformer un enregistrement brut en instance de l'entité.
+
+La classe abstraite prend alors en charge la mécanique commune : lecture du CSV via `league/csv`, validation de chaque entité créée via le composant Validator de Symfony avant persistance, et surtout une gestion fine des erreurs ligne à ligne - une violation de contrainte d'unicité ou un échec de validation n'interrompt pas l'import mais fait l'objet d'un avertissement journalisé et d'un compteur de lignes ignorées, tandis qu'une erreur inattendue interrompt la commande. L'affichage console est lui-même structuré en trois sections indépendantes (erreurs, journal, barre de progression), ce qui permet de suivre en temps réel l'avancement d'un import portant sur plusieurs centaines de milliers de lignes sans noyer les messages d'erreur dans le flux de progression.
+
+#todo("ajouter capture de l'écran de progression")
+
+=== La commande d'import principale
+
+`SyncSoldatCommand`, qui consomme le fichier consolidé par l'outil de migration (`mere-dump.csv`), illustre le degré d'exigence de cette normalisation. Chaque ligne du CSV plat doit être résolue vers ses entités de référence correspondantes : le conflit renseigné en texte libre (ex. `"1914/1918"`) est d'abord normalisé via une table de correspondance interne avant d'être recherché parmi les entités `Conflit` existantes, le site est retrouvé par son nom, le type de sépulture par une recherche insensible à la casse, etc. Lorsqu'une correspondance échoue - un site ou un type de sépulture introuvable -, une `EntitySyncException` dédiée est levée, ce qui fait remonter l'anomalie comme un avertissement exploitable plutôt que comme une erreur silencieuse ou un plantage.
+
+Ce choix (faire échouer explicitement l'import d'une ligne plutôt que de créer une entité incomplète ou incohérente) a constitué un arbitrage central de cette phase : il garantit qu'aucune donnée n'entre dans la base ECM sans que l'ensemble de ses relations obligatoires soit résolu, au prix d'un nombre de lignes rejetées qu'il a fallu analyser et corriger itérativement en amont plutôt qu'en aval sur une base déjà polluée. Il a notamment fallu manuellement corriger les CSV sources (normalisation des nationaités au féminin par exemple), demander au client voire au webmestre de #mdh des exports complémentaires pour avoir toutes les données nécessaires ainsi que les liens entre ces dernières.
+
+== Application principale : architecture et réalisation
 
 Une fois la consolidation des données historiques achevée, la phase majeure du projet a consisté à concevoir et développer l'application principale de suivi. Le périmètre fonctionnel, défini par de rigoureuses spécifications, englobe la consultation et la gestion de la base de l'État Civil Militaire (ECM), la saisie d'inspections sur le terrain via tablette, le pilotage budgétaire et la gestion des commandes de plaques.
 
@@ -542,9 +589,42 @@ Pour répondre aux enjeux de maintenabilité et de pérennité du client, la pil
 
 L'un des choix architecturaux majeurs a été l'abandon des chaînes de compilation JavaScript lourdes (de type Node.js/Webpack) au profit du composant Symfony AssetMapper. Ce paradigme moderne permet de gérer les dépendances client (JavaScript et CSS) directement via PHP. L'interface utilisateur est ainsi propulsée par le moteur de gabarits Twig, stylisée dynamiquement via le cadriciel Tailwind CSS (compilé nativement), et rendue interactive grâce à Stimulus (Symfony UX). Cette approche réduit drastiquement la complexité de l'infrastructure de déploiement tout en garantissant des performances optimales côté client.
 
-=== Rigueur logicielle et Intégration Continue (CI/CD)
+=== Modélisation des droits et rôles
 
-Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (_pipeline_ Jenkins) particulièrement stricte. Chaque demande de fusion (Merge Request) doit valider des étapes bloquantes avant d'être intégrée à la branche principale :
+Les spécifications fonctionnelles définissent huit rôles distincts, chacun associé à une étendue de visibilité  nationale ou limitée à un ou plusieurs secteurs géographiques (@table-roles). Ce référentiel, issu d'une matrice rôles/droits établie en amont avec le client, a été traduit côté code par un enum PHP dédié (`App\Security\Role`), dont chaque cas porte son libellé métier via une méthode `label()` - un choix qui évite la dispersion de chaînes de caractères représentant les rôles à travers l'application et centralise leur nommage.
+
+#figure(
+  table(
+    columns: 3,
+    [*Rôle*], [*Étendue*], [*Accès principal*],
+    [Superadmin], [National], [Toutes données, administration complète],
+    [Administrateur ECM], [National], [Lecture/écriture base ECM, administration, commande de plaques],
+    [Administrateur Inspection],
+    [National / Secteur],
+    [Lecture/écriture inspections, administration des référentiels de secteur],
+
+    [Chef de secteur], [Secteur], [Lecture base ECM, écriture limitée à son secteur, commande de plaques],
+    [Consultant ECM], [National], [Lecture seule base ECM],
+    [Consultant Inspection], [Secteur], [Lecture seule sites/inspections de son secteur],
+    [Consultant Budgétaire], [National], [Lecture seule pilotage budgétaire],
+    [Consultant], [National], [Lecture seule transverse (ECM, sites, pilotage)],
+  ),
+  caption: "Rôles applicatifs et étendue associée",
+) <table-roles>
+
+Côté implémentation, la hiérarchie entre ces rôles est déclarée dans la configuration de sécurité de Symfony (`security.yaml`), où `ROLE_SUPERADMIN` hérite automatiquement de l'ensemble des autres rôles  évitant ainsi de dupliquer les vérifications d'accès pour l'administrateur global. Le contrôle d'accès aux actions sensibles (édition d'un soldat ou d'un site) est réalisé au niveau des contrôleurs via l'attribut `#[IsGranted('ROLE_ADMIN_ECM')]` de Symfony Security, appliqué directement sur les méthodes concernées.
+
+#todo("insérer capture Figma du menu latéral, avec état replié/déplié selon device et rôle")
+
+Le second axe du cloisonnement des droits  la restriction géographique par secteur, qui borne par exemple l'écriture d'un chef de secteur aux seuls sites de son secteur - s'appuie sur une entité `Secteur` nouvellement introduite (liaison `ManyToOne` depuis `Site`), actuellement développée sur une branche dédiée et pas encore fusionnée à `main` au moment de la rédaction de ce rapport. Cette entité pose les fondations de données nécessaires à une future logique d'autorisation par _voter_ Symfony, qui viendra comparer le secteur de rattachement de l'utilisateur à celui de la ressource consultée - mécanisme non encore implémenté à ce stade du projet.
+
+=== Rigueur logicielle et Intégration Continue
+
+Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (_pipeline_ Jenkins) particulièrement stricte. Chaque demande de fusion (Merge Request) doit valider quatre familles d'étapes bloquantes avant d'être intégrée à la branche principale : construction et linters (container Symfony, YAML, Twig, mapping Doctrine), tests, analyse statique (PHPStan, PHP CS Fixer, Twig CS Fixer, Biome, Rector), puis sécurité (audit Composer, Gitleaks)  les trois dernières familles s'exécutant en parallèle pour limiter le temps de retour.
+
+==== Crochets Git
+
+Pour raccourcir la boucle de rétroaction et éviter de découvrir une violation de style ou un secret accidentellement commité seulement au moment de la Merge Request, j'ai mis en place des _hooks_ Git locaux (`.githooks/pre-commit` et `.githooks/pre-push`, activés automatiquement via `make hooks` à l'initialisation du projet). Le hook de pré-commit rejoue localement, sur les fichiers modifiés, un sous-ensemble rapide des vérifications de la CI (formatage PHP, Twig et JavaScript, ainsi qu'un scan Gitleaks des changements indexés), avec possibilité de contournement explicite (`git commit --no-verify`) pour les cas d'urgence. Cette approche répartit la charge de vérification entre le poste du développeur (retour en quelques secondes sur les problèmes les plus fréquents) et le pipeline CI (vérification exhaustive et non contournable avant fusion), sans dupliquer inutilement la configuration des outils entre les deux environnements.
 
 ==== Analyse statique et Typage strict
 
@@ -558,13 +638,19 @@ La syntaxe est uniformisée automatiquement par PHP CS Fixer et Twig CS Fixer. L
 
 Outre l'audit des dépendances Composer, la CI intègre Gitleaks, un outil scannant l'historique des modifications (via des expressions régulières) pour empêcher la fuite de secrets ou de clés d'API dans le code source.
 
-==== Tests isolés
+==== Stratégie de tests
 
-Les tests fonctionnels et unitaires sont propulsés par PHPUnit. L'utilisation du paquet `dama/doctrine-test-bundle` permet d'exécuter les tests de base de données au sein de transactions automatiquement annulées (rollback), garantissant l'isolation des tests et des performances d'exécution accrues.
+La suite de tests, exécutée via PHPUnit et pilotée par un fichier `phpunit.dist.xml` dédié, s'organise selon trois niveaux de granularité croissante :
+
+- des *tests unitaires purs* (`PHPUnit\Framework\TestCase`), qui isolent la logique métier de toute dépendance au framework  par exemple la sérialisation des critères d'une recherche sauvegardée (`SavedSearchTest`), où les entités liées sont simulées via des _stubs_ plutôt qu'instanciées en base ;
+- des *tests d'intégration* (`Symfony\Bundle\FrameworkBundle\Test\KernelTestCase`), qui démarrent un noyau applicatif réduit pour valider des composants dépendant de Doctrine, tels que les requêtes de recherche multicritère du `SoldatRepository`, souvent pilotées par des jeux de données paramétrés (`#[DataProvider]`) ;
+- des *tests fonctionnels* (`WebTestCase`), qui simulent un navigateur HTTP complet (`KernelBrowser`) pour valider des parcours utilisateurs de bout en bout  soumission d'un formulaire de recherche, tri des résultats, disponibilité générale de l'application.
+
+Ces deux derniers niveaux s'appuient sur un système de fixtures Doctrine organisées par dépendances explicites (`DependentFixtureInterface`) et groupées (`FixtureGroupInterface`) : le groupe `test`, chargé uniquement pour les tests, garantit un jeu de données minimal et reproductible sans intervenir sur les données de développement. Chaque test de base de données s'exécute par ailleurs au sein d'une transaction automatiquement annulée grâce au paquet `dama/doctrine-test-bundle`, ce qui garantit à la fois l'isolation entre tests (aucun effet de bord d'un test à l'autre) et des performances d'exécution nettement supérieures à un rechargement complet du schéma entre chaque cas.
 
 === Implémentation des règles métiers et sécurité
 
-Le cahier des charges impose une gestion fine des habilitations, réparties selon plusieurs rôles : Superadmin, Administrateur ECM, Administrateur Inspection, Chef de secteur et différents profils de consultants. Les droits d'accès ont été modélisés via le composant Security de Symfony (Voters et hiérarchie des rôles), garantissant un accès cloisonné en lecture et en écriture selon l'étendue géographique de l'agent (National vs Secteur).
+Le cahier des charges impose une gestion fine des habilitations, réparties selon plusieurs rôles : Superadmin, Administrateur ECM, Administrateur Inspection, Chef de secteur et différents profils de consultants. Les droits d'accès ont été modélisés via le composant Security de Symfony (Voters et hiérarchie des rôles), la hiérarchisation des rôles étant en place dès le socle applicatif, tandis que le cloisonnement fin par étendue géographique (National vs Secteur), en cours de développement à la fin du stage, s'appuie sur l'entité `Secteur` nouvellement introduite dans le modèle de données
 
 Le cœur du système repose sur la Base ECM, exigeant des interfaces de recherche multicritères complexes (par individu ou par site). La modélisation a nécessité de relier les entités `Soldat` et `Site` à un riche système de thésaurus (grades, conflits, unités, causes de décès) gérable dynamiquement par les administrateurs.
 
@@ -572,19 +658,55 @@ Le cœur du système repose sur la Base ECM, exigeant des interfaces de recherch
 
 Bien que l'application comporte de nombreux modules, certains ont représenté des défis techniques et ergonomiques particulièrement intéressants :
 
+==== Consultation et recherche multicritère
+
+Le module de consultation constitue le point d'entrée quotidien des utilisateurs vers la base ECM. Il repose sur un objet de requête dédié (`SoldatSearchData`), une simple classe de données publiques portant l'ensemble des critères de filtrage disponibles  nom, prénoms, dates de naissance et de décès, département de naissance/décès, conflit, site d'inhumation, présence de sépulture, caractère perpétuel de la sépulture - ainsi que les paramètres de pagination et de tri. Ce découpage isole complètement l'expression d'une recherche de son exécution : le contrôleur se contente d'hydrater cet objet depuis les paramètres de la requête HTTP, avant de le transmettre au dépôt Doctrine (`SoldatRepository::search()`).
+
+Le dépôt construit alors dynamiquement une requête #dql via le `QueryBuilder` de Doctrine, n'ajoutant une clause `WHERE` ou une jointure que pour les critères effectivement renseignés, évitant ainsi de générer un unique #dql statique avec de multiples conditions optionnelles peu lisibles et des jointures coûteuses et inutiles, au profit d'une construction incrémentale et testable indépendamment critère par critère (cf. `SoldatRepositoryTest` et son usage de `#[DataProvider]`). Certains critères, comme la recherche textuelle sur le nom, exposent également un mode de correspondance paramétrable (`TextSearchType` : contient, commence par, exact), traduit en clause SQL `LIKE` ou `=` selon le cas.
+
+Pour répondre au besoin d'un usage récurrent de certaines combinaisons de filtres, une fonctionnalité de recherche sauvegardée (`SavedSearch`) a également été développée : elle sérialise l'état complet d'un `SoldatSearchData` sous forme de chaîne de requête, réutilisable pour reconstituer une recherche identique en un clic depuis le tableau de bord de l'utilisateur.
+
+#align(center, figure(
+  image("assets/figma/recherche-individus.svg", width: 70%),
+  caption: "Export Figma de l'écran de recherche par individu avec résultats",
+))
+
 ==== Gestion des inspections en mobilité
 
 L'application prévoit un module d'inspection destiné à être utilisé par les chefs de secteur sur tablette, directement sur les sites. L'interface a dû être pensée pour le format tactile (boutons larges, listes déroulantes optimisées). D'un point de vue technique, ce module intègre la capture de photographies via l'appareil de la tablette et l'application d'actions par lots (ex: dupliquer l'état de dégradation d'une stèle sur une plage de tombes définie par leurs numéros de rangs et de carrés).
 
 Les sites étant souvent situés dans des endroits reculés, en particulier pour les carrés militaires que l'on peut trouver dans des cimetières de villages, voire de hameaux, le chef de secteur les inspectant n'aura pas toujours accès à internet. La solution envisagée est le téléchargement préalable des données nécessaires dans le cache du navigateur, permettant ainsi un usage totalement hors-ligne. Une fois l'inspection terminée et la tablette placée dans un lieu avec accès internet, le formulaire d'inspection peut être soumis et enregistré sur la base de données de l'application.
 
+#todo("insérer maquettes")
+
 ==== Flux de validation (Workflow)
 
-Pour protéger l'intégrité des données historiques (sépultures perpétuelles, mentions "Mort pour la France"), les chefs de secteur ne peuvent pas altérer directement les champs sensibles. Un flux de validation a été implémenté : la modification soumise génère une demande de révision (avec système de notifications et d'emails gérés via `symfony/mailer`) que l'Administrateur ECM doit valider ou refuser avec justification depuis un tableau de bord dédié.
+Pour protéger l'intégrité des données historiques (sépultures perpétuelles, mentions « Mort pour la France »), les spécifications fonctionnelles définissent un flux de validation structuré : toute demande de suppression de fiche, de création de site ou de modification d'un champ réglementaire soumise par un chef de secteur ne s'applique pas directement, mais transite par un état « en attente » jusqu'à l'arbitrage d'un Administrateur ECM, avec obligation de motiver un refus.
 
 ==== Interopérabilité et Exports
 
-L'application devant alimenter le portail national "Mémoire des Hommes", un système d'export sur mesure a été pensé. Ce système génère de manière asynchrone des fichiers formats plats encapsulant les dernières modifications règlementaires et l'état des sites.
+Le système devait respecter une contrainte forte d'interopérabilité avec les services de l'État. Les données n'étant pas strictement confidentielles, elles sont rendues accessibles au grand public via le portail gouvernemental #mdh. Les spécifications fonctionnelles définissent à ce titre une page d'export dédiée, proposant deux modes : un export total de la base ECM, et un export partiel piloté par un assistant en trois étapes, permettant de restreindre l'export soit aux dernières mises à jour depuis une date donnée, soit à une sélection explicite de sites. Chaque export généré transite par un état intermédiaire (« en cours de génération », visible depuis la page dédiée) avant sa mise à disposition au téléchargement, avec gestion explicite des échecs et possibilité de relance.
+
+#align(center, figure(
+  image("assets/figma/export-mdh.svg"),
+  caption: "Export Figma de l'écran de l'écran d'export vers MdH",
+))
+
+À l'instar du flux de validation, cette fonctionnalité d'export n'était pas encore implémentée dans le périmètre développé pendant mon stage : seule sa maquette visuelle existe à ce stade, matérialisée dans le _design system_ interne de l'application par des composants de notification réutilisables (succès, information, erreur) illustrant les différents états d'un export  génération en cours, fichier disponible, échec - sans que la génération du fichier plat destiné à #mdh n'ait elle-même été codée.
+
+== Bilan technique et perpectives
+
+Le projet #onacvg est de loin celui sur lequel j'ai passé le plus de temps durant ce stage. Comme indiqué plus haut, son développement a débuté en même temps que mon arrivée. Le choix d'Actimage pour mon PFE tenait notamment à la taille humaine de l'entreprise, des équipes et des projets entrepris. Ma prédiction s'est réalisée : si ce projet me tient autant à cœur, c'est parce qu'il est assez complexe pour être profondément intéressant, sans que ses dimensions ne dépassent ma compréhension. Je peux suivre la quasi-totalité des lignes de code et des processus du projet, bien qu'il s'étende sur près de 400 fichiers.
+
+Le point technique qui m'a le plus découragé a été la mise en place de la logique côté client, dans un contexte sans outil puissant d'analyse statique  l'application se passant volontairement de TypeScript au profit de JavaScript natif. Cette absence de garde-fou à la compilation a fini par orienter mon choix vers Stimulus, le cadriciel recommandé par Symfony UX : en imposant une structure déclarative (contrôleurs, cibles, valeurs) directement dans le HTML plutôt que de la logique JavaScript libre, il compense en partie l'absence de typage en réduisant fortement la surface d'erreur possible, tout en restant cohérent avec le choix architectural d'AssetMapper.
+
+À l'inverse, ce que je suis le plus fier d'avoir mis en place côté PHP, c'est l'effort systématique consistant à déplacer un maximum de logique métier dans les types et les structures du code plutôt que dans des vérifications à l'exécution  les enums stricts (`PresenceSepulture`, `TextSearchType`, `Role`), le typage strict imposé par PHPStan niveau 9, ou encore l'usage des `traits` Symfony pour partager du comportement (`LoggerTrait`, `AlertControllerTrait`) sans passer par une hiérarchie d'héritage rigide. Le typage statique, quand il est poussé sérieusement, est un outil remarquable : il permet de prouver, au sens quasi mathématique du terme, qu'une certaine classe de bugs ne pourra tout simplement pas se produire à l'exécution. Les traits, de leur côté, permettent de réutiliser du code transversal sans imposer la contrainte d'un seul parent, libérant ainsi une charge mentale de conception que l'héritage classique aurait alourdie.
+
+Avec le recul, s'il y a un choix que je referais différemment, ce serait d'imposer des standards de code plus exigeants que ceux couverts par Rector et PHP CS Fixer, qui restent essentiellement syntaxiques. Je verrais volontiers l'ajout, à la chaîne d'intégration continue existante, d'un bloc de revue automatisée s'appuyant sur un modèle de langage (à la manière d'outils comme CodeRabbit), capable de commenter directement une Merge Request sur des questions de style et de bonnes pratiques que les outils actuels ne couvrent pas  nommage, cohérence des patterns entre modules, lisibilité - et d'accélérer ainsi l'uniformisation du projet sans alourdir la charge de relecture humaine du _lead developer_.
+
+Ce projet a par ailleurs été autant stimulant humainement que techniquement. Les échanges avec Jim, chef de secteur à Bordeaux et lui-même ancien combattant, ont concrètement ancré mon travail : l'entendre exposer les problématiques pratiques de son quotidien d'inspecteur de site  l'éloignement de certains carrés militaires, la difficulté de maintenir une base de données à jour sur le terrain a donné un sens tangible à des choix qui, sur le papier, n'étaient que des arbitrages techniques (mode hors-ligne, ergonomie tactile du formulaire d'inspection).
+
+Sur le plan de ma formation d'ingénieur, ce stage a surtout été une leçon de pragmatisme technique. Venant d'une formation où des langages fortement typés comme OCaml ou Java sont mis en avant pour leur rigueur, j'ai appris qu'un langage moins strict par nature  PHP, historiquement permissif peut être "repris en main" via un outillage de qualité suffisamment exigeant (PHPStan au niveau maximal, validation Symfony, tests) pour retrouver une bonne part des garanties recherchées, tout en conservant une vélocité de développement que des langages plus rigides auraient difficilement permise sur un projet de cette taille et avec ces délais.
 
 = PIAWEB : Une histoire de DevOps
 
