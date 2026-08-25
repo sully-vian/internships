@@ -772,7 +772,7 @@ L'application PIAWEB#footnote[Contraction de Programme d'Investissements d'Aveni
 
 Ce projet est actuellement en phase de #tma, peu de développements sont réalisés, majoritairement des corrections de bogues ou des évolutions mineures. La pile technologique repose sur du Spring et du Angular, une solution légèrement plus élaborée que celle proposée pour l'#onacvg puisqu'elle requiert deux conteneurs serveur distincts pour le web frontal et dorsal.
 
-== #todo("find title")
+== Anatomie d'une infrastructure industrialisée
 
 === Architecture de l'environnement DevOps et de l'infrastructure
 
@@ -839,7 +839,7 @@ L'environnement et les images Docker restent les mêmes que lors de l'étape de 
 
 === Un anti-pattern relevé : la stratégie de branches du dépôt `docker`
 
-Ce même découpage en une branche par environnement (`dev`, `int`, `rec`, `prep-prod`) est également appliqué au sous-module `docker`, qui héberge les fichiers `Dockerfile` et `docker-compose.yml` de chaque environnement. Ce choix me semble constituer une utilisation abusive des branches Git, pour une raison simple : une branche est, par nature, un outil destiné à isoler un travail appelé à converger - une fonctionnalité en cours de développement, une correction en attente de revue - avant d'être fusionné dans une autre branche. Or les méthodes de déploiement diffèrent fondamentalement d'un environnement à l'autre : en `dev` et `int`, le code source est monté en volume dans les conteneurs pour bénéficier du rechargement à chaud, tandis qu'à partir de `rec`, il est figé et compilé en dur dans l'image. Les fichiers de configuration Docker de ces environnements ne sont donc pas des variations d'un même travail en cours, mais des configurations durablement distinctes, qui n'ont jamais vocation à se fusionner les unes dans les autres.
+Ce même découpage en une branche par environnement (`dev`, `int`, `rec`, `prep`/`prod`) est également appliqué au sous-module `docker`, qui héberge les fichiers `Dockerfile` et `docker-compose.yml` de chaque environnement. Ce choix me semble constituer une utilisation abusive des branches Git, pour une raison simple : une branche est, par nature, un outil destiné à isoler un travail appelé à converger - une fonctionnalité en cours de développement, une correction en attente de revue - avant d'être fusionné dans une autre branche. Or les méthodes de déploiement diffèrent fondamentalement d'un environnement à l'autre : en `dev` et `int`, le code source est monté en volume dans les conteneurs pour bénéficier du rechargement à chaud, tandis qu'à partir de `rec`, il est figé et compilé en dur dans l'image. Les fichiers de configuration Docker de ces environnements ne sont donc pas des variations d'un même travail en cours, mais des configurations durablement distinctes, qui n'ont jamais vocation à se fusionner les unes dans les autres.
 
 Cette absence de convergence prévue pose un problème concret dès qu'un changement doit s'appliquer à plusieurs environnements à la fois - la mise à jour d'une version de base d'image, ou la correction d'un nom de service mal orthographié, par exemple. N'ayant pas de branche commune vers laquelle ces branches convergent, un tel changement ne peut être propagé qu'en le répliquant manuellement sur chacune d'entre elles, typiquement par _cherry-pick_ - une opération répétitive, sujette à l'oubli d'une branche, et qui ne laisse aucune trace du fait que ces N commits représentent en réalité une seule et même intention de changement.
 
@@ -884,7 +884,7 @@ Si la recette est validée par le client, la version est promue en production. L
   caption: "Schéma de flux illustrant les étapes de la livraison",
 )
 
-== #todo("find title")
+== Première livraison, première leçon
 
 === Le bogue
 
@@ -894,7 +894,24 @@ Si l'implémentation du correctif ne nécessita que quelques minutes, la validat
 
 === Appareillage sur lest
 
-Le cycle de livraison d'une version du site PIAWEB passe par plusieurs phases différentes, évoluant lentement de l'environnement de développement vers l'environnement de production.
+Le cycle de livraison d'une version du site PIAWEB passe par plusieurs phases différentes, évoluant lentement de l'environnement de développement vers l'environnement de production. Personne ne m'avait formellement transmis la procédure de livraison à ce moment-là - la documentation que je cite plus haut dans ce rapport a d'ailleurs été rédigée *après* les évènements que je m'apprête à raconter, en partie grâce à eux. Sans cette référence, j'ai naturellement reproduit ce que je connaissais déjà : les mêmes commandes de mise à jour utilisées quotidiennement sur les environnements de développement et d'intégration, où l'application tourne en écoutant un volume monté contenant le code source, sans jamais rien figer dans l'image elle-même.
+
+Ces commandes fonctionnent à merveille sur `dev` et `int`. Elles fonctionnent également très bien sur `rec`, pour une raison que j'ignorais alors : l'environnement de recette d'Actimage réutilise le même serveur, où le code se trouve donc toujours physiquement présent sur le disque, monté en volume comme sur les environnements précédents - même si en théorie, à ce stade du cycle de livraison, le code est censé être figé à l'intérieur de l'image elle-même. Les tests passaient, l'application tournait normalement sur `int` comme sur `rec`, rien ne laissait présager de problème. J'ai donc construit les images, poussé les artefacts sur le registre Harbor d'Actimage, et lancé la livraison chez le client.
+
+Celle-ci a d'abord été ralentie par un problème indépendant de ma manipulation : un changement de configuration de proxy côté Actimage avait entre-temps rendu le registre inaccessible depuis le réseau du client. Une fois ce point réglé et les images enfin récupérées côté client, celles-ci ont tout simplement refusé de démarrer :
+
+```
+Error: Could not find or load main class Main
+Caused by: java.lang.ClassNotFoundException: Main
+```
+
+J'ai reproduit l'erreur en local, sur mon propre ordinateur, après avoir pris soin de retirer les conteneurs de développement du projet pour ne pas fausser le test. Même résultat. En ouvrant un shell à l'intérieur du conteneur incriminé, la cause est devenue évidente : le répertoire `/app`, censé contenir le code compilé de l'application, était tout simplement absent. Mes images ne contenaient aucun code.
+
+En suivant sans le savoir le protocole de build de `dev` et `int` jusqu'à `rec` puis `prod`, j'avais construit des images strictement vides de toute logique applicative - le code, sur le serveur d'intégration où j'opérais, restait monté en volume depuis le système de fichiers hôte, et n'était donc jamais copié à l'intérieur de l'image lors du `docker compose build`. Rétrospectivement, le signal m'avait pourtant crevé les yeux sans que je le lise correctement : la taille des nouveaux artefacts sur le registre avait presque diminué de moitié par rapport à la version précédente - une image sans code pesant naturellement bien moins lourd qu'une image qui en contient.
+
+Tout est rentré dans l'ordre une fois qu'on m'a expliqué la procédure exacte de bascule entre les deux paradigmes de construction, et une fois la documentation correspondante rédigée. Ce genre d'incident, sur un projet DevOps mature, ne pose généralement pas de difficulté majeure : il suffit de connaître un peu la stack pour en repérer rapidement la cause. Le problème, dans mon cas, tenait autant à l'absence ponctuelle de documentation qu'à ma propre formation insuffisante en DevOps, réseaux et en infrastructure.
+
+Tout DevOps le sait, une bonne documentation n'est rien sans le savoir faire de celui qui la lit. Il y aura toujours un détail d'environnement qui changera ou une doc pas à jour qui forcera le DevOps à "mettre les mains dans le cambouis" et débugguer sur le serveur directement.
 
 = Autres projets en cours
 
