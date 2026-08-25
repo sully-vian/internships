@@ -167,7 +167,7 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 #show outline.entry.where(level: 1): set block(above: 1em)
 #outline(depth: 3, title: "Sommaire")
 
-#outline(title: "Table des figures", target: figure.where(kind: image))
+#outline(title: "Table des figures", target: figure)
 
 = Introduction
 
@@ -210,10 +210,6 @@ Romain est ingénieur diplômé de Polytech Sorbonne#footnote[https://www.polyte
 ==== Thomas Harir-Forouch (THA)
 
 Thomas est en contrat d'alternance chez Actimage depuis septembre 2025. Il suit une formation de développeur commercial à Audencia#footnote[https://www.audencia.com]. Ses missions principales inclient la prospection commerciale, la qualification d'#ao, la réponse à #ao ainsi que le recrutement (sourçage et entretiens).
-
-=== Pôle développement
-
-=== Pôle R et D
 
 == Contexte du stage
 
@@ -334,7 +330,7 @@ Techniquement, l'application a été développée de manière multi-support avec
 
 ==== Hol'Autisme
 
-Actimage s'inscrit fortement dans l'innovation et la #rd avec des projets à fort impact sociétal à l'image de Hol'Autisme#footnote[https://www.holautisme.com]. Ce projet novateur propose le premier catalogue d'applications en réalité mixte destiné à aider les enfants et adolescents atteints de troubles du spectre autistique à développer leurs compétences sociales. Développée notamment avec le moteur Unity pour le casque HoloLens, la solution permet de simuler des situations du public ou du quotidien dans un environnement interactif et contrôlé. Le but est d'aider les patients à appréhender les codes sociaux et à gagner progressivement en autonomie sans subir l'angoisse du monde réel.
+Actimage s'inscrit fortement dans l'innovation et la #rd avec des projets à fort impact sociétal à l'image de Hol'Autisme#footnote[https://www.holautisme.com]. Ce projet novateur du pôle #rd propose le premier catalogue d'applications en réalité mixte destiné à aider les enfants et adolescents atteints de troubles du spectre autistique à développer leurs compétences sociales. Développée notamment avec le moteur Unity pour le casque HoloLens, la solution permet de simuler des situations du public ou du quotidien dans un environnement interactif et contrôlé. Le but est d'aider les patients à appréhender les codes sociaux et à gagner progressivement en autonomie sans subir l'angoisse du monde réel.
 
 L'expertise technologique du projet va bien au-delà de la simple réalité mixte : le système intègre un bracelet connecté permettant de mesurer le niveau d'anxiété de l'apprenant en temps réel, couplé à une plateforme web de contrôle et de suivi. Grâce à l'analyse de données et à des outils statistiques avancés, le personnel médico-éducatif peut analyser finement les sessions. La pertinence de ce dispositif global, dont la première preuve de concept s'intitule PopBalloons, a d'ailleurs été saluée par l'écosystème technologique, le projet étant lauréat des concours French IOT 2017 et Futur.e.s 2018.
 
@@ -565,11 +561,46 @@ L'entité `Soldat`, avec une quinzaine de clés étrangères, constitue le nœud
 
 ==== Contraintes fortes
 
-Donner aux utilisateurs accès en écriture aux thésaurus est très pratique, puisqu'il leur permet de corriger leurs problèmes de donnée eux-mêmes. En revanche, il nous faut alors des validation de données irréprochables. Insérer des données propres à la création de la base ne suffit plus, les données insérées par les agents de l'#onacvg au cours du cycle de vie de l'application doivent respecter un ensemble de règles bien précises.
+Donner aux utilisateurs un accès en écriture aux thésaurus est très pratique, puisqu'il leur permet de corriger eux-mêmes leurs erreurs de saisie. Cela impose en retour des validations de données irréprochables : insérer des données propres à la création de la base ne suffit plus, celles insérées par les agents de l'#onacvg tout au long du cycle de vie de l'application doivent respecter un ensemble de règles précises.
 
-L'exemple principal est celui des entités `Pays`, `Departement` et `Commune`. Tout `Departement` a un `Pays`, toute `Commune` a un `Pays` et certaines `Commune` ont un `Departement`#footnote[Une `Commune` en Belgique n'a pas de `Departement` par exemple.]. Une contrainte qu'il faut faire respecter est que pour toute `Commune` dont le `Departement` est non-`NULL`, `commune.pays = commune.departement.pays`. Cette contrainte est facilement vérifiée à chaque modification ou insertion d'une des trois entités concernées: le composant `Validator` de Symfony évalue un ensemble d'expression et lance une exception dans le cas de violation. Cette approche est simple et efficace (encore faut-il penser à appeler le `Validator` à chaque occasion) mais elle ne plait pas à mon âme de programmeur formé au Coq (maintenant Rocq) et à l'analyse statique.
+L'exemple principal est celui du triplet `Pays`, `Departement` et `Commune`. Tout `Departement` a un `Pays`, toute `Commune` a un `Pays`, et certaines `Commune` ont un `Departement`#footnote[Une `Commune` en Belgique n'a par exemple pas de `Departement`.]. La contrainte à faire respecter est donc que pour toute `Commune` dont le `Departement` est non-`NULL`, `commune.pays = commune.departement.pays`. Une première approche, simple et efficace, consiste à la vérifier à chaque insertion ou modification via le composant `Validator` de Symfony, qui évalue un ensemble d'expressions et lève une exception en cas de violation. Efficace, à condition de penser à l'appeler à chaque occasion - une garantie qui ne satisfait pas mon âme de programmeur formé au Coq (aujourd'hui Rocq) et à l'analyse statique.
 
-Un principe que j'aime appliquer est _"Make Illegal States Unrepresentable"_#footnote[Rendre impossibles les états invalides]. #todo("compléter")
+Un principe que j'aime appliquer est _"Make Illegal States Unrepresentable"_#footnote[Rendre impossibles les états invalides]. En posant la contrainte directement sur le schéma de la base de données, je délègue sa vérification à PostgreSQL plutôt qu'à PHP - et bien que cette garantie ne soit pas formellement prouvée, je fais infiniment plus confiance à PostgreSQL pour l'appliquer sans exception qu'à un appel de validation qu'on pourrait toujours, par erreur, oublier d'invoquer quelque part dans le code.
+
+PostgreSQL permet nativement de définir des contraintes `CHECK` sur une colonne ou une table, mais cette fonctionnalité ne fait pas partie du socle SQL commun à tous les moteurs, et Doctrine - qui se veut être une abstraction agnostique du moteur sous-jacent - ne l'expose donc pas. Ma première intuition a été de contourner cette limite avec un attribut PHP personnalisé, `#[Check('...')]`, posé sur une entité Doctrine pour générer automatiquement la contrainte SQL correspondante lors de la création du schéma - une implémentation triviale en apparence. Deux problèmes m'ont fait abandonner cette piste quelques jours plus tard. D'une part, les versions récentes de Doctrine ORM ne permettent plus d'accrocher ce type d'attribut personnalisé au processus de génération de schéma comme prévu initialement. D'autre part, et plus fondamentalement : une contrainte `CHECK` ne peut évaluer que les colonnes de sa propre table, or `commune.pays_id = commune.departement.pays_id` nécessite de lire une colonne d'une autre table (`departement`) - ce qu'un `CHECK` classique ne sait tout simplement pas exprimer, aussi souple soit l'attribut qui le génère.
+
+La solution finale s'est portée vers un outil bien plus commun en SQL, mais employé ici de façon détournée : la contrainte de clé étrangère. Une clé étrangère ne sert habituellement qu'à garantir l'existence d'une ligne référencée dans une autre table ; rien n'empêche cependant de la définir sur plusieurs colonnes à la fois. Il devient alors possible de forcer le couple `(departement_id, pays_id)` d'une `Commune` à exister tel quel dans la table `Departement`, sous la forme `(id, pays_id)`. `Departement` garantissant déjà que chacune de ses lignes porte un `pays_id` cohérent, cette contrainte composite propage mécaniquement cette cohérence à `Commune`, sans jamais avoir besoin d'exprimer explicitement une égalité entre deux tables.
+
+Doctrine ne permettant pas de déclarer une clé étrangère composite directement depuis les attributs d'une entité, je l'ajoute au schéma généré via un `DoctrineListener`, écouté sur l'évènement `postGenerateSchema` :
+
+```php
+<?php
+#[AsDoctrineListener(ToolEvents::postGenerateSchema)]
+class CommuneConstraintListener
+{
+    public function postGenerateSchema(GenerateSchemaEventArgs $args): void
+    {
+        $schema = $args->getSchema();
+        $communeTable = $schema->getTable('commune');
+
+        // force commune.pays_id == commune.departement.pays_id
+        $communeTable->addForeignKeyConstraint(
+            'departement',
+            ['departement_id', 'pays_id'],
+            ['id', 'pays_id'],
+        );
+    }
+}
+```,
+
+Lors de la migration suivante, Doctrine compare le schéma de la base avec celui produit par les entités. La création de ce dernier est intercéptée par mon `CommuneConstraintListener` qui ajoute insère ce critère dans le schéma. La contrainte apparaît alors naturellement dans la _diff_ de la migration, comme n'importe quelle évolution du schéma :
+
+```sql
+ALTER TABLE commune ADD CONSTRAINT FK_E2E2D1EECCF9E01EA6E44244
+  FOREIGN KEY (departement_id, pays_id) REFERENCES departement (id, pays_id);
+```
+
+De même que la colonne `commune.site_id` porte la contrainte qu'il doit exister, pour toute `Commune` `c`, un `Site` `s` tel que `s.id = c.site_id`, ce même mécanisme se généralise à n'importe quel ensemble de colonnes, sans jamais nécessiter la moindre logique de validation applicative.
 
 === La chaîne de traitement des thésaurus
 
@@ -602,6 +633,7 @@ L'un des choix architecturaux majeurs a été l'abandon des chaînes de compilat
 Les spécifications fonctionnelles définissent huit rôles distincts, chacun associé à une étendue de visibilité  nationale ou limitée à un ou plusieurs secteurs géographiques (@table-roles). Ce référentiel, issu d'une matrice rôles/droits établie en amont avec le client, a été traduit côté code par un enum PHP dédié (`App\Security\Role`), dont chaque cas porte son libellé métier via une méthode `label()` - un choix qui évite la dispersion de chaînes de caractères représentant les rôles à travers l'application et centralise leur nommage.
 
 #figure(
+  kind: image,
   table(
     columns: 3,
     [*Rôle*], [*Étendue*], [*Accès principal*],
@@ -622,25 +654,31 @@ Les spécifications fonctionnelles définissent huit rôles distincts, chacun as
 
 Côté implémentation, la hiérarchie entre ces rôles est déclarée dans la configuration de sécurité de Symfony (`security.yaml`), où `ROLE_SUPERADMIN` hérite automatiquement de l'ensemble des autres rôles  évitant ainsi de dupliquer les vérifications d'accès pour l'administrateur global. Le contrôle d'accès aux actions sensibles (édition d'un soldat ou d'un site) est réalisé au niveau des contrôleurs via l'attribut `#[IsGranted('ROLE_ADMIN_ECM')]` de Symfony Security, appliqué directement sur les méthodes concernées.
 
-#todo("insérer capture Figma du menu latéral, avec état replié/déplié selon device et rôle")
-
 Le second axe du cloisonnement des droits  la restriction géographique par secteur, qui borne par exemple l'écriture d'un chef de secteur aux seuls sites de son secteur - s'appuie sur une entité `Secteur` nouvellement introduite (liaison `ManyToOne` depuis `Site`), actuellement développée sur une branche dédiée et pas encore fusionnée à `main` au moment de la rédaction de ce rapport. Cette entité pose les fondations de données nécessaires à une future logique d'autorisation par _voter_ Symfony, qui viendra comparer le secteur de rattachement de l'utilisateur à celui de la ressource consultée - mécanisme non encore implémenté à ce stade du projet.
 
 === Rigueur logicielle et Intégration Continue
 
-Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (_pipeline_ Jenkins) particulièrement stricte. Chaque demande de fusion (Merge Request) doit valider quatre familles d'étapes bloquantes avant d'être intégrée à la branche principale : construction et linters (container Symfony, YAML, Twig, mapping Doctrine), tests, analyse statique (PHPStan, PHP CS Fixer, Twig CS Fixer, Biome, Rector), puis sécurité (audit Composer, Gitleaks)  les trois dernières familles s'exécutant en parallèle pour limiter le temps de retour.
+Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (_pipeline_ Jenkins) particulièrement stricte. Chaque demande de fusion (_Merge Request_) doit valider quatre familles d'étapes bloquantes avant d'être intégrée à la branche principale : construction et linters (container Symfony, YAML, Twig, mapping Doctrine), tests, analyse statique (PHPStan, PHP CS Fixer, Twig CS Fixer, Biome, Rector), puis sécurité (audit Composer, Gitleaks)  les trois dernières familles s'exécutant en parallèle pour limiter le temps de retour.
 
 ==== Crochets Git
 
-Pour raccourcir la boucle de rétroaction et éviter de découvrir une violation de style ou un secret accidentellement commité seulement au moment de la Merge Request, j'ai mis en place des _hooks_ Git locaux (`.githooks/pre-commit` et `.githooks/pre-push`, activés automatiquement via `make hooks` à l'initialisation du projet). Le hook de pré-commit rejoue localement, sur les fichiers modifiés, un sous-ensemble rapide des vérifications de la CI (formatage PHP, Twig et JavaScript, ainsi qu'un scan Gitleaks des changements indexés), avec possibilité de contournement explicite (`git commit --no-verify`) pour les cas d'urgence. Cette approche répartit la charge de vérification entre le poste du développeur (retour en quelques secondes sur les problèmes les plus fréquents) et le pipeline CI (vérification exhaustive et non contournable avant fusion), sans dupliquer inutilement la configuration des outils entre les deux environnements.
+Afin de raccourcir la boucle de rétroaction et d'éviter qu'une violation de style ou la compromission d'un secret ne soient découvertes tardivement lors de la demande de fusion, des _hooks_ Git locaux (`.githooks/pre-commit` et `.githooks/pre-push`) ont été mis en place. Ils s'activent automatiquement via `make hooks` lors de l'initialisation du projet. Le hook de pré-commit exécute localement un sous-ensemble rapide des vérifications de l'intégration continue sur les fichiers modifiés (formatage PHP, Twig et JavaScript, ainsi qu'un scan Gitleaks).
 
-==== Analyse statique et Typage strict
+Cette approche répartit intelligemment la charge de vérification : le poste du développeur offre un retour quasi-instantané sur les erreurs courantes, tandis que le pipeline CI garantit une validation exhaustive et incontournable avant intégration, le tout sans dupliquer la configuration des outils.
 
-Le code est analysé par PHPStan, configuré à son niveau d'exigence maximal (Niveau 9). Une ligne de base (`baseline`) a été générée pour la dette technique existante, forçant ainsi tout nouveau code à être irréprochable.
+Toutefois, ce mécanisme présente certaines limites d'usage. Notamment, lorsqu'un développeur modifie plusieurs fichiers mais souhaite n'en valider (_commit_) qu'une partie, les vérifications de qualité s'appliquent parfois à l'ensemble du répertoire de travail, sans distinguer les fichiers indexés (_staged_) de ceux qui ne le sont pas. Dans cette situation spécifique, le développeur conserve la flexibilité de contourner ponctuellement les crochets à l'aide de l'option `--no-verify` @no-verify.
+
+==== Analyse statique et typage strict
+
+Le code est analysé par PHPStan, configuré à son niveau d'exigence maximal (Niveau 9), le plus strict proposé par l'outil. Pour absorber la dette technique déjà présente sans bloquer immédiatement toute la base de code, une ligne de base (`baseline`) archive l'ensemble des erreurs détectées à un instant donné dans un fichier dédié (`phpstan-baseline.neon`) : ces erreurs existantes sont ignorées lors des analyses suivantes, mais toute nouvelle erreur, elle, fait immédiatement échouer la vérification. Cette liste ne peut donc que diminuer au fil du temps - régénérer la ligne de base après avoir corrigé une erreur retire mécaniquement son entrée -, ce qui permet d'imposer une rigueur maximale sur tout code nouvellement écrit sans exiger une remise à niveau complète et immédiate de l'existant.
 
 ==== Formatage et refactorisation
 
-La syntaxe est uniformisée automatiquement par PHP CS Fixer et Twig CS Fixer. Le code JavaScript est audité par Biome @biome, et l'outil Rector est intégré en mode vérification (`dry-run`) pour suggérer des refactorisations architecturales (Dead code, Code quality, Type declarations).
+La syntaxe du projet est uniformisée par PHP CS Fixer côté PHP et par Twig CS Fixer côté gabarits Twig. Ces deux outils ne sont, à proprement parler, pas des formatteurs : ce sont avant tout des moteurs de vérification, qui inspectent le code à la recherche d'infractions à un ensemble de règles configurées. C'est uniquement parce que chaque règle est associée à sa propre correction automatique que ces outils peuvent, en pratique, être invoqués comme de simples formatteurs.
+
+Twig CS Fixer illustre bien cette distinction : parce qu'il opère au niveau du _Lexer_ et du _Node_ Twig plutôt que sur le fichier brut, il ne touche jamais au HTML dans lequel la syntaxe Twig est entremêlée - il se limite à vérifier et corriger l'espacement autour des opérateurs, des délimiteurs de bloc et des arguments nommés, ainsi que les conventions de nommage des fichiers et répertoires, sans jamais reformater la structure du document. Le projet applique le standard `Symfony` fourni par l'outil, qui étend le standard `Twig` de base (espacement des opérateurs, guillemets simples, virgules finales) avec des règles supplémentaires propres aux conventions Symfony, telles que le nommage en `snake_case` des fichiers et répertoires de gabarits.
+
+Le code JavaScript est quant à lui audité par Biome @biome, qui joue ce même double rôle de linter et de formatteur sur le périmètre des assets applicatifs. Enfin, l'outil Rector est intégré en mode vérification (`dry-run`, sans application automatique des changements) pour suggérer des refactorisations plus profondes que le simple style - suppression de code mort, simplifications sémantiquement équivalentes, ou ajout de déclarations de type manquantes -, dont chaque suggestion reste soumise à une relecture humaine avant d'être appliquée.
 
 ==== Sécurité
 
@@ -655,6 +693,8 @@ La suite de tests, exécutée via PHPUnit et pilotée par un fichier `phpunit.di
 - des *tests fonctionnels* (`WebTestCase`), qui simulent un navigateur HTTP complet (`KernelBrowser`) pour valider des parcours utilisateurs de bout en bout  soumission d'un formulaire de recherche, tri des résultats, disponibilité générale de l'application.
 
 Ces deux derniers niveaux s'appuient sur un système de fixtures Doctrine organisées par dépendances explicites (`DependentFixtureInterface`) et groupées (`FixtureGroupInterface`) : le groupe `test`, chargé uniquement pour les tests, garantit un jeu de données minimal et reproductible sans intervenir sur les données de développement. Chaque test de base de données s'exécute par ailleurs au sein d'une transaction automatiquement annulée grâce au paquet `dama/doctrine-test-bundle`, ce qui garantit à la fois l'isolation entre tests (aucun effet de bord d'un test à l'autre) et des performances d'exécution nettement supérieures à un rechargement complet du schéma entre chaque cas.
+
+Des tests fonctionnels d'interface sont également prévus mais non encore implémentés. Selon l'habitude chez Actimage, c'est le cadriciel de test Playwright @playwright, qui sera utilisé pour cette partie.
 
 === Implémentation des règles métiers et sécurité
 
@@ -687,9 +727,19 @@ Les sites étant souvent situés dans des endroits reculés, en particulier pour
 
 #todo("insérer maquettes")
 
+#align(center, figure(
+  image("assets/mes-sites-detail.svg", width: 70%),
+  caption: "Export Figma de l'écran de gestion d'un site (vue du chef de secteur)",
+))
+
 ==== Flux de validation (Workflow)
 
 Pour protéger l'intégrité des données historiques (sépultures perpétuelles, mentions « Mort pour la France »), les spécifications fonctionnelles définissent un flux de validation structuré : toute demande de suppression de fiche, de création de site ou de modification d'un champ réglementaire soumise par un chef de secteur ne s'applique pas directement, mais transite par un état « en attente » jusqu'à l'arbitrage d'un Administrateur ECM, avec obligation de motiver un refus.
+
+#align(center, figure(
+  image("assets/modale-validation-modifications.svg", width: 50%),
+  caption: "Export Figma la modale de validation des modifications",
+))
 
 ==== Interopérabilité et Exports
 
@@ -710,7 +760,7 @@ Le point technique qui m'a le plus découragé a été la mise en place de la lo
 
 À l'inverse, ce que je suis le plus fier d'avoir mis en place côté PHP, c'est l'effort systématique consistant à déplacer un maximum de logique métier dans les types et les structures du code plutôt que dans des vérifications à l'exécution  les enums stricts (`PresenceSepulture`, `TextSearchType`, `Role`), le typage strict imposé par PHPStan niveau 9, ou encore l'usage des `traits` Symfony pour partager du comportement (`LoggerTrait`, `AlertControllerTrait`) sans passer par une hiérarchie d'héritage rigide. Le typage statique, quand il est poussé sérieusement, est un outil remarquable : il permet de prouver, au sens quasi mathématique du terme, qu'une certaine classe de bugs ne pourra tout simplement pas se produire à l'exécution. Les traits, de leur côté, permettent de réutiliser du code transversal sans imposer la contrainte d'un seul parent, libérant ainsi une charge mentale de conception que l'héritage classique aurait alourdie.
 
-Avec le recul, s'il y a un choix que je referais différemment, ce serait d'imposer des standards de code plus exigeants que ceux couverts par Rector et PHP CS Fixer, qui restent essentiellement syntaxiques. Je verrais volontiers l'ajout, à la chaîne d'intégration continue existante, d'un bloc de revue automatisée s'appuyant sur un modèle de langage (à la manière d'outils comme CodeRabbit), capable de commenter directement une Merge Request sur des questions de style et de bonnes pratiques que les outils actuels ne couvrent pas  nommage, cohérence des patterns entre modules, lisibilité - et d'accélérer ainsi l'uniformisation du projet sans alourdir la charge de relecture humaine du _lead developer_.
+Avec le recul, s'il y a un choix que je referais différemment, ce serait d'imposer des standards de code plus exigeants que ceux couverts par Rector et PHP CS Fixer, qui restent essentiellement syntaxiques. Je verrais volontiers l'ajout, à la chaîne d'intégration continue existante, d'un bloc de revue automatisée s'appuyant sur un modèle de langage (à la manière d'outils comme CodeRabbit), capable de commenter directement une demande de fusion sur des questions de style et de bonnes pratiques que les outils actuels ne couvrent pas  nommage, cohérence des patterns entre modules, lisibilité - et d'accélérer ainsi l'uniformisation du projet sans alourdir la charge de relecture humaine du _lead developer_.
 
 Ce projet a par ailleurs été autant stimulant humainement que techniquement. Les échanges avec Jim, chef de secteur à Bordeaux et lui-même ancien combattant, ont concrètement ancré mon travail : l'entendre exposer les problématiques pratiques de son quotidien d'inspecteur de site  l'éloignement de certains carrés militaires, la difficulté de maintenir une base de données à jour sur le terrain a donné un sens tangible à des choix qui, sur le papier, n'étaient que des arbitrages techniques (mode hors-ligne, ergonomie tactile du formulaire d'inspection).
 
@@ -748,18 +798,9 @@ Les interfaces utilisateur en Angular, dont les composants transpilés sont serv
 
 Un conteneur éphémère dédié exclusivement à la gestion et à l'exécution des scripts de migration SQL pour faire évoluer la structure de la base de données PostgreSQL à chaque changement des entités qui cause un changement de schéma de table. Ce conteneur se lance lorsque l'application est mise en ligne et s'arrête dès que les migrations sont effectuées.
 
-#todo(
-  "Insérer ici un schéma DOT représentant l'architecture physique et logique de l'infrastructure PIAWEB.
-   Exemple de contenu DOT :
-   digraph architecture {
-     rankdir=LR;
-     Internet -> Nginx [label='HTTPS'];
-     Nginx -> 'Frontend (Angular)' [label='Proxy'];
-     Nginx -> 'Backend (Spring)' [label='API'];
-     'Backend (Spring)' -> 'PostgreSQL' [label='JDBC'];
-     'Flyway' -> 'PostgreSQL' [label='Migration'];
-   }
-",
+#figure(
+  render(read("assets/piaweb.dot"), width: 100%),
+  caption: "Architecture physique et logique de l'infrastructure PIAWEB",
 )
 
 === Intégration Continue et Déploiement Continu (CI/CD)

@@ -1,22 +1,27 @@
 bdnf_playstore:
-  type: "Web"
-  title: "BDnF - Applications sur Google Play"
+  type: Web
+  title: BDnF - Applications sur Google Play
   date: 2026
-  url: "https://play.google.com/store/apps/details?id=fr.bnf.bdnf.tablet"
+  url: https://play.google.com/store/apps/details?id=fr.bnf.bdnf.tablet
 inp-charte:
-  type: "Web"
-  author: "Institut National Polytechnique de Toulouse (Toulouse INP)"
-  title: "Identité visuelle et outils de communication"
-  url: "https://www.inp-toulouse.fr"
+  type: Web
+  author: Institut National Polytechnique de Toulouse (Toulouse INP)
+  title: Identité visuelle et outils de communication
+  url: https://www.inp-toulouse.fr
   date: 2026
 actimage-charte:
-  type: "Web"
-  author: "Actimage"
-  title: "Identité visuelle et outils de communication"
-  url: "https://www.actimage.com"
+  type: Web
+  author: Actimage
+  title: Identité visuelle et outils de communication
+  url: https://www.actimage.com
   date: 2026
 wiki-onacvg:
   type: Web
   title: Office national des combattants et des victimes de guerre
   author: Contributeurs de Wikipédia
   url: https://fr.wikipedia.org/wiki/Office_national_des_combattants_et_des_victimes_de_guerre
+no-verify:
+  type: Web
+  title: Manpage Git - Section git-commit
+  author: Linus Torvalds
+  url: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---no-verify

@@ -1,0 +1,8 @@
+digraph architecture {
+    rankdir=LR;
+    Internet -> Nginx [label="HTTPS"];
+    Nginx -> "Frontend (Angular)" [label="Proxy"];
+    Nginx -> "Backend (Spring)" [label="API"];
+    "Backend (Spring)" -> "PostgreSQL" [label="JDBC"];
+    "Flyway" -> "PostgreSQL" [label="Migration"];
+}

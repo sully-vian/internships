@@ -103,3 +103,8 @@ kimi:
   title: Kimi
   author: Moonshot AI
   url: https://www.kimi.ai
+playwright:
+  type: Web
+  title: Playwright
+  author: Microsoft
+  url: https://playwright.dev
