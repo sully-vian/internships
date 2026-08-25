@@ -728,7 +728,7 @@ Les sites étant souvent situés dans des endroits reculés, en particulier pour
 #todo("insérer maquettes")
 
 #align(center, figure(
-  image("assets/mes-sites-detail.svg", width: 70%),
+  image("assets/figma/mes-sites-detail.svg", width: 70%),
   caption: "Export Figma de l'écran de gestion d'un site (vue du chef de secteur)",
 ))
 
@@ -737,7 +737,7 @@ Les sites étant souvent situés dans des endroits reculés, en particulier pour
 Pour protéger l'intégrité des données historiques (sépultures perpétuelles, mentions « Mort pour la France »), les spécifications fonctionnelles définissent un flux de validation structuré : toute demande de suppression de fiche, de création de site ou de modification d'un champ réglementaire soumise par un chef de secteur ne s'applique pas directement, mais transite par un état « en attente » jusqu'à l'arbitrage d'un Administrateur ECM, avec obligation de motiver un refus.
 
 #align(center, figure(
-  image("assets/modale-validation-modifications.svg", width: 50%),
+  image("assets/figma/modale-validation-modifications.svg", width: 50%),
   caption: "Export Figma la modale de validation des modifications",
 ))
 
@@ -815,7 +815,9 @@ Les chaînes de traitement sont configurés pour se déclencher selon des évén
 
 === Gestion des environnements et stratégie de branche
 
-Le cycle de vie du code de PIAWEB est rythmé par le passage à travers différents environnements, chacun répondant à un besoin spécifique et associé à des stratégies de branches Git rigoureuses :
+Le dépôt principal de PIAWEB s'organise en un projet racine, `piaweb`, qui référence quatre sous-modules Git : `backend`, `frontend`, `database` et `docker`. Cette centralisation permet de cloner l'ensemble du projet en une seule opération plutôt que de devoir cloner puis synchroniser individuellement chaque composant - un confort non négligeable pour l'initialisation d'un environnement de développement ou d'intégration.
+
+Le cycle de vie du code de PIAWEB est rythmé par le passage à travers différents environnements, chacun répondant à un besoin spécifique et associé à des stratégies de branches Git rigoureuses. Sur les dépôts `backend`, `frontend` et `database`, cette rigueur se traduit par une branche dédiée à chaque environnement - `dev`, `int`, `rec`, et une dernière, `prod`, mutualisée entre pré-production et production puisque ces deux environnements partagent déjà les mêmes images Docker (voir ci-après). Une modification suit alors un flux de promotion classique : une évolution est développée et revue sur `dev`, fusionnée vers `int` pour y être testée en continu, puis vers `rec` pour validation client, et enfin vers `prod` pour la mise en production. Chaque fusion représente ainsi une étape de validation franchie, et l'historique Git de chaque branche reflète fidèlement l'état du code effectivement déployé sur l'environnement correspondant.
 
 ==== De `dev` vers `int` (Intégration)
 
@@ -834,6 +836,16 @@ Il s'agit d'environnements différents, mais qui exploitent les mêmes images Do
 L'environnement et les images Docker restent les mêmes que lors de l'étape de pré-production. L'enjeu ici n'est plus technique mais critique : appliquer la mise à jour sans provoquer d'interruption de service ou d'anomalie sur le système en exploitation.
 
 #todo("schéma des différentes branches Git")
+
+=== Un anti-pattern relevé : la stratégie de branches du dépôt `docker`
+
+Ce même découpage en une branche par environnement (`dev`, `int`, `rec`, `prep-prod`) est également appliqué au sous-module `docker`, qui héberge les fichiers `Dockerfile` et `docker-compose.yml` de chaque environnement. Ce choix me semble constituer une utilisation abusive des branches Git, pour une raison simple : une branche est, par nature, un outil destiné à isoler un travail appelé à converger - une fonctionnalité en cours de développement, une correction en attente de revue - avant d'être fusionné dans une autre branche. Or les méthodes de déploiement diffèrent fondamentalement d'un environnement à l'autre : en `dev` et `int`, le code source est monté en volume dans les conteneurs pour bénéficier du rechargement à chaud, tandis qu'à partir de `rec`, il est figé et compilé en dur dans l'image. Les fichiers de configuration Docker de ces environnements ne sont donc pas des variations d'un même travail en cours, mais des configurations durablement distinctes, qui n'ont jamais vocation à se fusionner les unes dans les autres.
+
+Cette absence de convergence prévue pose un problème concret dès qu'un changement doit s'appliquer à plusieurs environnements à la fois - la mise à jour d'une version de base d'image, ou la correction d'un nom de service mal orthographié, par exemple. N'ayant pas de branche commune vers laquelle ces branches convergent, un tel changement ne peut être propagé qu'en le répliquant manuellement sur chacune d'entre elles, typiquement par _cherry-pick_ - une opération répétitive, sujette à l'oubli d'une branche, et qui ne laisse aucune trace du fait que ces N commits représentent en réalité une seule et même intention de changement.
+
+Le sous-module `docker` illustre pourtant un cas d'école pour lequel Docker Compose propose nativement une meilleure solution : un fichier de base (`docker-compose.yml`) définissant la configuration commune, complété par un fichier de surcharge (_override_) par environnement (`docker-compose.dev.yml`, `docker-compose.rec.yml`, etc.), combinés au déploiement via l'option `-f`#footnote[`docker compose -f docker-compose.yml -f docker-compose.rec.yml up`]. Cette approche par composition, versionnée sur une unique branche, rendrait explicites - dans un simple `diff` de fichiers plutôt qu'un `git diff` entre deux branches distantes - les différences réelles entre environnements, tout en garantissant qu'une correction commune ne soit écrite, et donc corrigée, qu'à un seul endroit.
+
+Cette remarque reste toutefois une lecture personnelle du schéma en place plutôt qu'un problème concrètement rencontré : je n'ai pas observé de cas réel où une telle synchronisation manuelle par _cherry-pick_ ait été nécessaire pendant la durée de mon stage - l'anti-pattern est ici une déduction logique de la structure du dépôt, non un incident vécu.
 
 === Le processus de livraison et de montée de version
 
@@ -867,9 +879,9 @@ Les modules backend et frontend sont finalement relancés via leurs scripts `sta
 
 Si la recette est validée par le client, la version est promue en production. Les images testées sont simplement re-taggées avec le préfixe `prod-` puis propulsées sur l'environnement de production, assurant ainsi qu'aucune modification de code n'a pu altérer l'application entre la phase de test et la mise en ligne finale.
 
-#todo(
-  "Insérer ici un schéma de flux (flowchart) illustrant les étapes de la livraison :
-   Code -> Build Maven -> Build Docker -> Docker Push (Registry) -> Stop Containers -> Backup DB -> Config update -> Flyway Migrate -> Start Containers",
+#figure(
+  render(read("assets/piaweb-flowchart.dot"), width: 100%),
+  caption: "Schéma de flux illustrant les étapes de la livraison",
 )
 
 == #todo("find title")
@@ -880,13 +892,13 @@ Si la recette est validée par le client, la version est promue en production. L
 
 Si l'implémentation du correctif ne nécessita que quelques minutes, la validation de la demande de fusion sur la branche de développement `dev` fut actée en une demi-heure. L'intervention aurait pu s'achever sur cette bonne note, mais l'équipe DevOps m'a confié la responsabilité de l'intégralité du cycle de livraison de cette version, incluant la montée sur les différents environnements et le déploiement final chez le client.
 
-=== Appareillage sur lest // conteneur parti sans contenu
+=== Appareillage sur lest
 
 Le cycle de livraison d'une version du site PIAWEB passe par plusieurs phases différentes, évoluant lentement de l'environnement de développement vers l'environnement de production.
 
-== Autres projets en cours
+= Autres projets en cours
 
-=== Automatisation de la qualification
+== Automatisation de la qualification
 
 Le projet de Romain vise à automatiser le processus de qualification d'un #ao. Habituellement, une qualification prend au moins deux heures à un consultant : c'est une tâche répétitive et peu valorisante, dont le temps investi peut de surcroît être perdu si l'#ao qualifié ne correspond finalement pas aux compétences des équipes d'Actimage. Qualifier un #ao consiste concrètement à extraire un ensemble de données utiles d'un document PDF (souvent volumineux et peu structuré) pour les reporter dans une feuille de calcul standardisée, elle-même découpée en une dizaine de thématiques - contexte, procédure, durée et budget, critères de sélection, contacts - représentant au total plusieurs dizaines de champs à renseigner.
 

@@ -1,0 +1,18 @@
+digraph DeploymentWorkflow {
+    rankdir=LR;
+    node [shape=box, style=filled, fillcolor=aliceblue];
+    edge [color=slategray, arrowsize=0.8];
+
+    Code [label="Code", shape=folder, fillcolor=lightyellow];
+    BuildMaven [label="Build\nMaven"];
+    BuildDocker [label="Build\nDocker"];
+    DockerPush [label="Docker Push\n(Registry)"];
+
+    StopContainers [label="Stop\nContainers", fillcolor=mistyrose];
+    BackupDB [label="Backup\nDB", shape=cylinder, fillcolor=honeydew];
+    ConfigUpdate [label="Config\nupdate"];
+    FlywayMigrate [label="Flyway\nMigrate"];
+    StartContainers [label="Start\nContainers", fillcolor=honeydew];
+
+    Code -> BuildMaven -> BuildDocker -> DockerPush -> StopContainers -> BackupDB -> ConfigUpdate -> FlywayMigrate -> StartContainers;
+}
