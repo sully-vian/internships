@@ -1,8 +1,53 @@
 digraph architecture {
     rankdir=LR;
+    node [shape=box, style=filled, fillcolor=white];
+    edge [fontsize=10];
+
+    subgraph cluster_external {
+        label="Externe";
+        style=dashed;
+        color=gray;
+
+        Internet [shape=cloud, fillcolor=lightgrey];
+    }
+
+    subgraph cluster_host {
+        label="Machine client unique";
+        style=dashed;
+        color=black;
+        subgraph cluster_web_tier {
+            label="Couche Web";
+            fontcolor=dodgerblue;
+            style=dashed;
+            color=dodgerblue;
+
+            Nginx [label="Nginx\n(reverse-proxy)", shape=component];
+            Frontend [label="Frontend (Angular)", shape=box3d, fillcolor=aliceblue];
+        }
+
+        subgraph cluster_app_tier {
+            label="Couche Applicative";
+            fontcolor=mediumseagreen;
+            style=dashed;
+            color=mediumseagreen;
+
+            Backend [label="Backend (Spring Boot)", shape=box3d, fillcolor=mintcream];
+        }
+
+        subgraph cluster_data_tier {
+            label="Couche Données";
+            fontcolor=indianred;
+            style=dashed;
+            color=indianred;
+
+            PostgreSQL [shape=cylinder, fillcolor=lightcoral];
+            Flyway [shape=box3d];
+        }
+    }
+
     Internet -> Nginx [label="HTTPS"];
-    Nginx -> "Frontend (Angular)" [label="Proxy"];
-    Nginx -> "Backend (Spring)" [label="API"];
-    "Backend (Spring)" -> "PostgreSQL" [label="JDBC"];
-    "Flyway" -> "PostgreSQL" [label="Migration"];
+    Nginx -> Frontend [label="UI"];
+    Nginx -> Backend [label="API"];
+    Backend -> PostgreSQL [label="JDBC"];
+    Flyway -> PostgreSQL [label="Migration"];
 }

@@ -1,18 +1,18 @@
 digraph Architecture {
     // Default styles
     rankdir=LR
-    node [shape=box];
-    edge [fontsize=11];
+    node [shape=box, style=filled, fillcolor=aliceblue];
+    edge [color=slategray, arrowsize=0.8];
 
     // Invisible start node to create the initial incoming arrow
     start [shape=none, label="", width=0, height=0];
 
     // Define nodes with appropriate styles (rounded vs solid)
-    SERV [style=solid];
-    TMP [style=rounded];
-    MERE [style=rounded];
-    CONFLICTS [style=rounded];
-    HIST [style=rounded];
+    SERV;
+    TMP [shape=cylinder, fillcolor=honeydew];
+    MERE [shape=cylinder, fillcolor=honeydew];
+    CONFLICTS [shape=cylinder, fillcolor=honeydew];
+    HIST [shape=cylinder, fillcolor=honeydew];
 
     // Ensure MERE and CONFLICTS align horizontally
     { rank=same; MERE; CONFLICTS; }
