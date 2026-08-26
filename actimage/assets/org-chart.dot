@@ -27,10 +27,10 @@ digraph ORG {
     MBR[label="Marine Brossard\n UX/UI Designer"];
     ADE[label="Aurélie Demure\nIngénieur conseil"];
     VHE[label="Vianney Hervy\nIngénieur logiciel"];
-    WMS[label="Walid Msaddek\nSenior développeur"];
+    WMS[label="Walid Msaddek\nDéveloppeur Drupal/Symfony Senior"];
     ADA[label="Amine Dahmar\nDéveloppeur"];
     RCA[label="Romain Capron"];
-    LLE[label="Lucas Lecoin\nDeveloppeur Web"];
+    LLE[label="Lucas Lecoin\nDéveloppeur Web"];
     THA[label="Thomas Harir-Forouch\nDéveloppeur commercial"];
     DKO -> {MCO MBR VHE ADE RCA WMS ADA LLE THA}
 

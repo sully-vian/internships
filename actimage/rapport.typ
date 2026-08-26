@@ -133,7 +133,7 @@
       #v(1em)
       *Responsable académique* \
       Marc PANTEL \
-      Maître de conférence en Informatique à l'IRIT / ENSEEIHT
+      Maître de conférences en Informatique à l'IRIT / ENSEEIHT
     ]
   ],
   align(right)[
@@ -166,7 +166,7 @@
 
 #text("Remerciements", size: 24pt, weight: "bold")
 
-Avant tout, je tiens à remercier mes deux encadrants sur cette expérience enrichissante qu'a été ce stage de fin d'étude. David pour son accompagnement, ses conseils et son humour, Matthias pour sa patience, sa bienveillance et ses succulents repas de fin de semaine.
+Avant tout, je tiens à remercier mes deux encadrants sur cette expérience enrichissante qu'a été ce stage de fin d'études. David pour son accompagnement, ses conseils et son humour, Matthias pour sa patience, sa bienveillance et ses succulents repas de fin de semaine.
 
 Mes remerciements s'étendent à l'ensemble de mes collègues de l'agence Actimage Paris-Arcueil et d'ailleurs. Par ordre alphabétique : Aurélie, ma co-stagiaire solidaire pour son amitié, sa politesse et sa conversation ; Marine pour sa jovialité, sa créativité et son attention aux détails ; Romain pour sa curiosité et nos discussions technophiles ; et enfin Thomas, pour sa spontanéité et sa précieuse expertise footballistique.
 
@@ -181,10 +181,9 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 
 == Présentation de l'entreprise
 
-Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel PDG. Le travail de l'entreprise est divisé en 3 pôles principaux communicants: le développement, le conseil et la #rd. Mon stage s'est déroulé dans le pôle développement mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets. Les effectifs d'Actimage sont répartis entre 8 agences dans 5 pays. Celles avec lesquelles j'ai le plus été en contact sont Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
+Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel PDG. Les effectifs de l'entrprise sont répartis entre trois pôles principaux communicants: le développement, le conseil et la #rd. Mon stage s'est déroulé dans le pôle développement mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets. Actimage est présente à l'internationale dans 8 agences dans 5 pays. Celles avec lesquelles j'ai le plus été en contact sont Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
 
 === Composition de l'entreprise
-
 
 #align(center, figure(
   render(read("assets/org-chart.dot"), width: 70%),
@@ -195,11 +194,11 @@ Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel 
 
 ==== David Kolin (DKO)
 
-David était#footnote[David a quitté Actimage le 31 Aout 2027, juste avant la fin de mon stage.] directeur de l'agence Paris-Arcueil depuis Janvier 2025 et mon maître de stage. Il a une formation d'ingénieur informatique et une expérience en #esn (Capgemini) et surtout en contrats publiques, notamment acquise pendant 13 ans au #cmn. L'une de ses missions principales était de répondre à des #ao, mettant à profit à la fois son expérience dans cette tâche particulière et son expertise technique, lui permettant de répondre en connaissance des besoins clients et des contraintes techniques précises. C'est cette double compétence qui m'a de suite plu. Avoir un supérieur éclairé sur ce qui est possible, ce qui est difficile de développer permet d'éviter l'écueil classique de la déconnexion entre la phase d'avant-vente - impliquant la réponse à l'#ao, le cahier des charges et le chiffrage - et la réalité concrète du développement. Les engagements et prommesses commerciales restent ainsi en parfaite adéquation avec la faisabilité technique du terrain. Cela, bien sûr, n'empêche pas la réévaluation post-signature du coût du contrat. Certains besoins trop peu développés dans le cahier des charges peuvent s'avérer plus coûteux que prévu et causer des frais additionnels imprévus.
+David était#footnote[David a quitté Actimage le 31 août 2027, juste avant la fin de mon stage.] directeur de l'agence Paris-Arcueil depuis Janvier 2025 et mon maître de stage. Il a une formation d'ingénieur informatique et une expérience en #esn (Capgemini) et surtout en contrats publics, notamment acquise pendant 13 ans au #cmn. L'une de ses missions principales était la réponse à #ao, mettant à profit à la fois son expérience dans cette tâche particulière et son expertise technique, lui permettant de répondre en connaissance des besoins clients et des contraintes techniques précises. C'est cette double compétence qui m'a de suite plu. Avoir un supérieur éclairé sur ce qui est possible, ce qui est difficile de développer permet d'éviter l'écueil classique de la déconnexion entre la phase d'avant-vente - impliquant la réponse à l'#ao, le cahier des charges et le chiffrage - et la réalité concrète du développement. Les engagements et promesses commerciales restent ainsi en parfaite adéquation avec la faisabilité technique du terrain. Cela, bien sûr, n'empêche pas la réévaluation post-signature du coût du contrat. Certains besoins trop peu développés dans le cahier des charges peuvent s'avérer plus coûteux que prévu et causer des frais additionnels imprévus.
 
 ==== Matthias Constant (MCO)
 
-Matthias est chef de projet et consultant IT chez Actimage depuis 2016. Bien qu'il n'ait qu'une formation en école de management, sa carrière dans le domaine du numérique lui a permis d'acquérir des compétences que l'on ne prêterait pas à une personne d'origine non-technique. Pareillement à David, il a la capacité de mesurer l'effort technique nécessaire au développement d'une fonctionnalité demandée par le client. Développeur de loin, il lui est courant d'utiliser des modèles de langage pour réaliser un #poc permettant une meilleure estimation du coût et temps de travail nécessaire sur un projet. Ces #poc sont parfois repris tels quels par les développeurs au début du projet en tant que base.
+Matthias est chef de projet et consultant IT chez Actimage depuis 2016. Bien qu'il n'ait qu'une formation en école de management, sa carrière dans le domaine du numérique lui a permis d'acquérir des compétences que l'on ne prêterait pas à une personne d'origine non-technique. Pareillement à David, il a la capacité de mesurer l'effort technique nécessaire au développement d'une fonctionnalité demandée par le client. Développeur de loin, il lui est courant d'utiliser des modèles de langage pour réaliser une #poc permettant une meilleure estimation du coût et temps de travail nécessaire sur un projet. Ces #poc sont parfois repris tels quels par les développeurs au début du projet en tant que base.
 
 ==== Marine Brossard (MBR)
 
@@ -207,7 +206,7 @@ Marine est Designer UX/UI et cheffe de projet chez Actimage depuis mars 2025. So
 
 ==== Aurélie Demure (ADE)
 
-Aurélie est en stage de fin d'étude chez Actimage depuis mars 2027 en tant qu'ingénieure conseil. Elle prépare son double diplôme d'ingénieur de TELECOM Nancy#footnote[https://telecomnancy.univ-lorraine.fr] et de l'#imt-bs. Ses missions incluent la qualification d'#ao, le sourçage de candidats à recruter#footnote[La proposition de stage qu'Actimage m'a faite parvenir vient notamment d'un sourçage] ainsi que la rédaction de #sfd. Son expertise technique au niveau d'un ingénieur du  numérique lui a aussi permis de s'impliquer dans le développement d'une fonctionnalité du projet #onacvg.
+Aurélie est en stage de fin d'étude chez Actimage depuis mars 2027 en tant qu'ingénieure conseil. Elle prépare son double diplôme d'ingénieur de TELECOM Nancy#footnote[https://telecomnancy.univ-lorraine.fr] et de l'#imt-bs. Ses missions incluent la qualification d'#ao, le sourçage de candidats à recruter#footnote[La proposition de stage qu'Actimage m'a faite parvenir vient notamment d'un sourçage] ainsi que la rédaction de #sfd. Son expertise technique au niveau d'un ingénieur du numérique lui a aussi permis de s'impliquer dans le développement d'une fonctionnalité du projet #onacvg.
 
 ==== Romain Capron (RCO)
 
@@ -215,7 +214,7 @@ Romain est ingénieur diplômé de Polytech Sorbonne#footnote[https://www.polyte
 
 ==== Thomas Harir-Forouch (THA)
 
-Thomas est en contrat d'alternance chez Actimage depuis septembre 2025. Il suit une formation de développeur commercial à Audencia#footnote[https://www.audencia.com]. Ses missions principales inclient la prospection commerciale, la qualification d'#ao, la réponse à #ao ainsi que le recrutement (sourçage et entretiens).
+Thomas est en contrat d'alternance chez Actimage depuis septembre 2025. Il suit une formation de développeur commercial à Audencia#footnote[https://www.audencia.com]. Ses missions principales incluent la prospection commerciale, la qualification d'#ao, la réponse à #ao ainsi que le recrutement (sourçage et entretiens).
 
 == Contexte du stage
 
@@ -227,7 +226,7 @@ La phase d'avant-vente constitue le point d'entrée critique de tout projet au s
 
 ==== Prospection commerciale et veille stratégique
 
-L'acquisition de nouveaux projets débute par une démarche proactive de prospection commerciale et de veille stratégique. Des collaborateurs dédiés, tels que Thomas au sein de l'agence, scrutent quotidiennement le marché et les plateformes de publication de marchés publics. Pour Actimage, c'est notammen le Portail des marchés publics#footnote[https://www.marches-publics.gouv.fr]. L'objectif premier est l'identification d'#ao entrant en résonance avec le savoir-faire technologique de l'entreprise, ses références passées et ses ambitions de développement. Cette veille constante permet d'alimenter le carnet d'opportunités de l'agence tout en maintenant une connaissance affûtée des besoins évolutifs des administrations et des grandes entreprises.
+L'acquisition de nouveaux projets débute par une démarche proactive de prospection commerciale et de veille stratégique. Des collaborateurs dédiés, tels que Thomas au sein de l'agence, scrutent quotidiennement le marché et les plateformes de publication de marchés publics. Pour Actimage, c'est notamment le Portail des marchés publics#footnote[https://www.marches-publics.gouv.fr]. L'objectif premier est l'identification d'#ao entrant en résonance avec le savoir-faire technologique de l'entreprise, ses références passées et ses ambitions de développement. Cette veille constante permet d'alimenter le carnet d'opportunités de l'agence tout en maintenant une connaissance affûtée des besoins évolutifs des administrations et des grandes entreprises.
 
 ==== Qualification du marché
 
@@ -237,7 +236,7 @@ Une fois un #ao repéré, il fait l'objet d'une phase de qualification rigoureus
 
 Si l'opportunité est qualifiée positivement, le projet entre dans une phase de projection et d'évaluation technique. Afin de proposer un chiffrage précis et de mesurer l'effort de développement nécessaire, des preuves de concept (POC) sont fréquemment réalisées. Des chefs de projet expérimentés, à l'image de Matthias, s'appuient notamment sur des modèles de langage pour générer rapidement des prototypes fonctionnels ou défricher de nouvelles piles technologiques. Cette approche exploratoire permet de lever les incertitudes techniques, d'identifier en amont les éventuels défis architecturaux et de consolider l'estimation budgétaire en confrontant la théorie du besoin à une première implémentation pratique.
 
-==== Stratégie de réponse et alignement tachnico-commercial
+==== Stratégie de réponse et alignement technico-commercial
 
 L'élaboration de la réponse à l'appel d'offres exige une synergie totale entre la vision commerciale et le pragmatisme technique. Sous l'impulsion de la direction de l'agence, représentée par David, le mémoire technique et l'offre financière sont construits en parallèle et en concertation. C'est ici que la double compétence de la direction prend tout son sens : elle garantit que les promesses fonctionnelles et les délais annoncés restent en parfaite adéquation avec la faisabilité sur le terrain. Cet alignement technico-commercial est fondamental pour éviter l'écueil classique du cahier des charges irréalisable ou sous-évalué, sécurisant ainsi la rentabilité du projet et la sérénité des futures équipes de développement.
 
@@ -315,9 +314,9 @@ La validation d'une mise en production majeure ne signe pas l'achèvement du pro
 
 ==== DSFR
 
-L'expertise d'Actimage en développement brille tout particulièrement sur les marchés publics. L'entreprise a notamment participé à la conception du  #dsfr. Le #dsfr regroupe un ensemble de règles et de composants réutilisables pour les interfaces officielles des sites en `.gouv.fr`. Il permet à l'État d'offrir des services numériques simples, accessibles et reconnaissables. C'est notamment celui que vous retrouvez sur #monolink("impots.gouv.fr"), #monolink("ants.gouv.fr") et #monolink("sante.gouv.fr").
+L'expertise d'Actimage en développement brille tout particulièrement sur les marchés publics. L'entreprise a notamment participé à la conception du #dsfr. Le #dsfr regroupe un ensemble de règles et de composants réutilisables pour les interfaces officielles des sites en `.gouv.fr`. Il permet à l'État d'offrir des services numériques simples, accessibles et reconnaissables. C'est notamment celui que vous retrouvez sur #monolink("impots.gouv.fr"), #monolink("ants.gouv.fr") et #monolink("sante.gouv.fr").
 
-Ce système de design est conçu pour être agnostique et modulaire. Il se décline sous plusieurs formats afin de couvrir tout le cycle de vie d'un projet de la phase de conception, au prototypage, à l'implémentation technique. Il existe notamment une librairie Figma, un socle de base en  HTML/CSS/JS natif à travers le paquet `@gouvfr/dsfr` ainsi que des portages développés par la communauté tels que `@codegouvfr/react-dsfr` (React), `@gouvminint/vue-dsfr` (Vue), `ngx-dsfr` (Angular), `django-dsfr` (Django) et `drupal/ui_suite_dsfr` (Drupal).
+Ce système de design est conçu pour être agnostique et modulaire. Il se décline sous plusieurs formats afin de couvrir tout le cycle de vie d'un projet de la phase de conception, au prototypage, à l'implémentation technique. Il existe notamment une librairie Figma, un socle de base en HTML/CSS/JS natif à travers le paquet `@gouvfr/dsfr` ainsi que des portages développés par la communauté tels que `@codegouvfr/react-dsfr` (React), `@gouvminint/vue-dsfr` (Vue), `ngx-dsfr` (Angular), `django-dsfr` (Django) et `drupal/ui_suite_dsfr` (Drupal).
 
 #align(center, figure(
   image("assets/sig.png"),
@@ -326,7 +325,7 @@ Ce système de design est conçu pour être agnostique et modulaire. Il se décl
 
 ==== Site officiel du Gouvernement
 
-L'un des sites majeurs du gouvernement est #monolink("info.gouv.fr"). C'est aussi un des projets principaux d'Actimage qui en réalise le développement côté serveur et une partie du développement cé client. Plusieurs développeurs travaillent à temps plein sur ce projet, dont même certains physiquement au #sig.
+L'un des sites majeurs du gouvernement est #monolink("info.gouv.fr"). C'est aussi un des projets principaux d'Actimage qui en réalise le développement côté serveur et une partie du développement côté client. Plusieurs développeurs travaillent à temps plein sur ce projet, dont même certains physiquement au #sig.
 
 ==== BDnf
 
@@ -448,7 +447,7 @@ La première mission de mon stage, qui s'est étendue sur un mois, a consisté �
 
 === Refonte logicielle et application de gestion ECM
 
-Une fois les données fusionnées (toujours sous un format tabulaire plat d'environ quarante colonnes), la mission principale de mon stage a pu débuter : le développement de l'application de gestion complète, structurée autour de trois grands axes fonctionnels.
+Une fois les données fusionnées (toujours sous un format tabulaire plat d'environ quarante colonnes), la mission principale de mon stage a pu débuter le développement de l'application de gestion complète, structurée autour de trois grands axes fonctionnels.
 
 ==== Modélisation et consultation (Base ECM)
 
@@ -479,13 +478,13 @@ Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre
 
 Cette phase du projet a été particulièrement formatrice, marquant ma première immersion dans l'écosystème PHP, le cadriciel Symfony et l'ORM Doctrine. Le défi à relever consistait à consolider une "base mère" et de multiples "bases filles" (fournies sous forme de fichiers CSV). Au sein de ces bases, chaque sépulture est théoriquement identifiée par un entier unique : la colonne `sdr_num` (numéro de saisie des registres). Cependant, suite à la scission des bases et à l'ajout décentralisé de nouvelles entrées par les chefs de secteur, de nombreuses collisions d'identifiants sont apparues.
 
-Une simple fusion automatisée était inenvisageable en raison de la nature ambiguë de ces collisions. Si deux lignes strictement identiques peuvent être dédoublonnées sans risque, le cas de lignes partageant le même `sdr_num` mais présentant des divergences s'avère complexe. Il peut s'agir d'une véritable collision (deux soldats distincts ayant reçu le même identifiant de manière isolée) ou d'une mise à jour légitime (un même soldat dont les informations ont été enrichies dans une base fille, par exemple avec l'ajout d'un surnom). L'absence de règle mathématique pour trancher ces cas a imposé le développement d'un outil de migration interactif. Cet outil agit comme un #poc destinée à détecter les conflits et à déléguer la stratégie de résolution à l'utilisateur.
+Une simple fusion automatisée était inenvisageable en raison de la nature ambiguë de ces collisions. Si deux lignes strictement identiques peuvent être dédoublonnées sans risque, le cas de lignes partageant le même `sdr_num` mais présentant des divergences s'avère complexe. Il peut s'agir d'une véritable collision (deux soldats distincts ayant reçu le même identifiant de manière isolée) ou d'une mise à jour légitime (un même soldat dont les informations ont été enrichies dans une base fille, par exemple avec l'ajout d'un surnom). L'absence de règle mathématique pour trancher ces cas a imposé le développement d'un outil de migration interactif. Cet outil agit comme une #poc destinée à détecter les conflits et à déléguer la stratégie de résolution à l'utilisateur.
 
 === Choix technologiques et rigueur logicielle
 
 S'agissant d'un projet de réconciliation de données critiques, il était primordial d'établir des fondations techniques solides et de me former aux technologies dont l'application principale fera usage. J'ai donc configuré ce projet sur les dernières normes de l'écosystème avec la pile technologiques classique chez Actimage : PHP 8.5 couplé à Symfony 7.4 et PostgreSQL 18.
 
-Afin de garantir la maintenabilité et la robustesse du code, j'ai intégré un outillage de qualité logicielle exigeant. L'analyse statique du code est assurée par PHPStan poussé à son niveau de vérification maximal (niveau 10), garantissant un typage strict et prévenant les erreurs d'exécution en amont. Le formatage du code est automatisé via PHP CS Fixer, et la fiabilité des algorithmes de résolution de conflits est couverte par des tests unitaires exécutés via PHPUnit. L'interface utilisateur, bien que secondaire pour un #poc, utilise le moteur de gabarits Twig couplé au cadriciel Tailwind CSS via le composant Symfony AssetMapper, permettant de se passer d'une lourde chaîne de compilation JavaScript type Node.js/Webpack.
+Afin de garantir la maintenabilité et la robustesse du code, j'ai intégré un outillage de qualité logicielle exigeant. L'analyse statique du code est assurée par PHPStan poussé à son niveau de vérification maximal (niveau 10), garantissant un typage strict et prévenant les erreurs d'exécution en amont. Le formatage du code est automatisé via PHP CS Fixer, et la fiabilité des algorithmes de résolution de conflits est couverte par des tests unitaires exécutés via PHPUnit. L'interface utilisateur, bien que secondaire pour une #poc, utilise le moteur de gabarits Twig couplé au cadriciel Tailwind CSS via le composant Symfony AssetMapper, permettant de se passer d'une lourde chaîne de compilation JavaScript type Node.js/Webpack.
 
 === Architecture transactionnelle et asynchrone
 
@@ -602,7 +601,7 @@ class CommuneConstraintListener
 }
 ```,
 
-Lors de la migration suivante, Doctrine compare le schéma de la base avec celui produit par les entités. La création de ce dernier est intercéptée par mon `CommuneConstraintListener` qui ajoute insère ce critère dans le schéma. La contrainte apparaît alors naturellement dans la _diff_ de la migration, comme n'importe quelle évolution du schéma :
+Lors de la migration suivante, Doctrine compare le schéma de la base avec celui produit par les entités. La création de ce dernier est interceptée par mon `CommuneConstraintListener` qui insère ce critère dans le schéma. La contrainte apparaît alors naturellement dans la _diff_ de la migration, comme n'importe quelle évolution du schéma :
 
 ```sql
 ALTER TABLE commune ADD CONSTRAINT FK_E2E2D1EECCF9E01EA6E44244
@@ -626,7 +625,7 @@ La classe abstraite prend alors en charge la mécanique commune : lecture du CSV
 
 `SyncSoldatCommand`, qui consomme le fichier consolidé par l'outil de migration (`mere-dump.csv`), illustre le degré d'exigence de cette normalisation. Chaque ligne du CSV plat doit être résolue vers ses entités de référence correspondantes : le conflit renseigné en texte libre (ex. ```phpi "1914/1918"```) est d'abord normalisé via une table de correspondance interne avant d'être recherché parmi les entités `Conflit` existantes, le site est retrouvé par son nom, le type de sépulture par une recherche insensible à la casse, etc. Lorsqu'une correspondance échoue - un site ou un type de sépulture introuvable -, une `EntitySyncException` dédiée est levée, ce qui fait remonter l'anomalie comme un avertissement exploitable plutôt que comme une erreur silencieuse ou un plantage.
 
-Ce choix (faire échouer explicitement l'import d'une ligne plutôt que de créer une entité incomplète ou incohérente) a constitué un arbitrage central de cette phase : il garantit qu'aucune donnée n'entre dans la base ECM sans que l'ensemble de ses relations obligatoires soit résolu, au prix d'un nombre de lignes rejetées qu'il a fallu analyser et corriger itérativement en amont plutôt qu'en aval sur une base déjà polluée. Il a notamment fallu manuellement corriger les CSV sources (normalisation des nationaités au féminin par exemple), demander au client voire au webmestre de #mdh des exports complémentaires pour avoir toutes les données nécessaires ainsi que les liens entre ces dernières.
+Ce choix (faire échouer explicitement l'import d'une ligne plutôt que de créer une entité incomplète ou incohérente) a constitué un arbitrage central de cette phase : il garantit qu'aucune donnée n'entre dans la base ECM sans que l'ensemble de ses relations obligatoires soit résolu, au prix d'un nombre de lignes rejetées qu'il a fallu analyser et corriger itérativement en amont plutôt qu'en aval sur une base déjà polluée. Il a notamment fallu manuellement corriger les CSV sources (normalisation des nationalités au féminin par exemple), demander au client voire au webmestre de #mdh des exports complémentaires pour avoir toutes les données nécessaires ainsi que les liens entre ces dernières.
 
 == Application principale : architecture et réalisation
 
@@ -642,7 +641,7 @@ L'un des choix architecturaux majeurs a été l'abandon des chaînes de compilat
 
 === Modélisation des droits et rôles
 
-Les spécifications fonctionnelles définissent huit rôles distincts, chacun associé à une étendue de visibilité  nationale ou limitée à un ou plusieurs secteurs géographiques (@table-roles). Ce référentiel, issu d'une matrice rôles/droits établie en amont avec le client, a été traduit côté code par un enum PHP dédié (`App\Security\Role`), dont chaque cas porte son libellé métier via une méthode `label()` - un choix qui évite la dispersion de chaînes de caractères représentant les rôles à travers l'application et centralise leur nommage.
+Les spécifications fonctionnelles définissent huit rôles distincts, chacun associé à une étendue de visibilité nationale ou limitée à un ou plusieurs secteurs géographiques (@table-roles). Ce référentiel, issu d'une matrice rôles/droits établie en amont avec le client, a été traduit côté code par un enum PHP dédié (`App\Security\Role`), dont chaque cas porte son libellé métier via une méthode `label()` - un choix qui évite la dispersion de chaînes de caractères représentant les rôles à travers l'application et centralise leur nommage.
 
 #figure(
   kind: image,
@@ -664,13 +663,13 @@ Les spécifications fonctionnelles définissent huit rôles distincts, chacun as
   caption: [Rôles applicatifs et étendue associée],
 ) <table-roles>
 
-Côté implémentation, la hiérarchie entre ces rôles est déclarée dans la configuration de sécurité de Symfony (`security.yaml`), où `ROLE_SUPERADMIN` hérite automatiquement de l'ensemble des autres rôles  évitant ainsi de dupliquer les vérifications d'accès pour l'administrateur global. Le contrôle d'accès aux actions sensibles (édition d'un soldat ou d'un site) est réalisé au niveau des contrôleurs via l'attribut ```phpi #[IsGranted('ROLE_ADMIN_ECM')]``` de Symfony Security, appliqué directement sur les méthodes concernées.
+Côté implémentation, la hiérarchie entre ces rôles est déclarée dans la configuration de sécurité de Symfony (`security.yaml`), où `ROLE_SUPERADMIN` hérite automatiquement de l'ensemble des autres rôles, évitant ainsi de dupliquer les vérifications d'accès pour l'administrateur global. Le contrôle d'accès aux actions sensibles (édition d'un soldat ou d'un site) est réalisé au niveau des contrôleurs via l'attribut ```phpi #[IsGranted('ROLE_ADMIN_ECM')]``` de Symfony Security, appliqué directement sur les méthodes concernées.
 
-Le second axe du cloisonnement des droits  la restriction géographique par secteur, qui borne par exemple l'écriture d'un chef de secteur aux seuls sites de son secteur - s'appuie sur une entité `Secteur` nouvellement introduite (liaison `ManyToOne` depuis `Site`), actuellement développée sur une branche dédiée et pas encore fusionnée à `main` au moment de la rédaction de ce rapport. Cette entité pose les fondations de données nécessaires à une future logique d'autorisation par _voter_ Symfony, qui viendra comparer le secteur de rattachement de l'utilisateur à celui de la ressource consultée - mécanisme non encore implémenté à ce stade du projet.
+Le second axe du cloisonnement des droits est la restriction géographique par secteur, qui borne par exemple l'écriture d'un chef de secteur aux seuls sites de son secteur - s'appuie sur une entité `Secteur` nouvellement introduite (liaison `ManyToOne` depuis `Site`), actuellement développée sur une branche dédiée et pas encore fusionnée à `main` au moment de la rédaction de ce rapport. Cette entité pose les fondations de données nécessaires à une future logique d'autorisation par _voter_ Symfony, qui viendra comparer le secteur de rattachement de l'utilisateur à celui de la ressource consultée - mécanisme non encore implémenté à ce stade du projet.
 
 === Rigueur logicielle et Intégration Continue
 
-Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (_pipeline_ Jenkins) particulièrement stricte. Chaque demande de fusion (_merge request_) doit valider quatre familles d'étapes bloquantes avant d'être intégrée à la branche principale : construction et linters (container Symfony, YAML, Twig, mapping Doctrine), tests, analyse statique (PHPStan, PHP CS Fixer, Twig CS Fixer, Biome, Rector), puis sécurité (audit Composer, Gitleaks)  les trois dernières familles s'exécutant en parallèle pour limiter le temps de retour.
+Afin de garantir que le code produit par l'équipe réponde aux standards de qualité de l'ingénierie logicielle, j'ai participé à la mise en place d'une chaîne d'intégration et de déploiement continus (_pipeline_ Jenkins) particulièrement stricte. Chaque demande de fusion (_merge request_) doit valider quatre familles d'étapes bloquantes avant d'être intégrée à la branche principale : construction et linters (container Symfony, YAML, Twig, mapping Doctrine), tests, analyse statique (PHPStan, PHP CS Fixer, Twig CS Fixer, Biome, Rector), puis sécurité (audit Composer, Gitleaks) les trois dernières familles s'exécutant en parallèle pour limiter le temps de retour.
 
 ==== Crochets Git
 
@@ -700,9 +699,9 @@ Outre l'audit des dépendances Composer, la CI intègre Gitleaks, un outil scann
 
 La suite de tests, exécutée via PHPUnit et pilotée par un fichier `phpunit.dist.xml` dédié, s'organise selon trois niveaux de granularité croissante :
 
-- des *tests unitaires purs* (`PHPUnit\Framework\TestCase`), qui isolent la logique métier de toute dépendance au framework  par exemple la sérialisation des critères d'une recherche sauvegardée (`SavedSearchTest`), où les entités liées sont simulées via des _stubs_ plutôt qu'instanciées en base ;
+- des *tests unitaires purs* (`PHPUnit\Framework\TestCase`), qui isolent la logique métier de toute dépendance au framework, par exemple la sérialisation des critères d'une recherche sauvegardée (`SavedSearchTest`), où les entités liées sont simulées via des _stubs_ plutôt qu'instanciées en base ;
 - des *tests d'intégration* (`Symfony\Bundle\FrameworkBundle\Test\KernelTestCase`), qui démarrent un noyau applicatif réduit pour valider des composants dépendant de Doctrine, tels que les requêtes de recherche multicritère du `SoldatRepository`, souvent pilotées par des jeux de données paramétrés (```phpi #[DataProvider]```) ;
-- des *tests fonctionnels* (`WebTestCase`), qui simulent un navigateur HTTP complet (`KernelBrowser`) pour valider des parcours utilisateurs de bout en bout  soumission d'un formulaire de recherche, tri des résultats, disponibilité générale de l'application.
+- des *tests fonctionnels* (`WebTestCase`), qui simulent un navigateur HTTP complet (`KernelBrowser`) pour valider des parcours utilisateurs de bout en bout : soumission d'un formulaire de recherche, tri des résultats, disponibilité générale de l'application.
 
 Ces deux derniers niveaux s'appuient sur un système de fixtures Doctrine organisées par dépendances explicites (`DependentFixtureInterface`) et groupées (`FixtureGroupInterface`) : le groupe `test`, chargé uniquement pour les tests, garantit un jeu de données minimal et reproductible sans intervenir sur les données de développement. Chaque test de base de données s'exécute par ailleurs au sein d'une transaction automatiquement annulée grâce au paquet `dama/doctrine-test-bundle`, ce qui garantit à la fois l'isolation entre tests (aucun effet de bord d'un test à l'autre) et des performances d'exécution nettement supérieures à un rechargement complet du schéma entre chaque cas.
 
@@ -710,7 +709,7 @@ Des tests fonctionnels d'interface sont également prévus mais non encore impl�
 
 === Implémentation des règles métiers et sécurité
 
-Le cahier des charges impose une gestion fine des habilitations, réparties selon plusieurs rôles : Superadmin, Administrateur ECM, Administrateur Inspection, Chef de secteur et différents profils de consultants. Les droits d'accès ont été modélisés via le composant Security de Symfony (Voters et hiérarchie des rôles), la hiérarchisation des rôles étant en place dès le socle applicatif, tandis que le cloisonnement fin par étendue géographique (National vs Secteur), en cours de développement à la fin du stage, s'appuie sur l'entité `Secteur` nouvellement introduite dans le modèle de données
+Le cahier des charges impose une gestion fine des habilitations, réparties selon plusieurs rôles : Superadmin, Administrateur ECM, Administrateur Inspection, Chef de secteur et différents profils de consultants. Les droits d'accès ont été modélisés via le composant Security de Symfony (Voters et hiérarchie des rôles), la hiérarchisation des rôles étant en place dès le socle applicatif, tandis que le cloisonnement fin par étendue géographique (National vs Secteur), en cours de développement à la fin du stage, s'appuie sur l'entité `Secteur` nouvellement introduite dans le modèle de données.
 
 Le cœur du système repose sur la Base ECM, exigeant des interfaces de recherche multicritères complexes (par individu ou par site). La modélisation a nécessité de relier les entités `Soldat` et `Site` à un riche système de thésaurus (grades, conflits, unités, causes de décès) gérable dynamiquement par les administrateurs.
 
@@ -720,7 +719,7 @@ Bien que l'application comporte de nombreux modules, certains ont représenté d
 
 ==== Consultation et recherche multicritère
 
-Le module de consultation constitue le point d'entrée quotidien des utilisateurs vers la base ECM. Il repose sur un objet de requête dédié (`SoldatSearchData`), une simple classe de données publiques portant l'ensemble des critères de filtrage disponibles  nom, prénoms, dates de naissance et de décès, département de naissance/décès, conflit, site d'inhumation, présence de sépulture, caractère perpétuel de la sépulture - ainsi que les paramètres de pagination et de tri. Ce découpage isole complètement l'expression d'une recherche de son exécution : le contrôleur se contente d'hydrater cet objet depuis les paramètres de la requête HTTP, avant de le transmettre au dépôt Doctrine (`SoldatRepository::search()`).
+Le module de consultation constitue le point d'entrée quotidien des utilisateurs vers la base ECM. Il repose sur un objet de requête dédié (`SoldatSearchData`), une simple classe de données publiques portant l'ensemble des critères de filtrage disponibles nom, prénoms, dates de naissance et de décès, département de naissance/décès, conflit, site d'inhumation, présence de sépulture, caractère perpétuel de la sépulture - ainsi que les paramètres de pagination et de tri. Ce découpage isole complètement l'expression d'une recherche de son exécution : le contrôleur se contente d'hydrater cet objet depuis les paramètres de la requête HTTP, avant de le transmettre au dépôt Doctrine (`SoldatRepository::search()`).
 
 Le dépôt construit alors dynamiquement une requête #dql via le `QueryBuilder` de Doctrine, n'ajoutant une clause `WHERE` ou une jointure que pour les critères effectivement renseignés, évitant ainsi de générer un unique #dql statique avec de multiples conditions optionnelles peu lisibles et des jointures coûteuses et inutiles, au profit d'une construction incrémentale et testable indépendamment critère par critère (cf. `SoldatRepositoryTest` et son usage de `#[DataProvider]`). Certains critères, comme la recherche textuelle sur le nom, exposent également un mode de correspondance paramétrable (`TextSearchType` : contient, commence par, exact), traduit en clause SQL `LIKE` ou `=` selon le cas.
 
@@ -748,7 +747,7 @@ Pour protéger l'intégrité des données historiques (sépultures perpétuelles
 
 #align(center, figure(
   image("assets/figma/modale-validation-modifications.svg", width: 50%),
-  caption: [Export Figma la modale de validation des modifications],
+  caption: [Export Figma de la modale de validation des modifications],
 ))
 
 ==== Interopérabilité et Exports
@@ -757,24 +756,24 @@ Le système devait respecter une contrainte forte d'interopérabilité avec les 
 
 #align(center, figure(
   image("assets/figma/export-mdh.svg"),
-  caption: [Export Figma de l'écran de l'écran d'export vers #mdh],
+  caption: [Export Figma de l'écran d'export vers #mdh],
 ))
 
-À l'instar du flux de validation, cette fonctionnalité d'export n'était pas encore implémentée dans le périmètre développé pendant mon stage : seule sa maquette visuelle existe à ce stade, matérialisée dans le _design system_ interne de l'application par des composants de notification réutilisables (succès, information, erreur) illustrant les différents états d'un export  génération en cours, fichier disponible, échec - sans que la génération du fichier plat destiné à #mdh n'ait elle-même été codée.
+À l'instar du flux de validation, cette fonctionnalité d'export n'était pas encore implémentée dans le périmètre développé pendant mon stage : seule sa maquette visuelle existe à ce stade, matérialisée dans le _design system_ interne de l'application par des composants de notification réutilisables (succès, information, erreur) illustrant les différents états d'un export : génération en cours, fichier disponible, échec - sans que la génération du fichier plat destiné à #mdh n'ait elle-même été codée.
 
-== Bilan technique et perpectives
+== Bilan technique et perspectives
 
 Le projet #onacvg est de loin celui sur lequel j'ai passé le plus de temps durant ce stage. Comme indiqué plus haut, son développement a débuté en même temps que mon arrivée. Le choix d'Actimage pour mon PFE tenait notamment à la taille humaine de l'entreprise, des équipes et des projets entrepris. Ma prédiction s'est réalisée : si ce projet me tient autant à cœur, c'est parce qu'il est assez complexe pour être profondément intéressant, sans que ses dimensions ne dépassent ma compréhension. Je peux suivre la quasi-totalité des lignes de code et des processus du projet, bien qu'il s'étende sur près de 400 fichiers.
 
-Le point technique qui m'a le plus découragé a été la mise en place de la logique côté client, dans un contexte sans outil puissant d'analyse statique  l'application se passant volontairement de TypeScript au profit de JavaScript natif. Cette absence de garde-fou à la compilation a fini par orienter mon choix vers Stimulus, le cadriciel recommandé par Symfony UX : en imposant une structure déclarative (contrôleurs, cibles, valeurs) directement dans le HTML plutôt que de la logique JavaScript libre, il compense en partie l'absence de typage en réduisant fortement la surface d'erreur possible, tout en restant cohérent avec le choix architectural d'AssetMapper.
+Le point technique qui m'a le plus découragé a été la mise en place de la logique côté client, dans un contexte sans outil puissant d'analyse statique l'application se passant volontairement de TypeScript au profit de JavaScript natif. Cette absence de garde-fou à la compilation a fini par orienter mon choix vers Stimulus, le cadriciel recommandé par Symfony UX : en imposant une structure déclarative (contrôleurs, cibles, valeurs) directement dans le HTML plutôt que de la logique JavaScript libre, il compense en partie l'absence de typage en réduisant fortement la surface d'erreur possible, tout en restant cohérent avec le choix architectural d'AssetMapper.
 
-À l'inverse, ce que je suis le plus fier d'avoir mis en place côté PHP, c'est l'effort systématique consistant à déplacer un maximum de logique métier dans les types et les structures du code plutôt que dans des vérifications à l'exécution  les enums stricts (`PresenceSepulture`, `TextSearchType`, `Role`), le typage strict imposé par PHPStan niveau 9, ou encore l'usage des `traits` Symfony pour partager du comportement (`LoggerTrait`, `AlertControllerTrait`) sans passer par une hiérarchie d'héritage rigide. Le typage statique, quand il est poussé sérieusement, est un outil remarquable : il permet de prouver, au sens quasi mathématique du terme, qu'une certaine classe de bugs ne pourra tout simplement pas se produire à l'exécution. Les traits, de leur côté, permettent de réutiliser du code transversal sans imposer la contrainte d'un seul parent, libérant ainsi une charge mentale de conception que l'héritage classique aurait alourdie.
+À l'inverse, ce que je suis le plus fier d'avoir mis en place côté PHP, c'est l'effort systématique consistant à déplacer un maximum de logique métier dans les types et les structures du code plutôt que dans des vérifications à l'exécution les enums stricts (`PresenceSepulture`, `TextSearchType`, `Role`), le typage strict imposé par PHPStan niveau 9, ou encore l'usage des `traits` Symfony pour partager du comportement (`LoggerTrait`, `AlertControllerTrait`) sans passer par une hiérarchie d'héritage rigide. Le typage statique, quand il est poussé sérieusement, est un outil remarquable : il permet de prouver, au sens quasi mathématique du terme, qu'une certaine classe de bugs ne pourra tout simplement pas se produire à l'exécution. Les traits, de leur côté, permettent de réutiliser du code transversal sans imposer la contrainte d'un seul parent, libérant ainsi une charge mentale de conception que l'héritage classique aurait alourdie.
 
-Avec le recul, s'il y a un choix que je referais différemment, ce serait d'imposer des standards de code plus exigeants que ceux couverts par Rector et PHP CS Fixer, qui restent essentiellement syntaxiques. Je verrais volontiers l'ajout, à la chaîne d'intégration continue existante, d'un bloc de revue automatisée s'appuyant sur un modèle de langage (à la manière d'outils comme CodeRabbit), capable de commenter directement une demande de fusion sur des questions de style et de bonnes pratiques que les outils actuels ne couvrent pas  nommage, cohérence des patterns entre modules, lisibilité - et d'accélérer ainsi l'uniformisation du projet sans alourdir la charge de relecture humaine du _lead developer_.
+Avec le recul, s'il y a un choix que je referais différemment, ce serait d'imposer des standards de code plus exigeants que ceux couverts par Rector et PHP CS Fixer, qui restent essentiellement syntaxiques. Je verrais volontiers l'ajout, à la chaîne d'intégration continue existante, d'un bloc de revue automatisée s'appuyant sur un modèle de langage (à la manière d'outils comme CodeRabbit), capable de commenter directement une demande de fusion sur des questions de style et de bonnes pratiques que les outils actuels ne couvrent pas nommage, cohérence des patterns entre modules, lisibilité - et d'accélérer ainsi l'uniformisation du projet sans alourdir la charge de relecture humaine du _lead developer_.
 
-Ce projet a par ailleurs été autant stimulant humainement que techniquement. Les échanges avec Jim, chef de secteur à Bordeaux et lui-même ancien combattant, ont concrètement ancré mon travail : l'entendre exposer les problématiques pratiques de son quotidien d'inspecteur de site  l'éloignement de certains carrés militaires, la difficulté de maintenir une base de données à jour sur le terrain a donné un sens tangible à des choix qui, sur le papier, n'étaient que des arbitrages techniques (mode hors-ligne, ergonomie tactile du formulaire d'inspection).
+Ce projet a par ailleurs été autant stimulant humainement que techniquement. Les échanges avec Jim, chef de secteur à Bordeaux et lui-même ancien combattant, ont concrètement ancré mon travail : l'entendre exposer les problématiques pratiques de son quotidien d'inspecteur de site l'éloignement de certains carrés militaires, la difficulté de maintenir une base de données à jour sur le terrain a donné un sens tangible à des choix qui, sur le papier, n'étaient que des arbitrages techniques (mode hors-ligne, ergonomie tactile du formulaire d'inspection).
 
-Sur le plan de ma formation d'ingénieur, ce stage a surtout été une leçon de pragmatisme technique. Venant d'une formation où des langages fortement typés comme OCaml ou Java sont mis en avant pour leur rigueur, j'ai appris qu'un langage moins strict par nature  PHP, historiquement permissif peut être "repris en main" via un outillage de qualité suffisamment exigeant (PHPStan au niveau maximal, validation Symfony, tests) pour retrouver une bonne part des garanties recherchées, tout en conservant une vélocité de développement que des langages plus rigides auraient difficilement permise sur un projet de cette taille et avec ces délais.
+Sur le plan de ma formation d'ingénieur, ce stage a surtout été une leçon de pragmatisme technique. Venant d'une formation où des langages fortement typés comme OCaml ou Java sont mis en avant pour leur rigueur, j'ai appris qu'un langage moins strict par nature PHP, historiquement permissif peut être "repris en main" via un outillage de qualité suffisamment exigeant (PHPStan au niveau maximal, validation Symfony, tests) pour retrouver une bonne part des garanties recherchées, tout en conservant une vélocité de développement que des langages plus rigides auraient difficilement permise sur un projet de cette taille et avec ces délais.
 
 = PIAWEB : Une histoire de DevOps
 
@@ -798,7 +797,7 @@ La pile applicative elle-même est divisée en trois conteneurs principaux :
 
 ==== Backend
 
-Développé en Java 17 avec Springboot 2.7, ce module expose les services de l'application et se connecte à la base de données.
+Développé en Java 17 avec Spring Boot 2.7, ce module expose les services de l'application et se connecte à la base de données.
 
 ==== Frontend
 
@@ -821,7 +820,7 @@ L'exécution des tâches de la CI/CD est confiée à des GitLab Runners install�
 - Un *runner Docker* (`runner-gitlab-piaweb-int`) : utilisé pour exécuter les tâches dans des conteneurs isolés, garantissant des environnements de construction propres et jetables.
 - Un *runner Shell* (`runner-gitlab-piaweb-shell`) : configuré pour s'exécuter directement sur la machine hôte via un utilisateur système dédié (`gitlab-runner`). Bien que son usage soit généralement déconseillé car il peut laisser des fichiers résiduels, il est parfois nécessaire pour interagir directement avec l'infrastructure du serveur d'intégration.
 
-Les chaînes de traitement sont configurés pour se déclencher selon des événements précis : lors de la soumission de code sur une branche spécifique, lors de la création d'une étiquette (tag), ou lors d'une publication (release).
+Les chaînes de traitement sont configurées pour se déclencher selon des événements précis : lors de la soumission de code sur une branche spécifique, lors de la création d'une étiquette (tag), ou lors d'une publication (release).
 
 === Gestion des environnements et stratégie de branche
 
@@ -831,7 +830,7 @@ Le cycle de vie du code de PIAWEB est rythmé par le passage à travers différe
 
 ==== De `dev` vers `int` (Intégration)
 
-Les environnements de développement local et d'intégration sont techniquement identiques. Ils exploitent les outils de rechargement à chaud (comme Springboot DevTool). À ce stade, le code source n'est pas "figé" dans les images Docker, mais monté via des volumes, ce qui évite de devoir reconstruire les images à chaque modification et accélère considérablement le cycle de développement. La mise à jour de l'environnement d'intégration se fait via de simples commandes `git pull` et `git submodule update`, suivies d'une compilation Maven (`mvn clean install`), tout ceci facilité par l'usage de clés de déploiement (Deploy Keys) configurées sur la machine virtuelle.
+Les environnements de développement local et d'intégration sont techniquement identiques. Ils exploitent les outils de rechargement à chaud (comme Spring Boot DevTool). À ce stade, le code source n'est pas "figé" dans les images Docker, mais monté via des volumes, ce qui évite de devoir reconstruire les images à chaque modification et accélère considérablement le cycle de développement. La mise à jour de l'environnement d'intégration se fait via de simples commandes `git pull` et `git submodule update`, suivies d'une compilation Maven (`mvn clean install`), tout ceci facilité par l'usage de clés de déploiement (Deploy Keys) configurées sur la machine virtuelle.
 
 ==== De `int` vers `rec` (Recette)
 
@@ -896,7 +895,7 @@ Si la recette est validée par le client, la version est promue en production. L
 
 === Le bogue
 
-Étant l'un des développeurs les moins coûteux, j'ai été assigné à la correction d'un bogue d'affichage ordinaire pour lequel plusieurs de mes collègues avaient déjà imputé du temps. La plongée laborieuse dans le code source d'un projet dont la teneur m'échappait encore et dont le cadriciel frontal ne m'était pas familier m'a contraint à optimiser mon débogage afin d'identifier la source du problème sans avoir à explorer l'entièreté de l'application. Quelques échanges de tickets avec le client plus tard et j'arrivais à reproduire le comportement anormal sur mon poste. Le problème venait d'un simple formulaire de recherche dont la pagination n'était pas rapportée à 1 lorsque l'utilisateur changeait les critères de recherche, permettant ainsi d'accéder à la troisième page pour une recherche ne remontant qu'une page de résultats par exemple.
+Étant l'un des développeurs les moins coûteux, j'ai été assigné à la correction d'un bogue d'affichage ordinaire pour lequel plusieurs de mes collègues avaient déjà imputé du temps. La plongée laborieuse dans le code source d'un projet dont la teneur m'échappait encore et dont le cadriciel frontal ne m'était pas familier m'a contraint à optimiser mon débogage afin d'identifier la source du problème sans avoir à explorer l'entièreté de l'application. Quelques échanges de tickets avec le client plus tard et j'arrivais à reproduire le comportement anormal sur mon poste. Le problème venait d'un simple formulaire de recherche dont la pagination n'était pas réinitialisée. à 1 lorsque l'utilisateur changeait les critères de recherche, permettant ainsi d'accéder à la troisième page pour une recherche ne remontant qu'une page de résultats par exemple.
 
 Si l'implémentation du correctif ne nécessita que quelques minutes, la validation de la demande de fusion sur la branche de développement `dev` fut actée en une demi-heure. L'intervention aurait pu s'achever sur cette bonne note, mais l'équipe DevOps m'a confié la responsabilité de l'intégralité du cycle de livraison de cette version, incluant la montée sur les différents environnements et le déploiement final chez le client.
 
@@ -919,13 +918,13 @@ En suivant sans le savoir le protocole de build de `dev` et `int` jusqu'à `rec`
 
 Tout est rentré dans l'ordre une fois qu'on m'a expliqué la procédure exacte de bascule entre les deux paradigmes de construction, et une fois la documentation correspondante rédigée. Ce genre d'incident, sur un projet DevOps mature, ne pose généralement pas de difficulté majeure : il suffit de connaître un peu la stack pour en repérer rapidement la cause. Le problème, dans mon cas, tenait autant à l'absence ponctuelle de documentation qu'à ma propre formation insuffisante en DevOps, réseaux et en infrastructure.
 
-Tout DevOps le sait, une bonne documentation n'est rien sans le savoir faire de celui qui la lit. Il y aura toujours un détail d'environnement qui changera ou une doc pas à jour qui forcera le DevOps à "mettre les mains dans le cambouis" et débugguer sur le serveur directement.
+Tout DevOps le sait, une bonne documentation n'est rien sans le savoir-faire de celui qui la lit. Il y aura toujours un détail d'environnement qui changera ou une doc pas à jour qui forcera le DevOps à "mettre les mains dans le cambouis" et déboguer sur le serveur directement.
 
 = Autres projets en cours
 
 == Automatisation de la qualification
 
-Le projet de Romain vise à automatiser le processus de qualification d'un #ao. Habituellement, une qualification prend au moins deux heures à un consultant : c'est une tâche répétitive et peu valorisante, dont le temps investi peut de surcroît être perdu si l'#ao qualifié ne correspond finalement pas aux compétences des équipes d'Actimage. Qualifier un #ao consiste concrètement à extraire un ensemble de données utiles d'un document PDF (souvent volumineux et peu structuré) pour les reporter dans une feuille de calcul standardisée, elle-même découpée en une dizaine de thématiques - contexte, procédure, durée et budget, critères de sélection, contacts - représentant au total plusieurs dizaines de champs à renseigner.
+Le projet de Romain vise à automatiser le processus de qualification d'un #ao. Habituellement, une qualification prend au moins deux heures à un consultant : c'est une tâche répétitive et peu valorisante, dont le temps investi peut de surcroît être perdu si l'#ao qualifié ne correspond finalement pas aux compétences des équipes d'Actimage. Qualifier un #ao consiste concrètement à extraire un ensemble de données utiles d'un document PDF (souvent volumineux et peu structuré) pour les reporter dans une feuille de calcul standardisée, elle-même découpée en une dizaine de thématiques (contexte, procédure, durée et budget, critères de sélection, contacts) représentant au total plusieurs dizaines de champs à renseigner.
 
 J'ai assisté à une présentation mi-technique mi-pratique de ce projet par Romain lui-même. Plutôt que de recourir à un grand modèle de langage généraliste, coûteux en puissance de calcul et disproportionné pour une tâche d'extraction aussi ciblée, son choix s'est porté sur Kimi @kimi, un modèle à poids ouverts publié par Moonshot AI, couplé à une architecture de RAG (_Retrieval-Augmented Generation_) reposant sur un découpage du document source en fragments (_chunking_) puis leur vectorisation (_embedding_). L'ensemble tourne en local, directement sur un Mac M1, ce qui ramène le temps de qualification d'un #ao à une vingtaine de minutes. À ce rythme, qualifier un #ao cesse d'être une perte de temps potentielle : la totalité des opportunités repérées en amont, lors de la phase de prospection commerciale, pourrait être systématiquement qualifiée, réduisant à néant le risque qu'Actimage laisse filer une occasion de répondre à un #ao faute de temps disponible pour l'évaluer.
 
@@ -971,7 +970,47 @@ L'écosystème JavaScript/TypeScript a déjà trouvé une réponse à ce problè
 
 == Enrichissement personnel
 
-#todo("parler de l'envie de bosser à la dinum, souveraineté numérique, FabPot")
+=== Une révélation technique : comprendre l'écologie des outils
+
+Mes six mois chez Actimage ont cristallisé une conviction qui deviendra le fil rouge de ma trajectoire professionnelle : les véritables outils de développement ne sont pas des gadgets annexes, mais le cœur battant d'une pratique de qualité.
+
+Je me souviens précisément du moment où cette révélation s'est produite. Lors de mon premier projet, l'outil de migration regroupant les bases filles et la base mère, j'avais installé PHPStan et PHP-CS-Fixer de façon globale sur ma machine comme s'il s'agissait de simples utilitaires éditeur, détachés du code spécifique du projet. Je ne comprenais pas pourquoi les résultats variaient selon que j'utilisais la machine d'un collègue ou la mienne. Le jour où j'ai saisi que ces outils font intimement partie de l'écosystème du projet, pas du système, que chaque version compte, que chaque paramètre de configuration importe, ce jour-là, tout s'est connecté. PHP-CS-Fixer n'était pas "un outil qu'on utilise", c'était le correcteur de style du projet, la source de vérité des standards de code, avec sa propre configuration, ses règles propres, ses versions stables. PHPStan n'était pas "un analyseur générique", c'était l'analyseur statique de ce projet-là, configuré pour un certain niveau de typage, des certains chemins d'autoload, des règles métier spécifiques.
+
+Cette compréhension s'étend bien au-delà de ces deux outils. Elle touche à toute la chaîne : le Makefile qui orchestre les opérations, Docker Compose qui crée l'environnement reproductible, git et ses hooks de pre-commit, les scripts de déploiement qui déploient tellement plus qu'on ne l'imagine au premier coup d'œil. Pendant le stage, j'ai découvert qu'une très grande partie du travail du développeur ne consiste pas à écrire du code métier, mais à maintenir, configurer, comprendre et adapter cet écosystème d'outils.
+
+C'est une leçon qui m'a conduit naturellement vers mes projets personnels. Loin de consommer passivement un éditeur ou un language server, je me suis mis à les améliorer : ajout du support des "code actions" LSP au plugin oil.nvim, réflexions sur un outil de diff et de patch _syntax-aware_ basé sur Tree-sitter, extension Chrome qui colore le code brut avec HighlightJs lorsqu'il apparaît dans le navigateur. Plus récemment encore, j'ai développé un package npm pour Bun permettant d'utiliser les structs, unions et enums du C en JavaScript via le module FFI de Bun, un petit pont entre deux mondes souvent perçus comme séparés. Cette obsession pour les outils n'est pas du perfectionnisme vain ; c'est la conviction que maîtriser profondément l'environnement dans lequel on travaille accélère considérablement le développement et améliore drastiquement la qualité.
+
+=== Évolution personnelle : de l'étudiant à l'acteur autonome
+
+Au-delà des révélations techniques, ce stage m'a profondément transformé en tant que développeur et en tant que personne. J'ai gagné en autonomie - non pas une autonomie brute, mais une autonomie réfléchie. Avant, j'aurais écrit du code en me demandant constamment si je suivais les bonnes pratiques. Aujourd'hui, elles sont devenues instinctives. La structuration en services, les tests unitaires, la vérification de types, la revue de code : ces éléments ne relèvent plus d'une checklist à dérouler ; ils sont devenus part intégrante de ma manière de penser le code.
+
+Ce stage m'a aussi enseigné la patience et la clarté en matière de vulgarisation technique. Expliquer un concept compliqué (migrations de base de données, architecture de microservices, enjeux de vectorisation) à quelqu'un qui n'est pas développeur requiert une pensée tout autre. Il faut trouver l'analogie juste, rejeter le jargon inutile et structurer l'information. C'est en travaillant avec Jim que cette capacité s'est développée : lui, militaire rigoureux formé à la formalisation, n'acceptait pas les réponses vagues. Cette rigueur m'a forcé à penser plus clairement à ce que je communiquais.
+
+=== Les leçons de l'entreprise réelle
+
+Venir d'un environnement académique à une entreprise a révélé plusieurs différences fondamentales. La plus frappante : la visibilité. En école, on travaille souvent sur des modules isolés, des composants découplés du reste du système. Chez Actimage, même en tant que stagiaire, j'ai pu suivre l'ensemble du cycle de vie d'un projet - de la spécification jusqu'à la maintenance en production. Cette vue d'ensemble change profondément la manière de concevoir une solution. On comprend que chaque choix architectural a des implications lointaines, que le code d'hier devient la dette technique d'aujourd'hui qui à son tour devient l'urgence de demain.
+
+Le travail avec Jim illustre cette réalité. En tant que militaire, il avait déjà normalisé et formalisé le processus d'inspection des sites : pas de place pour le flou, pas de besoin de recherche ergonomique complexe. Ses demandes de fonctionnalités étaient précises parce qu'elles émergeaient d'un workflow déjà éprouvé. Cela nous a épargné le travail de normalisation qu'aurait exigé un client moins structuré. C'est une leçon en soi : une bonne compréhension partagée des processus vaut son poids en or.
+
+=== Aspirations futures : de l'utilisateur au créateur d'outils
+
+Mon choix d'accepter une proposition de CDI chez Actimage à partir d'octobre reflète une certitude acquise lors de ce stage : j'aime développer. Mais il reflète aussi une vision à plus long terme. La fiche de poste décrit exactement ce que je fais déjà (développement web et une touche de DevOps). Pourtant, à terme j'aimerais me réorienter dans la #rd
+
+Mes regards se portent vers OcamlPro et AdaCore : deux entreprises françaises nommées après des langages que j'ai particulièrement appréciés en école. OCaml et Ada sont les mal-aimés des langages de programmation. Ils manquent le prestige de Python, la popularité de JavaScript, l'adoption de Java. Pourtant, leur puissance théorique et pratique est considérable. OCaml, avec son système de types et sa programmation fonctionnelle, force une certaine pureté mentale. Ada, avec ses contrats et son attention obsessive à la sécurité, offre des garanties que peu d'autres langages peuvent concéder. Travailler chez l'une de ces deux entreprises signifierait développer des outils - compilateurs, analyseurs, assistants - plutôt que des applications. C'est cette vocation qui m'attire.
+
+Et elle s'exprime déjà dans mon travail personnel. Au-delà des améliorations incrémentales apportées à mes outils existants, ma dernière grande idée reste Xdromad : un _window manager_ pour X11 écrit en OCaml. Là aussi, c'est un projet "scratched personal itch" (j'en aurai besoin pour ma machine de travail) mais aussi une opportunité d'explorer OCaml à grande échelle. Je compte le distribuer sur GitHub, non pas comme un énorme projet open-source, mais comme un outil que je maintiens tant que je l'utilise, à la manière du mainteneur de PHPactor qui décrit philosophiquement son approche : maintenir ce qu'on utilise, accepter ses limites, cesser d'inventer quand la solution cesse de servir. C'est une sagesse rare dans les temps qui courent où l'IA permet de livrer des fonctionnalités plus vite qu'on ne peut les penser.
+
+Cette philosophie s'étend à tous mes projets. Le home lab que je mets en place qui hébergera mon portfolio et mes projets n'est pas une fin en soi. C'est une infrastructure construite pour répondre à des besoins réels : non seulement pour l'apprentissage, mais pour mon mariage l'an prochain et tout ce qui s'ensuit. Avancer en autonomie sur l'infrastructure, c'est aussi avancer en liberté.
+
+=== L'information comme colonne vertébrale
+
+À la fin, une leçon s'impose avec évidence, presque banale mais profonde : *il ne faut pas hésiter à poser des questions*. L'information est maîtresse de tout.
+
+Pendant ce stage, lorsque j'ai eu besoin de comprendre pourquoi le push vers la production échouait, j'aurais pu rester bloqué. Mais poser la question, consulter la documentation, écouter mes collègues plus expérimentés, a résolu l'énigme en heures plutôt qu'en jours. Cette source d'information - textuelle via les wiki et les README, ou humaine via les collègues - est le véritable multiplicateur de productivité.
+
+C'est aussi ce qui m'a le plus marqué chez Romain avec son projet d'automatisation de qualification d'appels d'offre : sa documentation, conçue pour guider une machine, s'est révélée extraordinaire comme support pédagogique pour un humain. Un document suffisamment précis pour instruire une IA finit par constituer, presque accidentellement, la meilleure documentation pour un nouvel arrivant. Cela cristallise ce que j'ai toujours cru : qu'une excellente technique repose ultimement sur une excellente communication, et qu'une excellente communication repose elle-même sur l'accès libéré à l'information.
+
+Ce stage m'a apporté bien plus qu'une expérience professionnelle. Il m'a confirmé dans mes convictions, m'a montré qui je suis vraiment quand la pression monte, et m'a tracé une direction claire pour les années qui viennent. Je retrouverai Actimage en octobre pour débuter un CDI, mais pour finir, c'est avec une vraie certitude : que ce soit chez cette entreprise ou ailleurs, que ce soit du web ou de la R et D, mon vrai métier sera toujours de construire et de polir les outils grâce auxquels d'autres construisent.
 
 #pagebreak()
 
