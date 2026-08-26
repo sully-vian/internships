@@ -929,7 +929,27 @@ Enfin, une remarque personnelle sur la documentation produite par Romain pour d�
 
 = Conclusion
 
-== À propos de PHP/Symfony #todo("définir un titre")
+== PHP Symfony : Cacophonie harmonisée
+
+PHP n'était originellement pas fortement typé, des types ont été ajoutés aux bordure des contrats (paramètres et retours de fonction, propriétés de classes etc). Mais ce typage ne fait que "caster" les valeurs par défaut. Il faut indiquer `declare(strict_types=1);` au début de chaque fichier pour faire crash le code lorsqu'un mauvais type est passé.
+
+Aujourd'hui, on a PHPStan qui contient, entre autres, un système de type très puissant et expressif. On a alors notamment droit à des types inférés, comme dans la plupart des langages modernes comme Rust, Java avec `var` @java-var ou C++ avec `auto` @cpp-auto. Cette fonctionnalité réduit le volume de code à lire/écrire mais aussi la quantité d'information explicitement à l'écran. Avec l'avènement des serveurs de langage, ce problème est devenu rare dans l'éditeur, mais du code imprimé, en ligne ou dans tout contexte hors d'un éditeur supportant le LSP, il reste souvent difficile de comprendre le code.
+
+Un autre langage initialement faiblement typé est JavaScript. Il a suivi un arc de rédemption plus rapide et désormais terminé avec l'arrivée de TypeScript. Ce sur-ensemble de JS apporte comme PHPStan un peu de rigueur sans changer le comportement du code à l'exécution. Ce confort vient avec un coût: celui d'ajouter une étape de transpilation du TS en JS. Mais ce coût est négligeable puisque l'écosystème JS est déjà connu pour ses étapes de traitement comme la minimisation, le _bundling_ etc.
+
+Cette étape de transpilation a commencé à disparaitre réecmment avec des environnements d'exécution qui supportent la syntaxe TypeScript, sans pour autant vérifier les types. Un peu comme ce que fait l'interpréteur PHP qui ignore les types PHPStan en commentaires PHPDoc.
+
+Peut-être verra-t-on un jour un interpréteur PHP supportant tous les types complexes de PHPStan. Facebook a lancé son équivalent Hack @hack en 2014.
+
+Symfony ressemble beaucoup à Spring Boot structurellement. Les ORM, controlleurs, repository, entités, services etc sont très similaires. Spring Boot brille par ses annotations et Symfony par ses Attributs. En PHP, pas de compilation donc les attributs sont évalués et leur comportement appliqué à l'exécution. En Spring Boot, c'est également la réflection et l'introspection qui fait une bonne partie du travail. Mais il est généralement considé mauvais d'en utiliser à des fins applicatives. En Symfony, c'est aussi la réclection et l'introspection qui travailent, mais encore plus puisqu'il n'y a pas de traitement à la compilation comme le Project Lombok pourrait le permettre.
+
+Venant de Java, la prise en main de Symfony est plutôt facile et agréable. Un des avantages de PHP est également les tableaux associatifs. Équivalents à des `object` JS, ils permettent de transporter des données de n'importe quelle forme. C'est particulièrement utile dans la configuration de composants: toutes les options peuvent être écrites rapidement et de manière lisible dans un tableau du style `['class'=>FooBar::class, 'required'=>false, 'name'=>$name]`. En java, on aurait une chaine `.setClass(Foobar.class).setRequired(true).setName(name)`. La configuration en YAML est également une bénédiction. Plus lisible que le XML et plus expressif que le Java Properties du `application.properties`.
+
+Une autre force de Symfony et PHP en général qui est liée au point précédent et l'extensibilité. En Spring Boot, on a nos quelques `jar` et puis c'est tout, on construit notre application de là. En Symfony, on a accès à un univers de paquets (comme dans l'écosystème JS). Pour chaque fonctionnalité voulue, il existe un paquet (parfois même développé par Symfony). Cette philosophie est aussi une source d'insécurité, les applications sont sujettes à ds attaques de la chaîne d'approvisionnement (_supply-chain attack_).
+
+À propos de typage à nouveau, PHP gagne sur un certain point: les traits. Java n'a pas de traits. Un trait est mois propre qu'un héro=itage ou qu'une composition, mais dans le contexte d'un projet agile ou scrum, tous les besoins ne sont pas spécifiés d'entrée de jeu et on ne veut pas s'imposer des structures logicielles qui pourraient ralentir le développement plus tard. Une fosis un projet PHP terminé, on pourrait utiliser de l'héritage où c'est cohérent, mais pour le développement rapide, c'est un frein. C'est un patron de cponception statique en quelque sorte. Il va de pair avec l'encapsulation: une fonctionnalité finie se tient dans un module/paquet/classe java fermée dont on aura pas à modifier le code ultérieurement à moins qu'un changement de spécification opère sur cette fonctionnalité.
+
+Le typage PHPStan est aussi plus expressif et fort que celui en Java. En java, une poignée peut toujours être nulle. Il n'y a pas de qualification du type sensible au flux (comme en TS ou PHPStan) ou de réduction de type qui ferait qu'une assertion de non-nullité sur la poignée fasse changer son type (du point de vue LSP ou même compilateur). C'est en revanche fait à l'exécution: La JVM qui se balade une poignée vide va optimiser sa mémoire.
 
 #todo("raconter ma life sur le typage, Twig etc, comparer à Java, Spring Boot et JS/TS")
 

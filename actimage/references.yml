@@ -108,3 +108,8 @@ playwright:
   title: Playwright
   author: Microsoft
   url: https://playwright.dev
+hack:
+  type: Web
+  title: Hack
+  author: Facebook
+  url: https://hacklang.org

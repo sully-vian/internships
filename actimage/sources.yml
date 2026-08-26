@@ -25,3 +25,13 @@ no-verify:
   title: Manpage Git - Section git-commit
   author: Linus Torvalds
   url: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---no-verify
+java-var:
+  type: Web
+  title: Local Variable Type Inference
+  author: Oracle
+  url: https://docs.oracle.com/en/java/javase/21/language/local-variable-type-inference.html
+cpp-auto:
+  type: Web
+  title: Placeholder type specifiers
+  author: cppreference.com contributors
+  url: https://cppreference.com/cpp/language/auto
