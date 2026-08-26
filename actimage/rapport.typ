@@ -57,8 +57,6 @@
   note: "Le langage de requête orienté objet utilisé par Doctrine plutôt que d'écrire du SQL cru",
 )
 
-#let todo(msg) = [*TODO: #msg*]
-
 #set document(author: author, title: "Rapport de stage de fin d'études")
 
 #set text(lang: "fr")
@@ -170,9 +168,9 @@ Avant tout, je tiens à remercier mes deux encadrants sur cette expérience enri
 
 Mes remerciements s'étendent à l'ensemble de mes collègues de l'agence Actimage Paris-Arcueil et d'ailleurs. Par ordre alphabétique : Aurélie, ma co-stagiaire solidaire pour son amitié, sa politesse et sa conversation ; Marine pour sa jovialité, sa créativité et son attention aux détails ; Romain pour sa curiosité et nos discussions technophiles ; et enfin Thomas, pour sa spontanéité et sa précieuse expertise footballistique.
 
-Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est sûrement pour quelque chose dans la réussite de ce stage.
+Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est pour beaucoup dans mon épanouissement et la réussite de ce stage.
 
-#show outline.entry.where(level: 1): set block(above: 1em)
+#show outline.entry.where(level: 1): set block(above: 2em)
 #outline(depth: 3, title: "Sommaire")
 
 #outline(title: "Table des figures", target: figure)
@@ -181,16 +179,28 @@ Mes remerciements vont bien sûr également à Madeleine, ma fiancée, qui y est
 
 == Présentation de l'entreprise
 
-Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel PDG. Les effectifs de l'entrprise sont répartis entre trois pôles principaux communicants: le développement, le conseil et la #rd. Mon stage s'est déroulé dans le pôle développement mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets. Actimage est présente à l'internationale dans 8 agences dans 5 pays. Celles avec lesquelles j'ai le plus été en contact sont Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
+Actimage est une #esn fondée en 1995 par Christophe Megel, l'actuel PDG. À l'origine centrée sur l'innovation dans le conseil en nouvelles technologies, l'entreprise accompagne aujourd'hui la transformation digitale de ses clients, notamment à travers sa structure *Actimage Consulting SAS*, créée en 2004 et filiale de la _holding_ *Imagina International*. Elle se positionne à la fois comme agence digitale, cabinet de conseil et intégrateur de logiciels d'entreprise.
 
-=== Composition de l'entreprise
+=== Organisation et Pôles d'expertise
+
+Les effectifs de l'entreprise, qui regroupent environ une centaine de consultants, sont répartis entre plusieurs pôles d'expertise communicants. Historiquement, l'offre s'articule autour du développement logiciel, de la stratégie (conseil, AMOA) et de la #rd (incluant l'innovation, l'IoT, la réalité virtuelle et l'IA). Mon stage s'est déroulé au sein du pôle développement, mais j'ai eu l'occasion d'interagir avec le pôle #rd sur certains sujets transverses.
+
+=== Implantation et Maillage territorial
+
+Actimage est présente à l'international à travers 8 agences réparties dans 5 pays. Dans le cadre de mes missions, les agences avec lesquelles j'ai le plus été en contact sont celles de Paris, Arcueil, Colmar, Strasbourg, Metz et Luxembourg.
+
+=== Culture d'entreprise
+
+Le développement des compétences est un pilier de la société. La rapide montée en compétences est une assurance pour tout nouvel employé. La taille humaine de la structure et la diversité des projets entrepris favorisent une évolution rapide dans un environnement dynamique.
+
+=== Organigramme de l'entreprise
 
 #align(center, figure(
   render(read("assets/org-chart.dot"), width: 70%),
   caption: [Organigramme de l'entreprise],
 ))
 
-=== Équipe rapprochée
+=== Collaborateurs proches
 
 ==== David Kolin (DKO)
 
@@ -215,8 +225,6 @@ Romain est ingénieur diplômé de Polytech Sorbonne#footnote[https://www.polyte
 ==== Thomas Harir-Forouch (THA)
 
 Thomas est en contrat d'alternance chez Actimage depuis septembre 2025. Il suit une formation de développeur commercial à Audencia#footnote[https://www.audencia.com]. Ses missions principales incluent la prospection commerciale, la qualification d'#ao, la réponse à #ao ainsi que le recrutement (sourçage et entretiens).
-
-== Contexte du stage
 
 == Cycle de vie d'un projet
 
@@ -423,7 +431,7 @@ Travaillant pour la première fois dans un contexte extra-scolaire et extra-pers
 
 = Projet ONaCVG
 
-Le projet principal sur lequel j'ai eu l'occasion de travailler tout au long des 6 mois de stage est une application web à destination de l'#onacvg. #todo("étoffer")
+Ce projet est une application Web à destiation de l'#onacvg. C'est le projet princiapl sur lequel j'ai été amené à travaillé durant mon stage chez Actimage.
 
 == Introduction
 
@@ -1004,13 +1012,13 @@ Cette philosophie s'étend à tous mes projets. Le home lab que je mets en place
 
 === L'information comme colonne vertébrale
 
-À la fin, une leçon s'impose avec évidence, presque banale mais profonde : *il ne faut pas hésiter à poser des questions*. L'information est maîtresse de tout.
+À la fin, une leçon s'impose avec évidence, banale mais nécessaire : *il ne faut pas hésiter à poser des questions*. L'information est maîtresse de tout.
 
 Pendant ce stage, lorsque j'ai eu besoin de comprendre pourquoi le push vers la production échouait, j'aurais pu rester bloqué. Mais poser la question, consulter la documentation, écouter mes collègues plus expérimentés, a résolu l'énigme en heures plutôt qu'en jours. Cette source d'information - textuelle via les wiki et les README, ou humaine via les collègues - est le véritable multiplicateur de productivité.
 
 C'est aussi ce qui m'a le plus marqué chez Romain avec son projet d'automatisation de qualification d'appels d'offre : sa documentation, conçue pour guider une machine, s'est révélée extraordinaire comme support pédagogique pour un humain. Un document suffisamment précis pour instruire une IA finit par constituer, presque accidentellement, la meilleure documentation pour un nouvel arrivant. Cela cristallise ce que j'ai toujours cru : qu'une excellente technique repose ultimement sur une excellente communication, et qu'une excellente communication repose elle-même sur l'accès libéré à l'information.
 
-Ce stage m'a apporté bien plus qu'une expérience professionnelle. Il m'a confirmé dans mes convictions, m'a montré qui je suis vraiment quand la pression monte, et m'a tracé une direction claire pour les années qui viennent. Je retrouverai Actimage en octobre pour débuter un CDI, mais pour finir, c'est avec une vraie certitude : que ce soit chez cette entreprise ou ailleurs, que ce soit du web ou de la R et D, mon vrai métier sera toujours de construire et de polir les outils grâce auxquels d'autres construisent.
+Ce stage m'a apporté bien plus qu'une expérience professionnelle. Il m'a confirmé dans mes convictions, m'a montré qui je suis vraiment quand la pression monte, et m'a tracé une direction claire pour les années qui viennent. Je retrouverai Actimage en octobre pour débuter un CDI, mais pour finir, c'est avec une vraie certitude : que ce soit chez cette entreprise ou ailleurs, que ce soit du web ou de la #rd, mon vrai métier sera toujours de construire et de polir les outils grâce auxquels d'autres construisent.
 
 #pagebreak()
 

@@ -1,24 +1,17 @@
-bdnf_playstore:
-  type: Web
-  title: BDnF - Applications sur Google Play
-  date: 2026
-  url: https://play.google.com/store/apps/details?id=fr.bnf.bdnf.tablet
 inp-charte:
   type: Web
-  author: Institut National Polytechnique de Toulouse (Toulouse INP)
-  title: Identité visuelle et outils de communication
+  author: (Toulouse INP)
+  title: Identité visuelle
   url: https://www.inp-toulouse.fr
-  date: 2026
 actimage-charte:
   type: Web
   author: Actimage
-  title: Identité visuelle et outils de communication
+  title: Identité visuelle
   url: https://www.actimage.com
-  date: 2026
 wiki-onacvg:
   type: Web
-  title: Office national des combattants et des victimes de guerre
   author: Contributeurs de Wikipédia
+  title: Office national des combattants et des victimes de guerre
   url: https://fr.wikipedia.org/wiki/Office_national_des_combattants_et_des_victimes_de_guerre
 no-verify:
   type: Web
