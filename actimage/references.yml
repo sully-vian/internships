@@ -6,7 +6,6 @@ ideavim:
 tree-sitter:
   type: Web
   title: Tree-sitter
-  author: Contributeurs de Tree-sitter
   url: https://tree-sitter.github.io
 twiggy:
   type: Web
@@ -21,7 +20,6 @@ vim-matchup:
 tmux:
   type: Web
   title: tmux
-  author: Contributeurs de tmux
   url: https://github.com/tmux/tmux
 lazygit:
   type: Web
@@ -41,7 +39,6 @@ docker:
 neovim:
   type: Web
   title: Neovim
-  author: Contributeurs de Neovim
   url: https://neovim.io
 phpstorm:
   type: Web
@@ -96,7 +93,6 @@ figma:
 biome:
   type: Web
   title: Biome
-  author: Contributeurs de Biome
   url: https://biomejs.dev
 kimi:
   type: Web
@@ -108,8 +104,22 @@ playwright:
   title: Playwright
   author: Microsoft
   url: https://playwright.dev
+typescript-7:
+  type: Web
+  title: Announcing TypeScript 7.0
+  author: Microsoft
+  publisher: Microsoft
+  url: https://devblogs.microsoft.com/typescript/announcing-typescript-7-0
 hack:
   type: Web
   title: Hack
   author: Facebook
   url: https://hacklang.org
+oxc:
+  type: Web
+  title: Oxc - A collection of of high-performance JavaScript tools written in Rust
+  url: https://oxc.rs
+zend:
+  type: Web
+  title: Zend Engine
+  url: https://www.phpinternalsbook.com/php7/zend_engine.html
