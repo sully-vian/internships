@@ -431,7 +431,7 @@ Travaillant pour la première fois dans un contexte extra-scolaire et extra-pers
 
 = Projet ONaCVG
 
-Ce projet est une application Web à destiation de l'#onacvg. C'est le projet princiapl sur lequel j'ai été amené à travaillé durant mon stage chez Actimage.
+Ce projet est une application Web à destination de l'#onacvg. C'est le projet principal sur lequel j'ai été amené à travaillé durant mon stage chez Actimage.
 
 == Introduction
 
@@ -673,7 +673,7 @@ Les spécifications fonctionnelles définissent huit rôles distincts, chacun as
 
 Côté implémentation, la hiérarchie entre ces rôles est déclarée dans la configuration de sécurité de Symfony (`security.yaml`), où `ROLE_SUPERADMIN` hérite automatiquement de l'ensemble des autres rôles, évitant ainsi de dupliquer les vérifications d'accès pour l'administrateur global. Le contrôle d'accès aux actions sensibles (édition d'un soldat ou d'un site) est réalisé au niveau des contrôleurs via l'attribut ```phpi #[IsGranted('ROLE_ADMIN_ECM')]``` de Symfony Security, appliqué directement sur les méthodes concernées.
 
-Le second axe du cloisonnement des droits est la restriction géographique par secteur, qui borne par exemple l'écriture d'un chef de secteur aux seuls sites de son secteur - s'appuie sur une entité `Secteur` nouvellement introduite (liaison `ManyToOne` depuis `Site`), actuellement développée sur une branche dédiée et pas encore fusionnée à `main` au moment de la rédaction de ce rapport. Cette entité pose les fondations de données nécessaires à une future logique d'autorisation par _voter_ Symfony, qui viendra comparer le secteur de rattachement de l'utilisateur à celui de la ressource consultée - mécanisme non encore implémenté à ce stade du projet.
+Le second axe du cloisonnement des droits est la restriction géographique par secteur, qui borne par exemple l'écriture d'un chef de secteur aux seuls sites de son secteur - s'appuie sur une entité `Secteur` nouvellement introduite (liaison `ManyToOne` depuis `Site`), actuellement développée sur une branche dédiée et pas encore fusionnée sur `main` au moment de la rédaction de ce rapport. Cette entité pose les fondations de données nécessaires à une future logique d'autorisation par _voter_ Symfony, qui viendra comparer le secteur de rattachement de l'utilisateur à celui de la ressource consultée - mécanisme non encore implémenté à ce stade du projet.
 
 === Rigueur logicielle et Intégration Continue
 
@@ -903,7 +903,7 @@ Si la recette est validée par le client, la version est promue en production. L
 
 === Le bogue
 
-Étant l'un des développeurs les moins coûteux, j'ai été assigné à la correction d'un bogue d'affichage ordinaire pour lequel plusieurs de mes collègues avaient déjà imputé du temps. La plongée laborieuse dans le code source d'un projet dont la teneur m'échappait encore et dont le cadriciel frontal ne m'était pas familier m'a contraint à optimiser mon débogage afin d'identifier la source du problème sans avoir à explorer l'entièreté de l'application. Quelques échanges de tickets avec le client plus tard et j'arrivais à reproduire le comportement anormal sur mon poste. Le problème venait d'un simple formulaire de recherche dont la pagination n'était pas réinitialisée. à 1 lorsque l'utilisateur changeait les critères de recherche, permettant ainsi d'accéder à la troisième page pour une recherche ne remontant qu'une page de résultats par exemple.
+Étant l'un des développeurs les moins coûteux, j'ai été assigné à la correction d'un bogue d'affichage ordinaire pour lequel plusieurs de mes collègues avaient déjà imputé du temps. La plongée laborieuse dans le code source d'un projet dont la teneur m'échappait encore et dont le cadriciel frontal ne m'était pas familier m'a contraint à optimiser mon débogage afin d'identifier la source du problème sans avoir à explorer l'entièreté de l'application. Quelques échanges de tickets avec le client plus tard et j'arrivais à reproduire le comportement anormal sur mon poste. Le problème venait d'un simple formulaire de recherche dont la pagination n'était pas réinitialisée à 1 lorsque l'utilisateur changeait les critères de recherche, permettant ainsi d'accéder à la troisième page pour une recherche ne remontant qu'une page de résultats par exemple.
 
 Si l'implémentation du correctif ne nécessita que quelques minutes, la validation de la demande de fusion sur la branche de développement `dev` fut actée en une demi-heure. L'intervention aurait pu s'achever sur cette bonne note, mais l'équipe DevOps m'a confié la responsabilité de l'intégralité du cycle de livraison de cette version, incluant la montée sur les différents environnements et le déploiement final chez le client.
 
@@ -1002,7 +1002,7 @@ Le travail avec Jim illustre cette réalité. En tant que militaire, il avait d�
 
 === Aspirations futures : de l'utilisateur au créateur d'outils
 
-Mon choix d'accepter une proposition de CDI chez Actimage à partir d'octobre reflète une certitude acquise lors de ce stage : j'aime développer. Mais il reflète aussi une vision à plus long terme. La fiche de poste décrit exactement ce que je fais déjà (développement web et une touche de DevOps). Pourtant, à terme j'aimerais me réorienter dans la #rd
+Mon choix d'accepter une proposition de CDI chez Actimage à partir d'octobre reflète une certitude acquise lors de ce stage : j'aime développer. Mais il reflète aussi une vision à plus long terme. La fiche de poste décrit exactement ce que je fais déjà (développement web et une touche de DevOps). Pourtant, à terme j'aimerais me réorienter dans la #rd.
 
 Mes regards se portent vers OcamlPro et AdaCore : deux entreprises françaises nommées après des langages que j'ai particulièrement appréciés en école. OCaml et Ada sont les mal-aimés des langages de programmation. Ils manquent le prestige de Python, la popularité de JavaScript, l'adoption de Java. Pourtant, leur puissance théorique et pratique est considérable. OCaml, avec son système de types et sa programmation fonctionnelle, force une certaine pureté mentale. Ada, avec ses contrats et son attention obsessive à la sécurité, offre des garanties que peu d'autres langages peuvent concéder. Travailler chez l'une de ces deux entreprises signifierait développer des outils - compilateurs, analyseurs, assistants - plutôt que des applications. C'est cette vocation qui m'attire.
 
