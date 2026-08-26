@@ -929,7 +929,7 @@ Enfin, une remarque personnelle sur la documentation produite par Romain pour d�
 
 = Conclusion
 
-== PHP Symfony : Cacophonie harmonisée
+== À propos de PHP et Symfony : une Cacophonie harmonisée
 
 PHP n'était originellement pas fortement typé, des types ont été ajoutés aux bordure des contrats (paramètres et retours de fonction, propriétés de classes etc). Mais ce typage ne fait que "caster" les valeurs par défaut. Il faut indiquer `declare(strict_types=1);` au début de chaque fichier pour faire crash le code lorsqu'un mauvais type est passé.
 
@@ -950,6 +950,8 @@ Une autre force de Symfony et PHP en général qui est liée au point précéden
 À propos de typage à nouveau, PHP gagne sur un certain point: les traits. Java n'a pas de traits. Un trait est mois propre qu'un héro=itage ou qu'une composition, mais dans le contexte d'un projet agile ou scrum, tous les besoins ne sont pas spécifiés d'entrée de jeu et on ne veut pas s'imposer des structures logicielles qui pourraient ralentir le développement plus tard. Une fosis un projet PHP terminé, on pourrait utiliser de l'héritage où c'est cohérent, mais pour le développement rapide, c'est un frein. C'est un patron de cponception statique en quelque sorte. Il va de pair avec l'encapsulation: une fonctionnalité finie se tient dans un module/paquet/classe java fermée dont on aura pas à modifier le code ultérieurement à moins qu'un changement de spécification opère sur cette fonctionnalité.
 
 Le typage PHPStan est aussi plus expressif et fort que celui en Java. En java, une poignée peut toujours être nulle. Il n'y a pas de qualification du type sensible au flux (comme en TS ou PHPStan) ou de réduction de type qui ferait qu'une assertion de non-nullité sur la poignée fasse changer son type (du point de vue LSP ou même compilateur). C'est en revanche fait à l'exécution: La JVM qui se balade une poignée vide va optimiser sa mémoire.
+
+Les outils mentionnés permettent le développement de systèmes PHP plus complexes sans que la fiabilité ne soit impactée. Vien alors le soucis de la taille du projet: Les outils de développement (serveurs de langage, formatteurs, _linters_, et outils d'analyse statique comme PHPStan) sont trop lents (les diagnostics PHPactor laguent souvent dans l'éditeur, notamment parce que le serveur se repose sur PHPStan pour certains d'entre eux). Dans l'écosystème JS/TS, une solution a été trouvée: remplacer les outils par des alternatives modernes écrites dans des langages plus performants comme Rust (Biome, oxc#footnote[https://oxc.rs]) et Go (Typescript 7#footnote[https://devblogs.microsoft.com/typescript/announcing-typescript-7-0]). J'espère voir cette tendance se propager à l'écosystème PHP. Le projet PHPantom déjà mentionné plus haut en est un exemple parfait: un serveur de langage PHP développé en Rust. Il est nettement plus rapide au démarrage et à la réponse que PHPactor. Le souci est que l'analyse de type performante de PHPStan repose sur la réflection et l'introspection du code PHP. Cette part ne pourra malheuresement pas être réimplémentée en un autre langage à moins de greffer une extension à l'interpréteur PHP Zend Engine.
 
 #todo("raconter ma life sur le typage, Twig etc, comparer à Java, Spring Boot et JS/TS")
 
