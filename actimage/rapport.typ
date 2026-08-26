@@ -188,7 +188,7 @@ Actimage est une #esn française créée en 1995 par Christophe Megel, l'actuel 
 
 #align(center, figure(
   render(read("assets/org-chart.dot"), width: 70%),
-  caption: "Organigramme de l'entreprise",
+  caption: [Organigramme de l'entreprise],
 ))
 
 === Équipe rapprochée
@@ -203,7 +203,7 @@ Matthias est chef de projet et consultant IT chez Actimage depuis 2016. Bien qu'
 
 ==== Marine Brossard (MBR)
 
-Marine est Designer UX/UI et cheffe de projet chez Actimage depuis mars 2025. #todo("finir")
+Marine est Designer UX/UI et cheffe de projet chez Actimage depuis mars 2025. Son outil principal de maquettage est Figma @figma, qui permet notamment de définir des composants et des règles de style correspondant directement à des propriétés CSS et des classes TailwindCSS. Au-delà de sa maîtrise technique, sa capacité à structurer les éléments graphiques offre une première décomposition fonctionnelle et technique pour des projets qui pourraient paraître denses et complexes.
 
 ==== Aurélie Demure (ADE)
 
@@ -212,8 +212,6 @@ Aurélie est en stage de fin d'étude chez Actimage depuis mars 2027 en tant qu'
 ==== Romain Capron (RCO)
 
 Romain est ingénieur diplômé de Polytech Sorbonne#footnote[https://www.polytech.sorbonne-universite.fr] en Mathématiques appliquées et Informatique. Ex-stagiaire, il appartient depuis juin 2026 au pôle #rd d'Actimage au sein duquel il développe un outil permettant d'automatiser sinon d'optimiser la qualification d'#ao.
-
-#todo("présenter")
 
 ==== Thomas Harir-Forouch (THA)
 
@@ -436,7 +434,7 @@ L'#onacvg est un établissement public administratif français placé sous la tu
 
 Parmi ses prérogatives, l'#onacvg exerce une compétence juridique spécifique en matière de sépultures militaires, un domaine encadré par le #cpmivg @wiki-onacvg. L'institution est explicitement chargée de la mise en œuvre de l'entretien, de la rénovation et de la valorisation des sépultures de guerre @wiki-onacvg. En effet, la loi pose le principe d'une sépulture perpétuelle pour les militaires déclarés « Mort pour la France », qu'ils reposent au sein de nécropoles nationales ou de carrés militaires communaux, et dont l'entretien incombe à l'État @wiki-onacvg.
 
-C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un #ao visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage en #todo("insérer date"). Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée est exclusivement destinée à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
+C'est dans le cadre de la gestion de ce vaste patrimoine funéraire et historique, et afin de moderniser ses outils numériques, que l'institution a lancé un #ao visant à concevoir une nouvelle application centralisée de gestion des sépultures. Ce marché a été remporté par Actimage fin 2025. Le périmètre du contrat couvre la conception, le développement, la #tma ainsi que l'hébergement du futur service. L'application logicielle développée est exclusivement destinée à un usage interne, ses utilisateurs finaux étant principalement les chefs de secteur de l'#onacvg œuvrant sur le terrain et les administrateurs du pôle #ecm.
 
 === L'existant : un défi de taille et de structure de la donnée
 
@@ -475,7 +473,7 @@ Dans le cadre de ce projet, nos interlocuteurs de l'#onacvg étaient Audrey Paol
 
 Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que chef de projet, Marine responsable de l'UI/UX, Aurélie en assistance chefferie de projet, rédaction de spécifications et également en développement, Brice en tant que _lead developer_, et Amine et moi-même en tant que développeurs.
 
-Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'#ao. En découlent des maquettes Figma @figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
+Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'#ao. En découlent des maquettes Figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
 
 == Migration et regroupement familial
 
@@ -509,7 +507,7 @@ Un algorithme SQL compare ensuite les entrées de `TMP` avec celles de la base `
 
 #align(center, figure(
   render(read("assets/onacvg-migration.dot")),
-  caption: "Flux de traitement de migration et résolution de conflits",
+  caption: [Flux de traitement de migration et résolution de conflits],
 ))
 
 === Stratégies de résolution des conflits
@@ -527,6 +525,11 @@ Si l'entrée fille est une version enrichie et valide de l'entrée mère, l'anci
 ==== Action 4.3 : Suppression
 
 Si l'entrée fille est jugée erronée ou non pertinente, elle est retirée de la table `CONFLICTS` et sauvegardée dans `HIST` afin de conserver une trace de la donnée écartée en cas de besoin futur.
+
+#figure(
+  image("assets/details-conflit.png"),
+  caption: [Capture de la page de résolution de conflits],
+)
 
 === Ingénierie du déploiement et conteneurisation
 
@@ -553,17 +556,15 @@ La refonte du modèle de données a donc consisté à extraire de cette table pl
 
 #align(center, figure(
   image("assets/figma/gestion-thesaurus.svg"),
-  caption: "Export Figma de l'écran de la page d'administration des thésaurus",
+  caption: [Export Figma de l'écran de la page d'administration des thésaurus],
 ))
 
-=== Schéma entité-association
+=== Schéma de la base de données
 
-#todo("insérer le schéma de la base de données ECM ici (export dbdiagram / DataGrip / Doctrine schema)")
-
-#align(center, figure(
-  todo("remplacer par le rendu du schéma une fois exporté"),
-  caption: "Modèle entité-association simplifié de la base ECM",
-))
+#figure(
+  image("assets/uml/soldat.svg"),
+  caption: [Diagramme UML simplifié de l'entité `Soldat`],
+)
 
 L'entité `Soldat`, avec une quinzaine de clés étrangères, constitue le nœud central du modèle : outre son rattachement à un `Site`, elle référence indépendamment jusqu'à cinq occurrences de l'entité `Localisation` (lieu de naissance, de recrutement, de décès, de transcription du décès, de première inhumation), ce qui a permis de conserver la richesse de la donnée d'origine - un soldat pouvant être né, être décédé et avoir été recruté dans trois lieux distincts - sans dupliquer la structure de ces lieux. L'entité `Site`, de son côté, porte sa propre hiérarchie géographique (`Commune`, `Departement`, `Pays`) ainsi qu'une relation inverse vers l'ensemble des soldats qui y sont inhumés, condition nécessaire aux interfaces de recherche par site et aux calculs d'agrégation utilisés dans le module de pilotage.
 
@@ -616,7 +617,10 @@ Le peuplement initial (puis la mise à jour ponctuelle) de ces référentiels et
 
 La classe abstraite prend alors en charge la mécanique commune : lecture du CSV via `league/csv`, validation de chaque entité créée via le composant Validator de Symfony avant persistance, et surtout une gestion fine des erreurs ligne à ligne - une violation de contrainte d'unicité ou un échec de validation n'interrompt pas l'import mais fait l'objet d'un avertissement journalisé et d'un compteur de lignes ignorées, tandis qu'une erreur inattendue interrompt la commande. L'affichage console est lui-même structuré en trois sections indépendantes (erreurs, journal, barre de progression), ce qui permet de suivre en temps réel l'avancement d'un import portant sur plusieurs centaines de milliers de lignes sans noyer les messages d'erreur dans le flux de progression.
 
-#todo("ajouter capture de l'écran de progression")
+#figure(
+  image("assets/sync-all.png"),
+  caption: [Capture de la sortie de la commande de synchronisation de tous les thésaurus],
+)
 
 === La commande d'import principale
 
@@ -657,7 +661,7 @@ Les spécifications fonctionnelles définissent huit rôles distincts, chacun as
     [Consultant Budgétaire], [National], [Lecture seule pilotage budgétaire],
     [Consultant], [National], [Lecture seule transverse (ECM, sites, pilotage)],
   ),
-  caption: "Rôles applicatifs et étendue associée",
+  caption: [Rôles applicatifs et étendue associée],
 ) <table-roles>
 
 Côté implémentation, la hiérarchie entre ces rôles est déclarée dans la configuration de sécurité de Symfony (`security.yaml`), où `ROLE_SUPERADMIN` hérite automatiquement de l'ensemble des autres rôles  évitant ainsi de dupliquer les vérifications d'accès pour l'administrateur global. Le contrôle d'accès aux actions sensibles (édition d'un soldat ou d'un site) est réalisé au niveau des contrôleurs via l'attribut ```phpi #[IsGranted('ROLE_ADMIN_ECM')]``` de Symfony Security, appliqué directement sur les méthodes concernées.
@@ -724,7 +728,7 @@ Pour répondre au besoin d'un usage récurrent de certaines combinaisons de filt
 
 #align(center, figure(
   image("assets/figma/recherche-individus.svg", width: 70%),
-  caption: "Export Figma de l'écran de recherche par individu avec résultats",
+  caption: [Export Figma de l'écran de recherche par individu avec résultats],
 ))
 
 ==== Gestion des inspections en mobilité
@@ -733,11 +737,9 @@ L'application prévoit un module d'inspection destiné à être utilisé par les
 
 Les sites étant souvent situés dans des endroits reculés, en particulier pour les carrés militaires que l'on peut trouver dans des cimetières de villages, voire de hameaux, le chef de secteur les inspectant n'aura pas toujours accès à internet. La solution envisagée est le téléchargement préalable des données nécessaires dans le cache du navigateur, permettant ainsi un usage totalement hors-ligne. Une fois l'inspection terminée et la tablette placée dans un lieu avec accès internet, le formulaire d'inspection peut être soumis et enregistré sur la base de données de l'application.
 
-#todo("insérer maquettes")
-
 #align(center, figure(
   image("assets/figma/mes-sites-detail.svg", width: 70%),
-  caption: "Export Figma de l'écran de gestion d'un site (vue du chef de secteur)",
+  caption: [Export Figma de l'écran de gestion d'un site (vue du chef de secteur)],
 ))
 
 ==== Flux de validation (Workflow)
@@ -746,7 +748,7 @@ Pour protéger l'intégrité des données historiques (sépultures perpétuelles
 
 #align(center, figure(
   image("assets/figma/modale-validation-modifications.svg", width: 50%),
-  caption: "Export Figma la modale de validation des modifications",
+  caption: [Export Figma la modale de validation des modifications],
 ))
 
 ==== Interopérabilité et Exports
@@ -755,7 +757,7 @@ Le système devait respecter une contrainte forte d'interopérabilité avec les 
 
 #align(center, figure(
   image("assets/figma/export-mdh.svg"),
-  caption: "Export Figma de l'écran de l'écran d'export vers MdH",
+  caption: [Export Figma de l'écran de l'écran d'export vers #mdh],
 ))
 
 À l'instar du flux de validation, cette fonctionnalité d'export n'était pas encore implémentée dans le périmètre développé pendant mon stage : seule sa maquette visuelle existe à ce stade, matérialisée dans le _design system_ interne de l'application par des composants de notification réutilisables (succès, information, erreur) illustrant les différents états d'un export  génération en cours, fichier disponible, échec - sans que la génération du fichier plat destiné à #mdh n'ait elle-même été codée.
@@ -808,7 +810,7 @@ Un conteneur éphémère dédié exclusivement à la gestion et à l'exécution 
 
 #figure(
   render(read("assets/piaweb.dot"), width: 100%),
-  caption: "Architecture physique et logique de l'infrastructure PIAWEB",
+  caption: [Architecture physique et logique de l'infrastructure PIAWEB],
 )
 
 === Intégration Continue et Déploiement Continu (CI/CD)
@@ -842,8 +844,6 @@ Il s'agit d'environnements différents, mais qui exploitent les mêmes images Do
 ==== De `prep` vers `prod` (Production)
 
 L'environnement et les images Docker restent les mêmes que lors de l'étape de pré-production. L'enjeu ici n'est plus technique mais critique : appliquer la mise à jour sans provoquer d'interruption de service ou d'anomalie sur le système en exploitation.
-
-#todo("schéma des différentes branches Git")
 
 === Un anti-pattern relevé : la stratégie de branches du dépôt `docker`
 
@@ -889,7 +889,7 @@ Si la recette est validée par le client, la version est promue en production. L
 
 #figure(
   render(read("assets/piaweb-flowchart.dot"), width: 100%),
-  caption: "Schéma de flux illustrant les étapes de la livraison",
+  caption: [Schéma de flux illustrant les étapes de la livraison],
 )
 
 == Première livraison, première leçon
@@ -979,6 +979,3 @@ L'écosystème JavaScript/TypeScript a déjà trouvé une réponse à ce problè
 
 #bibliography("references.yml", style: "ieee", title: "Références logicielles")
 
-#pagebreak()
-
-= Annexes
