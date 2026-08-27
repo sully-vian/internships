@@ -41,7 +41,7 @@
   "Office national des combattants et des victimes de guerre",
   note: "https://www.onac-vg.fr",
 )
-#let rd = acronym("R et D", "recherche et développement")
+#let rd = acronym("R&D", "recherche et développement")
 #let ide = acronym("IDE", "environnement de développement intégré")
 #let ecm = acronym("ECM", "état civil militaire")
 #let cpmivg = acronym("CPMIVG", "Code des pensions militaires d'invalidité et des victimes de guerre")
@@ -142,7 +142,7 @@
       #v(1em)
       *Encadrant chez Actimage* \
       David KOLIN \
-      (ex-)Directeur de l'agence Paris-Arcueil
+      Directeur de l'agence Paris-Arcueil
     ]
   ],
 )
@@ -204,7 +204,7 @@ Le développement des compétences est un pilier de la société. La rapide mont
 
 ==== David Kolin (DKO)
 
-David était#footnote[David a quitté Actimage le 31 août 2027, juste avant la fin de mon stage.] directeur de l'agence Paris-Arcueil depuis Janvier 2025 et mon maître de stage. Il a une formation d'ingénieur informatique et une expérience en #esn (Capgemini) et surtout en contrats publics, notamment acquise pendant 13 ans au #cmn. L'une de ses missions principales était la réponse à #ao, mettant à profit à la fois son expérience dans cette tâche particulière et son expertise technique, lui permettant de répondre en connaissance des besoins clients et des contraintes techniques précises. C'est cette double compétence qui m'a de suite plu. Avoir un supérieur éclairé sur ce qui est possible, ce qui est difficile de développer permet d'éviter l'écueil classique de la déconnexion entre la phase d'avant-vente - impliquant la réponse à l'#ao, le cahier des charges et le chiffrage - et la réalité concrète du développement. Les engagements et promesses commerciales restent ainsi en parfaite adéquation avec la faisabilité technique du terrain. Cela, bien sûr, n'empêche pas la réévaluation post-signature du coût du contrat. Certains besoins trop peu développés dans le cahier des charges peuvent s'avérer plus coûteux que prévu et causer des frais additionnels imprévus.
+David est directeur de l'agence Paris-Arcueil depuis Janvier 2025 et mon maître de stage. Il a une formation d'ingénieur informatique et une expérience en #esn (Capgemini) et surtout en contrats publics, notamment acquise pendant 13 ans au #cmn. L'une de ses missions principales était la réponse à #ao, mettant à profit à la fois son expérience dans cette tâche particulière et son expertise technique, lui permettant de répondre en connaissance des besoins clients et des contraintes techniques précises. C'est cette double compétence qui m'a de suite plu. Avoir un supérieur éclairé sur ce qui est possible, ce qui est difficile de développer permet d'éviter l'écueil classique de la déconnexion entre la phase d'avant-vente - impliquant la réponse à l'#ao, le cahier des charges et le chiffrage - et la réalité concrète du développement. Les engagements et promesses commerciales restent ainsi en parfaite adéquation avec la faisabilité technique du terrain. Cela, bien sûr, n'empêche pas la réévaluation post-signature du coût du contrat. Certains besoins trop peu développés dans le cahier des charges peuvent s'avérer plus coûteux que prévu et causer des frais additionnels imprévus.
 
 ==== Matthias Constant (MCO)
 
@@ -216,7 +216,7 @@ Marine est Designer UX/UI et cheffe de projet chez Actimage depuis mars 2025. So
 
 ==== Aurélie Demure (ADE)
 
-Aurélie est en stage de fin d'étude chez Actimage depuis mars 2027 en tant qu'ingénieure conseil. Elle prépare son double diplôme d'ingénieur de TELECOM Nancy#footnote[https://telecomnancy.univ-lorraine.fr] et de l'#imt-bs. Ses missions incluent la qualification d'#ao, le sourçage de candidats à recruter#footnote[La proposition de stage qu'Actimage m'a faite parvenir vient notamment d'un sourçage] ainsi que la rédaction de #sfd. Son expertise technique au niveau d'un ingénieur du numérique lui a aussi permis de s'impliquer dans le développement d'une fonctionnalité du projet #onacvg.
+Aurélie est en stage de fin d'étude chez Actimage depuis mars 2027 en tant qu'ingénieure conseil. Elle prépare son double diplôme d'ingénieur de TELECOM Nancy#footnote[https://telecomnancy.univ-lorraine.fr] et de l'#imt-bs. Ses missions incluent la qualification d'#ao, le sourçage de candidats à recruter#footnote[La proposition de stage qu'Actimage m'a faite parvenir vient notamment d'un sourçage] ainsi que la rédaction de #sfd. Son expertise technique au niveau d'un ingénieur du numérique lui a aussi permis de s'impliquer dans le développement d'une fonctionnalité du projet ONaCVG.
 
 ==== Romain Capron (RCO)
 
@@ -234,11 +234,11 @@ La phase d'avant-vente constitue le point d'entrée critique de tout projet au s
 
 ==== Prospection commerciale et veille stratégique
 
-L'acquisition de nouveaux projets débute par une démarche proactive de prospection commerciale et de veille stratégique. Des collaborateurs dédiés, tels que Thomas au sein de l'agence, scrutent quotidiennement le marché et les plateformes de publication de marchés publics. Pour Actimage, c'est notamment le Portail des marchés publics#footnote[https://www.marches-publics.gouv.fr]. L'objectif premier est l'identification d'#ao entrant en résonance avec le savoir-faire technologique de l'entreprise, ses références passées et ses ambitions de développement. Cette veille constante permet d'alimenter le carnet d'opportunités de l'agence tout en maintenant une connaissance affûtée des besoins évolutifs des administrations et des grandes entreprises.
+L'acquisition de nouveaux projets débute par une démarche proactive de prospection commerciale et de veille stratégique. Des collaborateurs dédiés, tels que Thomas au sein de l'agence, scrutent quotidiennement le marché et les plateformes de publication de marchés publics. Pour Actimage, c'est notamment le Portail des marchés publics#footnote[https://www.marches-publics.gouv.fr]. L'objectif premier est l'identification d'#ao entrant en résonance avec le savoir-faire technologique de l'entreprise, ses références passées et ses ambitions de développement. Cette veille constante permet d'alimenter le carnet d'opportunités de l'agence tout en maintenant une connaissance affûtée des besoins des administrations et des grandes entreprises en perpétuelle évolution.
 
 ==== Qualification du marché
 
-Une fois un #ao repéré, il fait l'objet d'une phase de qualification rigoureuse. Cette étape, à laquelle contribuent activement des profils hybrides comme Aurélie ou Thomas, agit comme un filtre décisionnel essentiel. Il s'agit d'évaluer la pertinence d'un positionnement de l'entreprise sur le marché identifié en analysant une grille de critères déterminants : la disponibilité immédiate et future des ressources en interne, l'adéquation des compétences techniques requises avec l'expertise réelle de l'agence, ainsi que la solidité du modèle économique proposé. Une qualification minutieuse et lucide est indispensable pour éviter la mobilisation chronophage et coûteuse des équipes sur l'élaboration de réponses aux chances de succès trop minces.
+Une fois un #ao identifié, il fait l'objet d'une phase de qualification rigoureuse. Cette étape, à laquelle contribuent activement des profils hybrides comme Aurélie ou Thomas, agit comme un filtre décisionnel essentiel. Il s'agit d'évaluer la pertinence d'un positionnement de l'entreprise sur le marché identifié en analysant une grille de critères déterminants : la disponibilité immédiate et future des ressources en interne, l'adéquation des compétences techniques requises avec l'expertise réelle de l'agence, ainsi que la solidité du modèle économique proposé. Une qualification minutieuse et lucide est indispensable pour éviter la mobilisation chronophage et coûteuse des équipes sur l'élaboration de réponses aux chances de succès trop minces. Une fiche présentée auprès de l'intégralité des managers est ensuite réalisée.
 
 ==== Preuve de concept et chiffrage
 
@@ -270,7 +270,7 @@ Pour orchestrer finement cette production itérative, l'équipe s'appuie sur l'i
 
 ==== Imputation et pilotage de la rentabilité (Redmine)
 
-En parallèle de ce suivi purement opérationnel, une séparation de l'outillage est instaurée pour répondre aux impératifs de gestion administrative et financière inhérents au fonctionnement d'une ESN. Actimage déploie à cet effet un outil Redmine interne, principalement dédié à la saisie des temps de travail (imputations) par les différents collaborateurs mobilisés. Cette plateforme héberge des macro-tickets de projet, volontairement moins détaillés et dont la mise à jour est moins fréquente que sur GitLab. Leur vocation est avant tout budgétaire et analytique : lors de leur clôture, ces tickets agrègent les heures consommées par l'ensemble des acteurs (designers, chefs de projet, développeurs) et permettent à la chefferie de projet d'évaluer avec une grande précision le coût de revient réel de chaque fonctionnalité livrée.
+En parallèle de ce suivi purement opérationnel, une séparation de l'outillage est instaurée pour répondre aux impératifs de gestion administrative et financière inhérents au fonctionnement d'une ESN. Actimage déploie à cet effet un outil Redmine interne, principalement dédié à la saisie des temps de travail (imputations) par les différents collaborateurs mobilisés. Cette plateforme héberge des macro-tickets de projet, volontairement moins détaillés et dont la mise à jour est moins fréquente que sur GitLab. Leur vocation est avant tout budgétaire et analytique : lors de leur clôture, ces tickets agrègent les heures consommées par l'ensemble des acteurs (designers, chefs de projet, développeurs) et permettent à la chefferie de projet d'évaluer avec une grande précision le coût de revient réel de chaque fonctionnalité livrée. Pour le suivi budgétaire, les imputations des consultants sont associées à des coûts internes, reportés dans un outil de pilotage sur-mesure: l'Actinet. Il permet ainsi de suivre la consommation du budget et l'avancement du projet.
 
 === Développement et Assurance Qualité
 
@@ -312,7 +312,7 @@ Une fois les livrables sécurisés et conteneurisés, l'application est propuls�
 
 ==== Mise en Production
 
-Le déploiement final, ou Mise en Production, est une opération délicate qui ne tolère aucune improvisation. Pour éviter toute corruption de données ou interruption de service prolongée, cette montée de version obéit à une chorégraphie procédurale immuable. Elle débute systématiquement par l'arrêt ordonné et propre des services applicatifs en cours d'exécution. Immédiatement après, une sauvegarde complète de la base de données (généralement via un export compressé) est réalisée pour sanctuariser un point de restauration immédiat en cas de défaillance. S'ensuivent la modification des variables de configuration d'environnement, l'exécution automatisée des scripts de migration de schéma (orchestrée par des outils éphémères dédiés comme Flyway), et le redémarrage séquentiel des conteneurs. Une attention particulière est portée à l'ordre de relance, le composant dorsal (backend) devant être pleinement opérationnel avant d'activer le composant frontal (frontend) pour éviter les erreurs de connexion asynchrone.
+Le déploiement final, ou Mise en Production, est une opération délicate qui ne tolère aucune improvisation. Pour éviter toute corruption de données ou interruption de service prolongée, cette montée de version obéit à une chorégraphie procédurale immuable. Elle débute systématiquement par l'arrêt ordonné et propre des services applicatifs en cours d'exécution. Immédiatement après, une sauvegarde complète de la base de données (généralement via un export compressé) est réalisée pour sanctuariser un point de restauration immédiat en cas de défaillance. S'ensuivent la modification des variables de configuration d'environnement, l'exécution automatisée des scripts de migration de schéma (orchestrée par des outils éphémères dédiés comme Flyway), et le redémarrage séquentiel des conteneurs. Une attention particulière est portée à l'ordre de relance, le composant dorsal (_backend_) devant être pleinement opérationnel avant d'activer le composant frontal (_frontend_) pour éviter les erreurs de connexion asynchrone.
 
 ==== Tierce Maintenance Applicative
 
@@ -351,17 +351,17 @@ L'expertise technologique du projet va bien au-delà de la simple réalité mixt
 
 === Environnement d'exécution et philosophie de travail
 
-Au sein d'Actimage, le matériel mis à ma disposition était un poste opérant sous Windows 11. Afin de retrouver un environnement de développement familier, performant et conforme à la philosophie Unix qui guide mon flux de travail quotidien, j'ai fait le choix d'exploiter le sous-système Windows pour Linux @wsl. J'y ai déployé une distribution Arch Linux. Cette approche m'a permis de répliquer quasi à l'identique l'environnement modulable que j'utilise à titre personnel, tout en m'affranchissant des limitations inhérentes au système d'exploitation hôte pour le développement d'applications web.
+Au sein d'Actimage, le matériel mis à ma disposition était un poste opérant sous Windows 11. Afin de retrouver un environnement de développement familier, performant et conforme à la philosophie Unix qui guide mon flux de travail quotidien, j'ai fait le choix classique d'exploiter le sous-système Windows pour Linux @wsl. J'y ai déployé une distribution Arch Linux. Cette approche m'a permis de répliquer quasi à l'identique l'environnement modulable que j'utilise à titre personnel, tout en m'affranchissant des limitations inhérentes au système d'exploitation hôte pour le développement d'applications web. Toutefois, comme dans toute configuration informatique, il est difficile de définir toutes les composantes dans des fichiers seulement. En effet, le proxy d'entreprise m'a donné du fil à retordre entre les différentes configurations en fonction des agences, les sites bloqués et les configurations par application, par protocole internet.
 
 === Outils collaboratifs et centralisation de la connaissance
 
 L'environnement de travail d'un ingénieur logiciel ne se limite pas à son éditeur de code et à son terminal. La dimension collaborative et la gestion de la connaissance sont des composantes tout aussi vitales, particulièrement au sein d'une ESN où de multiples acteurs (clients, chefs de projet, designers, développeurs) interagissent quotidiennement. Pour orchestrer cette communication, Actimage s'appuie principalement sur la suite Microsoft.
 
-Le flux de communication synchrone était assuré par Microsoft Teams. Bien que cet outil ne bénéficiât d'aucune intégration automatisée avec notre chaîne d'intégration continue (comme des alertes webhooks liées à Jenkins ou GitLab), il constituait le centre névralgique de la vie d'équipe. C'est sur cette plateforme que se tenaient nos réunions quotidiennes de synchronisation (_daily stand-ups_). L'application était structurée en différents canaux dédiés aux projets, servant d'espaces d'échanges informels pour partager des extraits de code, soumettre des idées d'architecture, formuler des remarques ou solliciter de l'aide auprès de développeurs plus expérimentés comme Brice ou Matthias.
+Le flux de communication synchrone était assuré par Microsoft Teams. Bien que cet outil ne bénéficiât d'aucune intégration automatisée avec notre chaîne d'intégration continue (comme des alertes webhooks liées à Jenkins ou GitLab), il constituait le centre névralgique de la vie d'équipe. C'est sur cette plateforme que se tenaient nos réunions quotidiennes de synchronisation (_daily stand-ups_). L'application était structurée en différents canaux dédiés aux projets, servant d'espaces d'échanges informels pour partager des extraits de code, soumettre des idées d'architecture, formuler des remarques ou solliciter de l'aide auprès de développeurs plus expérimentés comme Brice et Walid ou encore auprès des profils plus orientés business comme Matthias sur des sujets moins techniques.
 
 Pour la communication asynchrone et formelle, Microsoft Outlook était de rigueur. Ce canal était privilégié pour les échanges directs avec les clients, souvent organisés via des listes de diffusion. La boîte de réception agissait également comme un agrégateur d'événements : j'y recevais les rappels de réunions, les annonces internes de l'entreprise, mais surtout les notifications automatisées générées par les outils de billetterie (_ticketing_) des clients. Ces alertes me permettaient de suivre en temps réel la progression des tickets d'anomalie ou l'évolution d'un fil de discussion lié à une spécification fonctionnelle.
 
-Concernant la gestion documentaire, une dichotomie marquée existait entre les aspects "métiers" et les aspects purement "techniques" des projets. Toute la documentation fonctionnelle et contractuelle était centralisée sur SharePoint. On y retrouvait une arborescence dense composée de documents Microsoft Word pour les spécifications, des notes de restitution d'ateliers clients, ainsi que les volumineux fichiers CSV servant de thésaurus pour l'application de l'#onacvg.
+Concernant la gestion documentaire, une dichotomie marquée existait entre les aspects "métiers" et les aspects purement "techniques" des projets. Toute la documentation fonctionnelle et contractuelle était centralisée sur SharePoint. On y retrouvait une arborescence dense composée de documents Microsoft Word pour les spécifications, des notes de restitution d'ateliers clients, ainsi que les volumineux fichiers CSV servant de thésaurus pour l'application ONaCVG.
 
 Cependant, l'expérience utilisateur offerte par l'interface web de SharePoint contrastait fortement avec la vélocité de mon environnement de développement sous Linux. Naviguer au sein de ces dossiers imbriqués s'avérait particulièrement laborieux en comparaison de la fluidité offerte par des outils de navigation en ligne de commande basés sur des recherches floues, tels que `fzf` ou `zoxide`, que j'utilise quotidiennement dans mon terminal.
 
@@ -387,7 +387,7 @@ Je le consultais régulièrement pour m'assurer que le navigateur avait bien ré
 
 ==== L'onglet Réseau (Network)
 
-Bien que le profileur Symfony permette d'analyser le temps des requêtes, l'onglet Réseau de Chrome était très pratique pour visualiser les requêtes asynchrones en cascade, notamment lors de l'ingestion de lourdes charges de données ou lors des appels API du formulaire d'inspection de l'#onacvg.
+Bien que le profileur Symfony permette d'analyser le temps des requêtes, l'onglet Réseau de Chrome était très pratique pour visualiser les requêtes asynchrones en cascade, notamment lors de l'ingestion de lourdes charges de données ou lors des appels API du formulaire d'inspection de l'ONaCVG
 
 ==== La Console
 
@@ -409,7 +409,7 @@ L'analyse de la qualité du code est restée isolée localement pour chaque proj
 
 === Contributions aux logiciels libres et outillage sur mesure
 
-Constatant que certains outils de l'écosystème manquaient de maturité par rapport à d'autres langages, j'ai adopté une démarche proactive en contribuant à des projets à code source ouvert. J'ai notamment signalé et résolu des anomalies sur Twiggy @twiggy (un serveur de langage pour le moteur de gabarits Twig) et amélioré la grammaire Tree-sitter @tree-sitter de Twig, utilisée par Neovim pour l'analyse syntaxique. Cette implication m'a également amené à échanger avec Fabien Potencier, créateur de Symfony, autour du développement de leur nouveau serveur de langage.
+Constatant que certains outils de l'écosystème manquaient de maturité par rapport à d'autres langages, j'ai adopté une démarche proactive en contribuant à des projets à code source ouvert. J'ai notamment signalé et résolu des anomalies sur Twiggy @twiggy (un serveur de langage pour le moteur de gabarits Twig) et amélioré la grammaire Tree-sitter @tree-sitter de Twig, utilisée par Neovim pour l'analyse syntaxique. Cette implication m'a également amené à échanger brièvement avec Fabien Potencier, créateur de Symfony, autour du développement de leur nouveau serveur de langage.
 
 Pour optimiser la navigation dans les bases de code PHP, j'ai également développé des requêtes Tree-sitter personnalisées pour le greffon `vim-matchup` @vim-matchup. Celles-ci offrent une navigation syntaxique avancée en définissant des portées spécifiques pour les balises et les structures de contrôle du langage. Il devient ainsi possible de naviguer intelligemment entre les différentes clauses d'une condition ou d'une boucle, de parcourir aisément les blocs complexes (tels que ```phpi switch```, ```phpi match``` ou ```phpi try catch```), et de sauter instantanément de la signature d'une fonction à ses instructions de retour.
 
@@ -449,7 +449,7 @@ Le principal enjeu de ce projet réside dans l'héritage technique des données.
 
 Cependant, le départ de la personne en charge de sa maintenance a entraîné une dégradation de l'intégrité des données, transformant la base en un document tabulaire peu rigoureux. Pour pallier ce manque d'outil centralisé, plusieurs chefs de secteur avaient dupliqué la "base mère" pour maintenir leurs données localement. Cette pratique a conduit à l'émergence de multiples "bases filles" désynchronisées, comportant des identifiants conflictuels, des doublons et des incohérences.
 
-=== Migration et regroupement familial
+=== Migration et regroupement familial de bases
 
 La première mission de mon stage, qui s'est étendue sur un mois, a consisté à développer un outil de migration indépendant. Son objectif était de regrouper les bases filles avec la base mère en détectant les conflits et en proposant des stratégies de résolution : historisation des entrées conflictuelles ou conservation des deux versions via une renumérotation intelligente. Ce premier projet, qui fera l'objet d'une section détaillée ultérieurement, a constitué une excellente porte d'entrée pour m'approprier l'environnement technique de l'entreprise (PHP, Symfony, Doctrine, PostgreSQL, Docker) et les données de l'#onacvg.
 
@@ -482,7 +482,7 @@ Dans la réalisation de ce projet, j'étais accompagné de Matthias en tant que 
 
 Pour chaque fonctionnalité majeure de l'application ont lieu des ateliers entre nos interlocuteurs et Matthias, Marine et Brice. Ces ateliers précisent le cahier des charges initial de l'#ao. En découlent des maquettes Figma que Marine réalise et puis des #sfd basées sur les maquettes et le cahier des charges. Ensuite, Brice divise la fonctionnalité en tickets et les assigne à Amine ou moi en fonction de nos capacités et disponibilités.
 
-== Migration et regroupement familial
+== Migration et regroupement familial de bases
 
 Cette phase du projet a été particulièrement formatrice, marquant ma première immersion dans l'écosystème PHP, le cadriciel Symfony et l'ORM Doctrine. Le défi à relever consistait à consolider une "base mère" et de multiples "bases filles" (fournies sous forme de fichiers CSV). Au sein de ces bases, chaque sépulture est théoriquement identifiée par un entier unique : la colonne `sdr_num` (numéro de saisie des registres). Cependant, suite à la scission des bases et à l'ajout décentralisé de nouvelles entrées par les chefs de secteur, de nombreuses collisions d'identifiants sont apparues.
 
@@ -866,7 +866,7 @@ Cette remarque reste toutefois une lecture personnelle du schéma en place plut�
 
 La livraison d'une nouvelle version de PIAWEB est une procédure méticuleuse qui demande rigueur et précision. La responsabilité de la création des livrables incombe à l'utilisateur système `piaweb` directement sur le serveur.
 
-La procédure débute par la récupération des dernières modifications du code source depuis la branche de recette (`rec`) et de tous ses sous-modules. Le code dorsal est ensuite compilé via l'outil Maven (`mvn clean install`). Une fois les binaires générés, la construction des nouvelles images Docker (`backend`, `frontend`, et `flyway`) est lancée en désactivant le cache pour forcer une reconstruction totale.
+La procédure débute par la récupération des dernières modifications du code source depuis la branche de recette (`rec`) et de tous ses sous-modules. Le code dorsal (_backend_) est ensuite compilé via l'outil Maven (`mvn clean install`). Une fois les binaires générés, la construction des nouvelles images Docker (`backend`, `frontend`, et `flyway`) est lancée en désactivant le cache pour forcer une reconstruction totale.
 
 Ces nouvelles images sont ensuite étiquetées (taggées) avec le numéro de version correspondant (par exemple `$CI_COMMIT_TAG`) et envoyées (poussées) vers le registre d'images privé d'Actimage (`piaweb-registry.actimage-ext.net`). L'accès à ce registre est protégé et nécessite une authentification préalable via la commande `docker login`.
 
@@ -922,7 +922,7 @@ Caused by: java.lang.ClassNotFoundException: Main
 
 J'ai reproduit l'erreur en local, sur mon propre ordinateur, après avoir pris soin de retirer les conteneurs de développement du projet pour ne pas fausser le test. Même résultat. En ouvrant un shell à l'intérieur du conteneur incriminé, la cause est devenue évidente : le répertoire `/app`, censé contenir le code compilé de l'application, était tout simplement absent. Mes images ne contenaient aucun code.
 
-En suivant sans le savoir le protocole de build de `dev` et `int` jusqu'à `rec` puis `prod`, j'avais construit des images strictement vides de toute logique applicative - le code, sur le serveur d'intégration où j'opérais, restait monté en volume depuis le système de fichiers hôte, et n'était donc jamais copié à l'intérieur de l'image lors du `docker compose build`. Rétrospectivement, le signal m'avait pourtant crevé les yeux sans que je le lise correctement : la taille des nouveaux artefacts sur le registre avait presque diminué de moitié par rapport à la version précédente - une image sans code pesant naturellement bien moins lourd qu'une image qui en contient.
+En suivant sans le savoir le protocole de build de `dev` et `int` jusqu'à `rec` puis `prod`, j'avais construit des images strictement vides de toute logique applicative - le code, sur le serveur d'intégration où j'opérais, restait monté en volume depuis le système de fichiers hôte, et n'était donc jamais copié à l'intérieur de l'image lors du `docker compose build`. Rétrospectivement, j'aurais du m'alarmer à la vue de ce détail : la taille des nouveaux artefacts sur le registre avait presque diminué de moitié par rapport à la version précédente - une image sans code pesant naturellement bien moins lourd qu'une image qui en contient.
 
 Tout est rentré dans l'ordre une fois qu'on m'a expliqué la procédure exacte de bascule entre les deux paradigmes de construction, et une fois la documentation correspondante rédigée. Ce genre d'incident, sur un projet DevOps mature, ne pose généralement pas de difficulté majeure : il suffit de connaître un peu la stack pour en repérer rapidement la cause. Le problème, dans mon cas, tenait autant à l'absence ponctuelle de documentation qu'à ma propre formation insuffisante en DevOps, réseaux et en infrastructure.
 
