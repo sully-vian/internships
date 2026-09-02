@@ -62,7 +62,7 @@
 ]
 
 #slide("DÉFI 1 : Migration & Résolution de Conflits")[
-  #align(center, render(read("assets/migration.dot")))
+  #align(center, render(read("assets/migration.dot"), width: 100%))
   *Le Problème :*
   - Les identifiants (`sdr_num`) se chevauchent entre la base mère et les bases filles.
   - Plus de 80 000 collisions d'identifiants détectées.
@@ -71,7 +71,7 @@
 ]
 
 #slide("DÉFI 1 : Architecture Asynchrone")[
-  #align(center, render(read("assets/onacvg-migration.dot")))
+  #align(center, render(read("assets/onacvg-migration.dot"), width: 100%))
   *La Solution :*
   - Mise en place d'un pipeline asynchrone (Symfony/Messenger).
   - *Processus* :
@@ -140,7 +140,7 @@
 ]
 
 #slide("DÉFI 4 : Inspection hors-ligne")[
-  // [VISUEL ICI : Carte de France avec des épingles dans des zones reculées / montagnes]
+  #align(center, image("assets/ossuaire-douaumont.jpg", width: 60%))
   #v(1em)
   *Le Problème :*
   - Les chefs de secteur inspectent des carrés militaires dans des lieux isolés (montagnes, petits hameaux).
@@ -149,8 +149,7 @@
 ]
 
 #slide("DÉFI 4 : Le cache du navigateur")[
-  // [VISUEL ICI : Schéma de fonctionnement du Service Worker / Cache API avant et après coupure]
-  #v(1em)
+  #align(center, render(read("assets/service-worker.dot")))
   *La Solution :*
   - Refus d'un framework frontend lourd (SPA) complexe à maintenir.
   - *Mécanisme* : Utilisation du cache natif du navigateur (Service Worker).
