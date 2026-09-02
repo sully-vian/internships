@@ -1,7 +1,8 @@
+#import "@preview/diagraph:0.3.7": render
 #set text(lang: "fr", size: 20pt)
-#let primary-color = rgb("#10305a") // Bleu marine (institutionnel)
-#let secondary-color = rgb("#d32f2f") // Rouge brique
-#let accent-color = rgb("#4caf50") // Vert pour les validations/succès
+#let primary-color = rgb("#10305a")
+#let secondary-color = rgb("#d32f2f")
+#let accent-color = rgb("#4caf50")
 
 #set page(
   paper: "presentation-16-9",
@@ -35,17 +36,20 @@
 }
 
 // Page de garde
-#v(2em)
 #align(center)[
-  // [VISUEL ICI : Ajouter les logos ONaCVG, Actimage et ENSEEIHT]
-  #v(2em)
+  #grid(
+    columns: (1fr, 1fr, 1fr),
+    align(left + horizon)[#image("assets/logos/n7.svg", width: 50%)],
+    align(center + horizon)[#image("assets/logos/actimage.svg", width: 50%)],
+    align(right + horizon)[#image("assets/logos/onacvg.svg", width: 30%)],
+  )
   #text(size: 18pt)[Toulouse INP - ENSEEIHT] \
   #v(1em)
   #text(size: 24pt, fill: primary-color)[SOUTENANCE DE STAGE DE FIN D'ÉTUDES] \
-  #v(2em)
+  #v(1em)
   #text(size: 32pt, weight: "bold")[Ingénierie Logicielle Full-Stack et DevOps] \
   #text(size: 24pt, weight: "semibold")[Projet ONaCVG] \
-  #v(2em)
+  #v(1em)
   #text(size: 20pt)[*Vianney HERVY*] \
   #text(size: 16pt)[16 mars 2026 - 18 septembre 2026]
 ]
@@ -58,8 +62,7 @@
 ]
 
 #slide("DÉFI 1 : Migration & Résolution de Conflits")[
-  // [VISUEL ICI : Schéma montrant la base mère, les 3-4 bases filles, et les flèches rouges de conflits]
-  #v(1em)
+  #align(center, render(read("assets/migration.dot")))
   *Le Problème :*
   - Les identifiants (`sdr_num`) se chevauchent entre la base mère et les bases filles.
   - Plus de 80 000 collisions d'identifiants détectées.
@@ -68,8 +71,7 @@
 ]
 
 #slide("DÉFI 1 : Architecture Asynchrone")[
-  // [VISUEL ICI : Schéma DOT avec SERV -> TMP -> split(MERE, CONFLICTS) -> HIST]
-  #v(1em)
+  #align(center, render(read("assets/onacvg-migration.dot")))
   *La Solution :*
   - Mise en place d'un pipeline asynchrone (Symfony/Messenger).
   - *Processus* :
@@ -104,8 +106,7 @@
 ]
 
 #slide("DÉFI 2 : Modélisation en étoile (Thésaurus)")[
-  // [VISUEL ICI : Schéma UML simplifié montrant l'entité Soldat reliée aux Thésaurus (Grade, Conflit, etc.)]
-  #v(1em)
+  #align(center, image("assets/uml/soldat.svg"))
   *La Solution :*
   - Extraction d'une quinzaine d'entités fortes (Grade, Unité, Nationalité, Conflit...).
   - Les entités *Soldat* et *Site* deviennent les pivots centraux.
@@ -113,8 +114,7 @@
 ]
 
 #slide("DÉFI 2 : La contrainte astucieuse")[
-  // [VISUEL ICI : Diagramme Pays <-> Département <-> Commune]
-  #v(1em)
+  #align(center, image("assets/places.svg"))
   *Garantir que la commune et son département appartiennent au même pays :*
   - *Contrainte* : Pas possible via un simple `CHECK` (cross-table), et la validation applicative (Symfony) est sujette à l'erreur humaine.
   - *Solution* : Clé étrangère composite sur `(departement_id, pays_id)`.
@@ -131,7 +131,7 @@
 ]
 
 #slide("DÉFI 3 : Commandes de synchronisation")[
-  // [VISUEL ICI : Capture console de la commande de synchronisation (barre de progression, logs, erreurs)]
+  #align(center, image("assets/sync-all.png"))
   #v(1em)
   *La Solution :*
   - Création d'une famille de commandes génériques (`AbstractSyncCommand`).

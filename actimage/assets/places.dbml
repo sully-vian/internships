@@ -1,0 +1,33 @@
+// Generate svg with `bunx @softwaretechnik/dbml-renderer -i assets/places.dbml -o assets/places.svg`
+Table Pays {
+  id integer [primary key]
+  name varchar
+}
+
+Table Departement {
+  id integer [primary key]
+  name varchar
+  number varchar
+  pays_id integer
+  
+  // In SQL, the referenced columns (id, pays_id) must usually be UNIQUE. 
+  // You can express that index in DBML like this:
+  indexes {
+    (id, pays_id) [unique]
+  }
+}
+
+Table Commune {
+  id integer [primary key]
+  name varchar
+  code varchar
+  departement_id integer [null]
+  pays_id integer
+}
+
+// Composite Many-to-One relationship to enforce the consistency constraint
+Ref: Commune.(departement_id, pays_id) > Departement.(id, pays_id)
+
+// Standard Many-to-One relationships
+Ref: Commune.pays_id > Pays.id
+Ref: Departement.pays_id > Pays.id

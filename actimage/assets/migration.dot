@@ -1,0 +1,22 @@
+digraph ArchitectureBases {
+    rankdir=TB;
+    nodesep=1;
+    node [shape=cylinder, style=filled, fillcolor=honeydew];
+
+    // Définition des bases de données
+    MERE [label="MÈRE"];
+    FILLE1 [label="FILLE 1"];
+    FILLE2 [label="FILLE 2"];
+
+    // Tirage initial (filiation)
+    edge [color=steelblue, style=solid, dir=forward, label="Tirage", fontcolor=steelblue];
+    MERE -> FILLE1;
+    MERE -> FILLE2;
+
+    // Conflits d'IDs générés par incrémentation indépendante
+    edge [color=red, style=dashed, dir=both, constraint=false, label="Conflit", fontcolor=red];
+    
+    MERE -> FILLE1;
+    MERE -> FILLE2;
+    FILLE1 -> FILLE2;
+}
