@@ -21,11 +21,12 @@
 
 **La Solution :**
 - Mise en place d'un traitement asynchrone (Symfony/Messenger).
-- **Processus** :
-  1. Upload du CSV par l'utilisateur.
-  2. Découpage par lots (évaluation paresseuse).
-  3. Insertion automatique des entrées sans conflit.
-  4. Isolation des conflits pour résolution manuelle par interface.
+
+**Processus** :
+1. Upload du CSV par l'utilisateur.
+2. Découpage par lots (évaluation paresseuse).
+3. Insertion automatique des entrées sans conflit.
+4. Isolation des conflits pour résolution manuelle par interface
     1. Vraie collision (soldats différents): insertion de l'entrée fille dans la base mère.
     2. Entrée fille enrichie entrée mère: écrasemetnt de la mère par la fille et historisation de la mère.
     3. Entrée fille non pertinente (inférieure ou égale  mère): Historisation de la fille.
