@@ -71,7 +71,7 @@
   width: 100%,
 )))
 
-#slide("DÉFI 1 : Les 3 Stratégies de Résolution", align(center, image("assets/details-conflit.png", width: 78%)))
+#slide("DÉFI 1 : Interface de résolution", align(center, image("assets/details-conflit.png", width: 78%)))
 
 #slide("DÉFI 2 : Du plat au relationnel", align(center, image("assets/base-mere.png", width: 92%)))
 
