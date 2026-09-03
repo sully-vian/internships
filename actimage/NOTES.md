@@ -101,6 +101,15 @@
 
 ## Conclusion
 
+- Sujet principal: **les données**
+- 800 000 * 40 = 32 000 000 cellules
+- Données datant de 2 siècles => espérance de vie raisonnable d'encore 2 siècles
+- Besoin de créer une structure de modélisation et de stockage rigide
+- Phases de la base:
+    - Écriture initiale des données pour la postérité (papier)
+    - Numérisation pour le traitement et l'accès (Base MS Access)
+    - Normalisation et restructuration pour la stabilité dans le temps (nous)
+
 ## Bonus
 
 - **Philosophie** : *"Make Illegal States Unrepresentable"* (leçon tirée d'OCaml, appliquée à PHP, Symfony, PostgreSQL)
